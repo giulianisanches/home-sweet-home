@@ -1,0 +1,15 @@
+# ignora tudo por padrao
+
+*
+
+# Lista branca
+
+!.gitignore
+!.Xresources
+!.vim
+!.emacs.d
+!.config/i3
+!.bashrc
+!.bashr_aliases
+!.bash_profile
+!.asoundrc
