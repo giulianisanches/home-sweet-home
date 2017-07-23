@@ -24,7 +24,7 @@ light_blue='\[\e[1;34m\]'
 light_purple='\[\e[1;35m\]'
 light_cyan='\[\e[1;36m\]'
 
-PS1="${green}\u${reset}@\h ${brown}\w\n${green}$ ${reset}"
+PS1="${green}\u${reset}@\h ${brown}\w${reset}\n${green}\$ ${reset}"
 export PS1
 
 export LESS="-M -R"

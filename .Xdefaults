@@ -1,3 +1,12 @@
+Xft.dpi: 96.0
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.antialias: true
+Xft.rgba: rgb
+
+*font:        xft:ubuntu mono:pixelsize=18:style=regular:antialias=true
+*boldFont:    xft:ubuntu mono:pixelsize=18:style=regular:antialias=true
+
 ! Dracula Xresources palette
  *.foreground: #F8F8F2
  *.background: #282A36
@@ -24,7 +33,7 @@
 URxvt*scrollTtyOutput: false
 
 ! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
- URxvt*scrollWithBuffer: true
+URxvt*scrollWithBuffer: true
 
 ! scroll back to the bottom on keypress
 URxvt*scrollTtyKeypress: true
@@ -34,4 +43,7 @@ URxvt.secondaryScroll: 0
 
 URxvt.scrollBar: off
 
-URxvt.font: xft:DejaVu Sans Mono:size=11
+URxvt.font: xft:Ubuntu Mono:style=Regular:pixelsize:18
+
+URxvt.transparent: true
+URxvt.shading:20
