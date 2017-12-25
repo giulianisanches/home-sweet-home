@@ -31,8 +31,6 @@ export LESS="-M -R"
 
 eval "$(ssh-agent)" &> /dev/null
 
-# added by Miniconda3 4.3.21 installer
 export PATH="/home/giuliani/apps/miniconda3/bin:$PATH"
 
-# added by Miniconda3 4.3.21 installer
-export PATH="/data/apps/miniconda3/bin:$PATH"
+export INPUTRC=~/.inputrc
