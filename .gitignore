@@ -8,11 +8,10 @@
 !.Xresources
 !.vim
 !.emacs.d
-!.config/i3
+!.config/openbox
 !.bashrc
 !.bashr_aliases
 !.bash_profile
 !.asoundrc
 !.tmux.conf
 !.Xdefaults
-!.inputrc
