@@ -32,5 +32,5 @@ export PS1
 export LESS
 export PATH
 
-gpg-connect-agent -q updatestartuptty /bye
+gpg-connect-agent -q updatestartuptty /bye &> /dev/null
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
