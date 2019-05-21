@@ -1,13 +1,14 @@
 function __ldap_search () {
     local op="$1"
-    local filter="$2"
+    local field="$2"
+    local filter="$3"
     local ldap_host="${LDAP_HOST:-ldap.hom.sicredi.net}"
     local search_base="${LDAP_SEARCH_BASE:-dc=sicredi,dc=com,dc=br}"
 
     local ldapbin="$(which ldapsearch)"
   case "${op}" in
 	search)
-		${ldapbin} -x -b "${search_base}" -h "${ldap_host}" "${filter}"
+		${ldapbin} -x -b "${search_base}" -h "${ldap_host}" "${filter}" "${field}"
 		;;
 	*)
         echo "Only the search operation is implemented for now!"
@@ -16,9 +17,37 @@ function __ldap_search () {
 }
 
 function __vault() {
-    export VAULT_ADDR="https://vault.$1-sicredi.in:8200"
-    vault login -method=ldap username=giuliani_sanches
-    vault token renew
+  echo "..."
+  # local op="$1"; [[ $op eq "setenv"]] && shift
+  # local stage="$(echo $1 | tr '[:upper:]' '[:lower:]')"; shift
+  # local parameters="$*"
+
+  # [[ -d $HOME/.config/vault ]] || mkdir -p "$HOME/.config/vault" && touch "$HOME/.config/vault/tokens"
+
+  # export VAULT_ADDR="https://vault.${stage}-sicredi.in:8200"
+  #   vault login -method=ldap username="${LDAP_USERNAME}"
+  #   vault token renew
+}
+
+function __pyvenv() {
+  echo
+  # if [[ -z ${VENV_HOME}  ]]; then
+  #   echo "Set VENV_HOME environment variable"
+  #   exit 1
+  # fi
+
+  # local venv="$( tr '[:upper:]' '[:lower:]' <<<${1} )"
+
+  # [[ "${venv}" == 'list']] && ls "${VENV_HOME}" && exit 0
+  
+  # if [[ ! -d ${VENV_HOME}/${venv} ]]; then
+  #   read -p "${venv} does not exists. Do you want to create it ?" yesno
+  #   yesno="$( tr '[:upper:]' '[:lower:]' <<<${yesno} )"
+
+  #   [[ "${yesno}" == 'yes']] && python3 -m venv "${VENV_HOME}/${venv}" || exit 0
+  # fi
+
+  # . "${VENV_HOME}/${venv}/bin/activate"
 }
 
 
@@ -27,6 +56,7 @@ function __function_exists() {
     return $?
 }
 
+# git aliases (need to have git bash completion installed)
 for al in `__git_aliases`; do
     alias g$al="git $al"
     
@@ -37,6 +67,14 @@ done
 alias grep='grep -E' 
 alias ldp=__ldap_search
 alias v=__vault
+alias pyvev=__pyvenv
+# terraform aliases
+alias tf='terraform'
+alias tfi='tf init'
+alias tfp='tf plan'
+alias tfa='tf apply'
+alias tfw='tf workspace'
+alias tff='tf fmt'
 #alias v-dev-tmp=”vault dev read aws/creds/aws_devops”
 #alias v-tst-tmp=”vault tst read aws/creds/aws_devops”
 #alias v-uat-tmp=”vault uat read aws/creds/aws_devops”

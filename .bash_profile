@@ -1,7 +1,3 @@
-if [[ -f ~/.bashrc ]] ; then
-    source ~/.bashrc
-fi
-
 reset='\[\e[0m\]'
 
 black='\[\e[0;30m\]'
@@ -20,8 +16,7 @@ light_blue='\[\e[1;34m\]'
 light_purple='\[\e[1;35m\]'
 light_cyan='\[\e[1;36m\]'
 
-PS1="${cyan}\u${reset}@\h ${green}\w${reset}\n${cyan}\$ ${reset}"
-
+PS1=    "${cyan}\u${reset}@\h ${green}\w${reset}\n${cyan}\$ ${reset}"
 
 if [[ -d "$HOME/apps/miniconda3" ]] ; then
     export PATH="$HOME/apps/miniconda3/bin:$PATH"

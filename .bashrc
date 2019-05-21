@@ -27,10 +27,12 @@ light_cyan='\[\e[1;36m\]'
 PS1="${cyan}\u${reset}@\h ${light_green}\w${reset}\n${cyan}\$ ${reset}"
 LESS="-M -R"
 PATH="$PATH:$HOME/.local/bin"
+ANSIBLE_CONFIG="$HOME/.config/ansible"
 
 export PS1
 export LESS
 export PATH
+export ANSIBLE_CONFIG
 
 gpg-connect-agent -q updatestartuptty /bye &> /dev/null
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
