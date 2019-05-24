@@ -36,7 +36,7 @@ gpg-connect-agent -q updatestartuptty /bye &> /dev/null
 # System variables
 # ----------------
 LESS="-M -R"
-PATH="$PATH:$HOME/.local/bin"
+PATH="$PATH:$HOME/.local/bin:$HOME/.local/opt/go/bin:$(go env GOPATH)/bin"
 SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 LESS="-M -R"
 # The following variable is needed when using rxvt-unicode as
@@ -50,7 +50,7 @@ ANSIBLE_CONFIG="$HOME/.config/ansible"
 # Custom variables
 # ----------------
 LDAP_USERNAME="giuliani_sanches"
-VENV_HOME="/home/giuliani/dev/python/venv"
+VENV_HOME="+/home/giuliani/dev/venv"
 
 export LESS
 export PATH
