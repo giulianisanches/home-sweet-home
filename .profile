@@ -33,28 +33,31 @@ test -z "$PROFILEREAD" && . /etc/profile || true
 # check if th gpg-agent is running
 gpg-connect-agent -q updatestartuptty /bye &> /dev/null
 
+# Custom variables
+# ----------------
+LDAP_USERNAME="giuliani_sanches"
+VENV_HOME="$HOME/dev/venv"
+
+export LDAP_USERNAME
+export VENV_HOME
+
+# Applications/tools variables
+# ----------------------
+ANSIBLE_CONFIG="$HOME/.config/ansible"
+GOPATH="$HOME/dev"
+
+export ANSIBLE_CONFIG
+export GOPATH
+
 # System variables
 # ----------------
 LESS="-M -R"
 PATH="$PATH:$HOME/.local/bin:$HOME/.local/opt/go/bin:$(go env GOPATH)/bin"
 SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-LESS="-M -R"
 # The following variable is needed when using rxvt-unicode as
 # home and end key need to be remapped
 # INPUTRC="$HOME/.inputrc"
 
-# Applications variables
-# ----------------------
-ANSIBLE_CONFIG="$HOME/.config/ansible"
-
-# Custom variables
-# ----------------
-LDAP_USERNAME="giuliani_sanches"
-VENV_HOME="+/home/giuliani/dev/venv"
-
 export LESS
 export PATH
-export ANSIBLE_CONFIG
 export SSH_AUTH_SOCK
-export LDAP_USERNAME
-export VENV_HOME
