@@ -8,13 +8,13 @@ function __function_exists() {
 }
 
 function __ldap_search () {
-    local op="$1"
-    local field="$2"
-    local filter="$3"
-    local ldap_host="${LDAP_HOST:-ldap.hom.sicredi.net}"
-    local search_base="${LDAP_SEARCH_BASE:-dc=sicredi,dc=com,dc=br}"
+  local op="$1"
+  local field="$2"
+  local filter="$3"
+  local ldap_host="${LDAP_HOST:-ldap.hom.sicredi.net}"
+  local search_base="${LDAP_SEARCH_BASE:-dc=sicredi,dc=com,dc=br}"
+  local ldapbin="$( which ldapsearch )"
 
-    local ldapbin="$(which ldapsearch)"
   case "${op}" in
 	search)
 		"${ldapbin}" -x -b "${search_base}" -h "${ldap_host}" "${filter}" "${field}"
@@ -28,7 +28,7 @@ function __ldap_search () {
 function __vault() {
   echo "..."
   # local op="$1"; [[ $op eq "setenv"]] && shift
-  # local stage="$(echo $1 | tr '[:upper:]' '[:lower:]')"; shift
+  # local stage="$( __lowercase ${1} )"; shift
   # local parameters="$*"
 
   # [[ -d $HOME/.config/vault ]] || mkdir -p "$HOME/.config/vault" && touch "$HOME/.config/vault/tokens"
