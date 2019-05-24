@@ -1,3 +1,12 @@
+function __lowercase() {
+  echo "$( tr '[:upper:]' '[:lower:]' <<<${1} )"
+}
+
+function __function_exists() {
+    declare -f -F $1 > /dev/null
+    return $?
+}
+
 function __ldap_search () {
     local op="$1"
     local field="$2"
@@ -8,7 +17,7 @@ function __ldap_search () {
     local ldapbin="$(which ldapsearch)"
   case "${op}" in
 	search)
-		${ldapbin} -x -b "${search_base}" -h "${ldap_host}" "${filter}" "${field}"
+		"${ldapbin}" -x -b "${search_base}" -h "${ldap_host}" "${filter}" "${field}"
 		;;
 	*)
         echo "Only the search operation is implemented for now!"
@@ -29,31 +38,36 @@ function __vault() {
   #   vault token renew
 }
 
-function __pyvenv() {
-  echo
-  # if [[ -z ${VENV_HOME}  ]]; then
-  #   echo "Set VENV_HOME environment variable"
-  #   exit 1
-  # fi
+function __pyenv() {
+  [[ -z ${VENV_HOME}  ]] && echo "Set VENV_HOME environment variable" && return 1
 
-  # local venv="$( tr '[:upper:]' '[:lower:]' <<<${1} )"
+  local op="$( __lowercase ${1} )"
+  local venv="$( __lowercase ${2} )"
 
-  # [[ "${venv}" == 'list']] && ls "${VENV_HOME}" && exit 0
-  
-  # if [[ ! -d ${VENV_HOME}/${venv} ]]; then
-  #   read -p "${venv} does not exists. Do you want to create it ?" yesno
-  #   yesno="$( tr '[:upper:]' '[:lower:]' <<<${yesno} )"
+  case "${op}" in
+	create)
+    python3 -m venv "${VENV_HOME}/${venv}"
+    . "${VENV_HOME}/${venv}/bin/activate"
+		;;
+  list)
+    ls "${VENV_HOME}"
+    ;;
+  activate)
+    if [[ ! -d "${VENV_HOME}/${venv}" ]]; then
+      echo "virtualenv ${venv} does not exists!"
+      return 1
+    fi
 
-  #   [[ "${yesno}" == 'yes']] && python3 -m venv "${VENV_HOME}/${venv}" || exit 0
-  # fi
-
-  # . "${VENV_HOME}/${venv}/bin/activate"
-}
-
-
-function __function_exists() {
-    declare -f -F $1 > /dev/null
-    return $?
+    . "${VENV_HOME}/${venv}/bin/activate"
+    ;;
+  remove)
+    [[ -d "${VENV_HOME}/${venv}" ]] && rm -rf "${VENV_HOME}/${venv}"
+    ;;
+	*)
+    echo "Usage:
+            pyenv (create|list|activate|remove) <nome_virtualevn>"
+		;;
+  esac
 }
 
 # git aliases (need to have git bash completion installed)
@@ -67,7 +81,7 @@ done
 alias grep='grep -E' 
 alias ldp=__ldap_search
 alias v=__vault
-alias pyvev=__pyvenv
+alias pyenv=__pyenv
 # terraform aliases
 alias tf='terraform'
 alias tfi='tf init'
