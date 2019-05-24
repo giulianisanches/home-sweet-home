@@ -44,15 +44,17 @@ export VENV_HOME
 # Applications/tools variables
 # ----------------------
 ANSIBLE_CONFIG="$HOME/.config/ansible"
+GOROOT="$HOME/.local/opt/go"
 GOPATH="$HOME/dev"
 
 export ANSIBLE_CONFIG
+export GOROOT
 export GOPATH
 
 # System variables
 # ----------------
 LESS="-M -R"
-PATH="$PATH:$HOME/.local/bin:$HOME/.local/opt/go/bin:$(go env GOPATH)/bin"
+PATH="$PATH:$HOME/.local/bin:$GOROOT/bin:$GOPATH/bin"
 SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 # The following variable is needed when using rxvt-unicode as
 # home and end key need to be remapped
