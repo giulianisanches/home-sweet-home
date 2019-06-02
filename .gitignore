@@ -10,7 +10,7 @@
 !.emacs.d
 !.config/openbox
 !.bashrc
-!.bash_aliases
+!.aliases
 !.bash_profile
 !.asoundrc
 !.tmux.conf
@@ -18,3 +18,7 @@
 !.config
 !.gitconfig
 !.profile
+!.zshrc
+!.zprofile
+!.zshenv
+!.zlogin
