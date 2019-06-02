@@ -1,3 +1,5 @@
+#!/bin/bash
+
 function __function_exists() {
     declare -f -F $1 > /dev/null
     return $?
@@ -37,8 +39,8 @@ function __vault() {
 function __pyenv() {
   [[ -z ${VENV_HOME}  ]] && echo "Set VENV_HOME environment variable" && return 1
 
-  local op="$( __lowercase ${1} )"
-  local venv="$( __lowercase ${2} )"
+  local op="${1,,}"
+  local venv="${2,,}"
 
   case "${op}" in
 	create)
@@ -85,7 +87,3 @@ alias tfp='tf plan'
 alias tfa='tf apply'
 alias tfw='tf workspace'
 alias tff='tf fmt'
-#alias v-dev-tmp=”vault dev read aws/creds/aws_devops”
-#alias v-tst-tmp=”vault tst read aws/creds/aws_devops”
-#alias v-uat-tmp=”vault uat read aws/creds/aws_devops”
-#alias v-prd-tmp=”vault prd read aws/creds/aws_devops”

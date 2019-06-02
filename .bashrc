@@ -1,10 +1,7 @@
-if [[ -f ~/.bash_aliases ]] ; then
-    source ~/.bash_aliases
-fi
+shopt -s autocd
 
-if [[ -f ~/perl5/perlbrew/etc/bashrc ]] ; then
-    source ~/perl5/perlbrew/etc/bashrc
-fi
+[[ -f $HOME/.aliases ]] && source "$HOME/.aliases"
+[[ -f $HOME/perl5/perlbrew/etc/bashrc ]] && source "$HOME/perl5/perlbrew/etc/bashrc"
 
 reset='\[\e[0m\]'
 
