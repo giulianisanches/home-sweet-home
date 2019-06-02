@@ -1,0 +1,88 @@
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt autocd nomatch
+bindkey -e
+# End of lines configured by zsh-newuser-install
+
+typeset -U fpath
+fpath=($HOME/.zsh $fpath)
+
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/giuliani/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+### Added by Zplugin's installer
+source '/home/giuliani/.zplugin/bin/zplugin.zsh'
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
+### End of Zplugin's installer chunk
+
+[[ -f $HOME/.aliases ]] && source "$HOME/.aliases"
+
+zplugin load zsh-users/zsh-syntax-highlighting
+zplugin load zsh-users/zsh-autosuggestions
+zplugin load zsh-users/zsh-completions
+zplugin load bhilburn/powerlevel9k
+
+POWERLEVEL9K_COLOR_SCHEME='dark'
+
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+#POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="↳ "
+
+# LEFT_PROMPT
+# ===========================================================
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=( context background_jobs virtualenv dir vcs)
+POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=''
+POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR=' '
+POWERLEVEL9K_WHITESPACE_BETWEEN_LEFT_SEGMENTS=''
+
+POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND="none"
+POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND="006"
+POWERLEVEL9K_CONTEXT_SUDO_BACKGROUND="none"
+POWERLEVEL9K_CONTEXT_SUDO_FOREGROUND="001"
+POWERLEVEL9K_CONTEXT_ROOT_BACKGROUND="none"
+POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND="001"
+POWERLEVEL9K_CONTEXT_REMOTE_BACKGROUND="none"
+POWERLEVEL9K_CONTEXT_REMOTE_SUDO_BACKGROUND="none"
+POWERLEVEL9K_CONTEXT_REMOTE_FOREGROUND="006"
+POWERLEVEL9K_CONTEXT_REMOTE_SUDO_FOREGROUND="001"
+
+POWERLEVEL9K_VIRTUALENV_BACKGROUND="none"
+POWERLEVEL9K_VIRTUALENV_FOREGROUND="004"
+
+POWERLEVEL9K_ETC_ICON=''
+POWERLEVEL9K_FOLDER_ICON=''
+POWERLEVEL9K_HOME_ICON=''
+POWERLEVEL9K_HOME_SUB_ICON=''
+
+POWERLEVEL9K_DIR_ETC_BACKGROUND='none'
+POWERLEVEL9K_DIR_ETC_FOREGROUND='012'
+POWERLEVEL9K_DIR_HOME_BACKGROUND='none'
+POWERLEVEL9K_DIR_HOME_FOREGROUND='012'
+POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='none'
+POWERLEVEL9K_DIR_DEFAULT_FOREGROUND='012'
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='none'
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND='012'
+
+# vcs
+POWERLEVEL9K_SHOW_CHANGESET=true
+POWERLEVEL9K_CHANGESET_HASH_LENGTH=6
+POWERLEVEL9K_VCS_CLEAN_BACKGROUND='none'
+POWERLEVEL9K_VCS_CLEAN_FOREGROUND='076'
+POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='none'
+POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='005'
+POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='none'
+POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='003'
+POWERLEVEL9K_VCS_GIT_HOOKS=(vcs-detect-changes git-untracked git-aheadbehind git-remotebranch git-tagname)
+
+# RIGHT_PROMP
+# ===========================================================
+POWERLEVEL9K_DISABLE_RPROMPT=true
