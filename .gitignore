@@ -8,9 +8,10 @@
 !.Xresources
 !.vim
 !.emacs.d
-!.config/openbox
 !.bashrc
 !.aliases
+!.bash/
+!.bash/*
 !.bash_profile
 !.asoundrc
 !.tmux.conf
@@ -18,6 +19,8 @@
 !.config
 !.gitconfig
 !.profile
+!.zsh/
+!.zsh/*
 !.zshrc
 !.zprofile
 !.zshenv
