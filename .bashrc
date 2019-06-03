@@ -10,4 +10,4 @@ COLOR_SUCCESS='\[\e[0;32m\]'
 COLOR_FAILURE='\[\e[0;31m\]'
 COLOR_GIT='\[\e[0;35m\]'
 
-source .bash/bash_powerline.sh
+source "$HOME/.bash/bash_powerline.sh"
