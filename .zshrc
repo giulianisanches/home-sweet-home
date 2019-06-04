@@ -7,13 +7,14 @@ bindkey -e
 # End of lines configured by zsh-newuser-install
 
 typeset -U fpath
-fpath=($HOME/.zsh $fpath)
+fpath=("$HOME/.zsh" $fpath)
 
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/giuliani/.zshrc'
 
-autoload -Uz compinit
-compinit
+autoload -Uz compinit && compinit
+autoload +X _git
+
 # End of lines added by compinstall
 
 ### Added by Zplugin's installer
