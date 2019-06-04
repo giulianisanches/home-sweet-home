@@ -30,8 +30,6 @@ test -z "$PROFILEREAD" && . /etc/profile || true
 # User variables
 ###############################################################################
 
-# check if th gpg-agent is running
-gpg-connect-agent -q updatestartuptty /bye &> /dev/null
 
 # Custom variables
 # ----------------
@@ -55,11 +53,9 @@ export GOPATH
 # ----------------
 LESS="-M -R"
 PATH="$PATH:$HOME/.local/bin:$GOROOT/bin:$GOPATH/bin"
-SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 # The following variable is needed when using rxvt-unicode as
 # home and end key need to be remapped
 # INPUTRC="$HOME/.inputrc"
 
 export LESS
 export PATH
-export SSH_AUTH_SOCK
