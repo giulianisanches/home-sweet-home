@@ -10,11 +10,9 @@ COLOR_SUCCESS='\[\e[0;32m\]'
 COLOR_FAILURE='\[\e[0;31m\]'
 COLOR_GIT='\[\e[0;35m\]'
 
-source .bash/bash_powerline.sh
-
-
 # check if th gpg-agent is running
 gpg-connect-agent -q updatestartuptty /bye &> /dev/null
 SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 
 export SSH_AUTH_SOCK
+source "$HOME/.bash/bash_powerline.sh"
