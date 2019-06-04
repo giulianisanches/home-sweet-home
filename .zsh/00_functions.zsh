@@ -1,7 +1,4 @@
-# port bash_aliases as is.. port to zsh "style" is a WIP
-function __lowercase() {
-  echo "$( tr '[:upper:]' '[:lower:]' <<<${1} )"
-}
+#!/bin/zsh
 
 function __function_exists() {
     declare -f -F $1 > /dev/null
@@ -29,7 +26,7 @@ function __ldap_search () {
 function __vault() {
   echo "..."
   # local op="$1"; [[ $op eq "setenv"]] && shift
-  # local stage="$( __lowercase ${1} )"; shift
+  # local stage="${1,,}"; shift
   # local parameters="$*"
 
   # [[ -d $HOME/.config/vault ]] || mkdir -p "$HOME/.config/vault" && touch "$HOME/.config/vault/tokens"
@@ -42,8 +39,8 @@ function __vault() {
 function __pyenv() {
   [[ -z ${VENV_HOME}  ]] && echo "Set VENV_HOME environment variable" && return 1
 
-  local op="$( __lowercase ${1} )"
-  local venv="$( __lowercase ${2} )"
+  local op="${1,,}"
+  local venv="${2,,}"
 
   case "${op}" in
 	create)
