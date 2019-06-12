@@ -13,10 +13,7 @@ fpath=("$HOME/.zsh" $fpath)
 zstyle :compinstall filename '/home/giuliani/.zshrc'
 
 autoload -Uz compinit
-autoload +X _git
-
 compinit
-
 # End of lines added by compinstall
 
 ### Added by Zplugin's installer
