@@ -68,12 +68,10 @@ function __pyenv() {
   esac
 }
 
-
 # WIP: adapt de function bellow to zsh
 #for alias in ${${${(0)"$(git config -z --get-regexp '^alias.')"}%%$'\n'*}#alias.}; do
 #  alias g$al="git $al"
 #done
-
 
 # git aliases (need to have git bash completion installed)
 for al in `__git_aliases`; do
