@@ -52,7 +52,7 @@ export GOPATH
 # System variables
 # ----------------
 LESS="-M -R"
-PATH="$PATH:$HOME/.local/bin:$GOROOT/bin:$GOPATH/bin"
+PATH="$PATH:$HOME/.local/bin:$HOME/.local/sbin:$GOROOT/bin:$GOPATH/bin"
 # The following variable is needed when using rxvt-unicode as
 # home and end key need to be remapped
 # INPUTRC="$HOME/.inputrc"
