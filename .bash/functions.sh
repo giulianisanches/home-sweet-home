@@ -23,20 +23,46 @@ function __ldap_search () {
   esac
 }
 
-function __vault() {
-  echo "..."
-  # local op="$1"; [[ $op eq "setenv"]] && shift
-  # local stage="$( __lowercase ${1} )"; shift
-  # local parameters="$*"
+function __vault() {  
+  function usage() {
+    echo "Usage: "
+    echo "    v (puc|cas) (dev|tst|uat|prd) <default vault command line arguments - read, write (...)> "
+  }
 
-  # [[ -d $HOME/.config/vault ]] || mkdir -p "$HOME/.config/vault" && touch "$HOME/.config/vault/tokens"
+  ## TODO: Implement a token helper
+  [[ -d $HOME/.config/vault ]] || mkdir -p "$HOME/.config/vault" && touch "$HOME/.config/vault/tokens"  
+  
+  local site="${1,,}"; shift
+  local stage="${1,,}"; shift
+  local parameters="$*"
+  ## TODO: Implement a token helper
+  local token=$( grep "${stage}" "$HOME/.config/vault/tokens" | grep "${site}" | cut -d ';' -f 3 )
+  
+  case "${site}" in
+	puc)
+		export VAULT_ADDR="https://vault.${stage}-sicredi.in:8200"
+		;;
+  cas)
+    export VAULT_ADDR="https://vault.digital.${stage}.sicredi.net:8200"
+    ;;
+	*)
+    usage && return
+		;;
+  esac
 
-  # PUC
-  # export VAULT_ADDR="https://vault.${stage}-sicredi.in:8200"
-  # Lindoia
-  # export VAULT_ADDR="https://vault.digital.${stage}.sicredi.net:8200"
-  #   vault login -method=ldap username="${LDAP_USERNAME}"
-  #   vault token renew
+  [[ -z stage ]] && usage && return
+  [[ -z parameters ]] && usage && return
+
+  ## TODO: Implement a token helper
+  if [[ -z ${token} ]] 
+  then
+    token=$( vault login -method=ldap username="${LDAP_USERNAME}" -format=json | jq .auth.client_token )
+    echo "${site};${stage};${token};$( date +'%s')" >> "$HOME/.config/vault/tokens"
+  else
+    vault login ${token}
+  fi
+
+  vault ${parameters}
 }
 
 function __pyenv() {
