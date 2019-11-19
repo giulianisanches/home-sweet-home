@@ -17,5 +17,4 @@ SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 export SSH_AUTH_SOCK
 source "$HOME/.bash/bash_powerline.sh"
 
-
-[[ -z $TMUX ]] && tmux a
+[[ -z $TMUX ]] && tmux a -t main
