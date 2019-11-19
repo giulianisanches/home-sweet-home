@@ -25,3 +25,6 @@ alias tfp='tf plan'
 alias tfa='tf apply'
 alias tfw='tf workspace'
 alias tff='tf fmt'
+
+alias exit='eval $( [[ -z $TMUX ]] && exit || tmux d )'
+#alias tmux='eval $( tmux list-sessions && tmux a -t main || tmux)'
