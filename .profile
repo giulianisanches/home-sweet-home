@@ -59,3 +59,6 @@ PATH="$HOME/.local/opt/rakudobrew/bin:$PATH:$HOME/.local/bin:$HOME/.local/sbin:$
 
 export LESS
 export PATH
+
+tmux new-session -d -s main
+tmux new-session -d -s vscode
