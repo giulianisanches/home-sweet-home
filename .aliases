@@ -15,9 +15,6 @@ for al in `__git_aliases`; do
 done
 
 alias grep='grep -E' 
-alias ldp=__ldap_search
-alias v=__vault
-alias pyenv=__pyenv
 # terraform aliases
 alias tf='terraform'
 alias tfi='tf init'

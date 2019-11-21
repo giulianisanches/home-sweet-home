@@ -5,7 +5,7 @@ function __function_exists() {
     return $?
 }
 
-function __ldap_search () {
+function ldap_search () {
   local op="$1"
   local field="$2"
   local filter="$3"
@@ -23,7 +23,7 @@ function __ldap_search () {
   esac
 }
 
-function __vault() {  
+function v() {  
   function usage() {
     echo "Usage: "
     echo "    v (puc|cas) (dev|tst|uat|prd) <default vault command line arguments - read, write (...)> "
@@ -65,7 +65,7 @@ function __vault() {
   vault ${parameters}
 }
 
-function __pyenv() {
+function pyenv() {
   [[ -z ${VENV_HOME}  ]] && echo "Set VENV_HOME environment variable" && return 1
 
   local op="${1,,}"
@@ -95,4 +95,24 @@ function __pyenv() {
             pyenv (create|list|activate|remove) <nome_virtualevn>"
 		;;
   esac
+}
+
+function c8s() {
+    if [[ -z $1 ]]; then
+        echo "Ambiente não especificado."
+    else
+        KUBECONFIG_DIR="$GITLAB/devops_st/st-cas-k8s-kubespray/inventory"
+        if [[ "$1" == "dev" ]]; then
+            export KUBECONFIG_FILE="$KUBECONFIG_DIR/cluster_dev/artifacts/admin.conf"
+        elif [[ "$1" == "tst" ]]; then
+            export KUBECONFIG_FILE="$KUBECONFIG_DIR/cluster_tst/artifacts/admin.conf"
+        elif [[ "$1" == "uat" ]]; then
+            export KUBECONFIG_FILE="$KUBECONFIG_DIR/cluster_uat/artifacts/admin.conf"
+        elif [[ "$1" == "prd" ]]; then
+            export KUBECONFIG_FILE="$KUBECONFIG_DIR/cluster_prd/artifacts/admin.conf"
+        else
+            echo "Ambiente inválido."
+        fi
+        kubectl --kubeconfig $KUBECONFIG_FILE ${@:2}
+    fi
 }
