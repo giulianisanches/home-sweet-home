@@ -30,14 +30,17 @@ test -z "$PROFILEREAD" && . /etc/profile || true
 # User variables
 ###############################################################################
 
-
 # Custom variables
 # ----------------
 LDAP_USERNAME="giuliani_sanches"
 VENV_HOME="$HOME/dev/venv"
+GITLAB_PERSONAL="$HOME/dev/src/gitlab.com"
+GITLAB_WORK="$HOME/dev/src/gitlab.sicredi.net"
 
 export LDAP_USERNAME
 export VENV_HOME
+export GITLAB_PERSONAL
+export GITLAB_WORK
 
 # Applications/tools variables
 # ----------------------
