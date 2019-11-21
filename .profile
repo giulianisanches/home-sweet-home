@@ -34,8 +34,7 @@ test -z "$PROFILEREAD" && . /etc/profile || true
 # ----------------
 LDAP_USERNAME="giuliani_sanches"
 VENV_HOME="$HOME/dev/venv"
-GITLAB_PERSONAL="$HOME/dev/src/gitlab.com"
-GITLAB_WORK="$HOME/dev/src/gitlab.sicredi.net"
+GITLAB="$HOME/dev/src/gitlab.sicredi.net"
 
 export LDAP_USERNAME
 export VENV_HOME
