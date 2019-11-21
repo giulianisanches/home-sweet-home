@@ -38,8 +38,7 @@ GITLAB="$HOME/dev/src/gitlab.sicredi.net"
 
 export LDAP_USERNAME
 export VENV_HOME
-export GITLAB_PERSONAL
-export GITLAB_WORK
+export GITLAB
 
 # Applications/tools variables
 # ----------------------
