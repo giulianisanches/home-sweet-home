@@ -15,6 +15,7 @@
 !.bash_profile
 !.asoundrc
 !.tmux.conf
+!.tmux.remote.conf
 !.Xdefaults
 !.config
 !.gitconfig
