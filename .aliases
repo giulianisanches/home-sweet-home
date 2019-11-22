@@ -24,4 +24,4 @@ alias tfw='tf workspace'
 alias tff='tf fmt'
 
 alias exit='[[ -z $TMUX ]] && builtin exit || tmux detach'
-#alias tmux='eval $( tmux list-sessions && tmux a -t main || tmux)'
+alias tmx='eval $( tmux list-sessions && tmux a -t main || tmux new -s main)'
