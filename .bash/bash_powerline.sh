@@ -5,7 +5,7 @@
 
 __powerline() {
     # Colorscheme
-    readonly reset='\[\033[m\]'
+    reset='\[\033[m\]'
 
     COLOR_CWD="${COLOR_CWD:-\[\033[0;34m\]}" #  default: blue
     COLOT_GIT="${COLOT_GIT:-\[\033[0;36m\]}" # default: cyan
