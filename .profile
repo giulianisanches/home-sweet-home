@@ -60,6 +60,3 @@ fi
 
 export LESS
 export PATH
-
-tmux new-session -d -s main
-tmux new-session -d -s vscode
