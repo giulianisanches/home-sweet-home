@@ -29,15 +29,11 @@ function v() {
     echo "    v (puc|cas) (dev|tst|uat|prd) <default vault command line arguments - read, write (...)> "
   }
 
-  ## TODO: Implement a token helper
-  [[ -d $HOME/.config/vault ]] || mkdir -p "$HOME/.config/vault" && touch "$HOME/.config/vault/tokens"  
-  
+  ## TODO: Implement a token helper  
   local site="${1,,}"; shift
   local stage="${1,,}"; shift
   local parameters="$*"
-  ## TODO: Implement a token helper
-  local token=$( grep "${stage}" "$HOME/.config/vault/tokens" | grep "${site}" | cut -d ';' -f 3 )
-  
+
   case "${site}" in
 	puc)
 		export VAULT_ADDR="https://vault.${stage}-sicredi.in:8200"
@@ -115,4 +111,10 @@ function c8s() {
         fi
         kubectl --kubeconfig $KUBECONFIG_FILE ${@:2}
     fi
+}
+
+function find_elb_endpoint() {
+    local elb_arn
+    
+    mapfile -t elb_arn < <(aws elbv2 describe-load-balancers --query 'LoadBalancers[?starts_with(LoadBalancerName, `DEV-ECS-CLUSTER-SVC`)].{Arn:LoadBalancerArn}' --output text)
 }
