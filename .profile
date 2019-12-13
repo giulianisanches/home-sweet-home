@@ -20,9 +20,11 @@ LESS="-M -R"
 # ----------------
 LDAP_USERNAME="giuliani_sanches"
 VENV_HOME="$HOME/dev/venv"
+GITLAB="$HOME/dev/src/gitlab.sicredi.net"
 
 export LDAP_USERNAME
 export VENV_HOME
+export GITLAB
 
 # Applications/tools variables
 # ----------------------
@@ -34,14 +36,6 @@ export ANSIBLE_CONFIG
 export GOROOT
 export GOPATH
 export LESS
-
-# if running bash
-if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-        . "$HOME/.bashrc"
-    fi
-fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
