@@ -13,6 +13,7 @@ packages:
     - evince-plugin-pdfdocument
     - seahorse
     - pinentry-gnome3
+    - gstreamer-plugins-libav
     - gtk2-metatheme-adapta
     - gtk3-metatheme-adapta
     - papirus-icon-theme
@@ -61,4 +62,8 @@ packages:
     - tcptraceroute
     - traceroute
     - jq
+    - yast2-sound
+    - alsa-firmware
+    - pulseaudio
+    - pulseaudio-module-gconf
     - VirtualBox-6.1
