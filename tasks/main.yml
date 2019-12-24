@@ -1,0 +1,37 @@
+---
+- include_tasks: "packages.yml"
+  tags: packages
+
+- include_tasks: desktop.yml
+  tags: desktop
+
+- name: Install home files
+  copy:
+    src: "home/{{ item }}"
+    dest: "{{ lookup('env', 'HOME') }}/{{ item }}"
+  loop:
+    - .bashrc
+    - .bash
+    - .profile
+    - .aliases
+    - .tmux.conf
+  tags:
+    - home
+
+- name: Enable and start cups service
+  become: yes
+  systemd:
+    state: started
+    enabled: yes
+    name: cups
+
+- name: Enable and start samba service
+  become: yes
+  systemd:
+    state: started
+    enabled: yes
+    name: smb
+
+- name: Set graphical login
+  become: true
+  command: 'systemctl set-default graphical.target'

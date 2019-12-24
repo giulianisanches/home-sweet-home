@@ -6,7 +6,9 @@ for al in $(git config --get-regexp '^alias.' | cut -d' ' -f1 | cut -d'.' -f2); 
     alias g$al="git $al"
 done
 
-alias grep='grep -E' 
+alias grep='grep -E'
+alias ls='ls --color=auto'
+
 # terraform aliases
 alias tf='terraform'
 alias tfi='tf init'
