@@ -1,0 +1,89 @@
+---
+- name: Zypper configuration
+  become: yes
+  copy:
+    src: system/zypp.conf
+    dest: /etc/zypp/zypp.conf
+  tags:
+    - packages
+
+- name: 'Configure repository: Packman Essentials'
+  become: yes
+  zypper_repository:
+    name: 'packman-essentials'
+    repo: 'http://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Leap_15.1/Essentials'
+    priority: 79
+    auto_import_keys: yes
+    state: present
+  tags:
+    - packages
+
+- name: 'Configure repository: Microsoft'
+  become: yes
+  block:
+    - name: 'Configure repository: Import Microsoft Key'
+      rpm_key:
+        key: https://packages.microsoft.com/keys/microsoft.asc
+        state: present
+
+    - name: 'Configure repository: Visual Studio Code'
+      zypper_repository:
+        name: 'visual-studio-code'
+        repo: 'https://packages.microsoft.com/yumrepos/vscode'
+        priority: 99
+        auto_import_keys: yes
+        state: present
+  tags:
+    - packages
+
+- name: 'Configure repository: Oracle'
+  become: yes
+  block:
+    - name: 'Configure repository: Import Oracle Key'
+      rpm_key:
+        key: https://www.virtualbox.org/download/oracle_vbox.asc
+        state: present
+
+    - name: 'Configure repository: VirtualBox'
+      zypper_repository:
+        name: 'virtual-box'
+        repo: 'http://download.virtualbox.org/virtualbox/rpm/opensuse/15.0/x86_64'
+        priority: 99
+        auto_import_keys: yes
+        state: present
+  tags:
+    - packages
+
+- name: 'Refresh all repos'
+  become: yes
+  zypper_repository:
+    repo: '*'
+    runrefresh: yes
+  tags:
+    - packages
+
+- name: Install desktop packages
+  become: yes
+  block:
+    - name: Upgrade packages
+      zypper:
+        name: "*"
+        state: latest
+        update_cache: yes
+
+    - name: Install patterns
+      zypper:
+        name: "{{ patterns }}"
+        type: pattern
+        state: latest
+        disable_recommends: no
+        force: yes
+
+    - name: Install packages
+      zypper:
+        name: "{{ packages }}"
+        state: latest
+        disable_recommends: no
+        force: yes
+  tags:
+    - packages
