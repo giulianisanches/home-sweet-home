@@ -2,12 +2,14 @@
 patterns:
     - fonts
 packages:
-    - xorg-x11 xorg-x11-essentials 
+    - xorg-x11
+    - xorg-x11-essentials 
     - xorg-x11-server
     - xorg-x11-server-extra
     - gnome-shell
     - gdm
     - nautilus
+    - eog
     - nautilus-share
     - NetworkManager-openvpn-gnome
     - NetworkManager-connection-editor
@@ -16,6 +18,7 @@ packages:
     - gnome-tweak-tool
     - gnome-menus-branding-openSUSE
     - gnome-power-manager
+    - gnome-screenshot
     - evince-plugin-pdfdocument
     - seahorse
     - pinentry-gnome3
