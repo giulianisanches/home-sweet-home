@@ -4,7 +4,7 @@
   block:
     - name: Configure system fonts
       copy:
-        src: system/fonts-config
+        src: "{{ role_path }}/files/system/fonts-config"
         dest: /etc/sysconfig/fonts-config
     
     - name: Apply font configuration
@@ -39,7 +39,7 @@
   user:
     append: true
     groups: "{{ item }}"
-    name: "{{ lookup('env', 'USERNAME') }}"
+    name: "{{ lookup('env', 'USER') }}"
   loop:
     - lp
     - audio

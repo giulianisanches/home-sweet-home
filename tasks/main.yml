@@ -7,8 +7,8 @@
 
 - name: Install home files
   copy:
-    src: "home/{{ item }}"
-    dest: "{{ lookup('env', 'HOME') }}/{{ item }}"
+    src: "{{ role_path }}/files/home/{{ item }}"
+    dest: "{{ lookup('env', 'HOME') }}"
   loop:
     - .bashrc
     - .bash

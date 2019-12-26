@@ -2,7 +2,7 @@
 - name: Zypper configuration
   become: yes
   copy:
-    src: system/zypp.conf
+    src: "{{ role_path }}/files/system/zypp.conf"
     dest: /etc/zypp/zypp.conf
   tags:
     - packages
