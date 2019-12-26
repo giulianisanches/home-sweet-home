@@ -19,6 +19,8 @@ packages:
     - gnome-menus-branding-openSUSE
     - gnome-power-manager
     - gnome-screenshot
+    - libreoffice-calc
+    - libreoffice-writer
     - evince-plugin-pdfdocument
     - seahorse
     - pinentry-gnome3
