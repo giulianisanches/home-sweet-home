@@ -58,6 +58,7 @@ packages:
     - yast2-control-center
     - desktop-data-openSUSE
     - gedit
+    - gedit-plugins
     - gnome-system-monitor
     - gsettings-backend-dconf
     - xdg-user-dirs-gtk
