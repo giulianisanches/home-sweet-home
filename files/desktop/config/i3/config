@@ -191,10 +191,8 @@ gaps inner 10
 bindsym Ctrl+mod1+l exec i3lock -c 173f4f
 
 exec --no-startup-id dex -ae i3
-exec --no-startup-id xfsettingsd
+exec --no-startup-id xfsettingsd --replace --sm-client-disable
 exec --no-startup-id thunar --daemon
-exec --no-startup-id displays guess
-exec --no-startup-id dunst
 exec --no-startup-id feh --bg-scale ~/.wallpaper
 
 exec_always --no-startup-id setxkbmap -layout br,us -variant abnt2,intl -option "shift:both_capslock_cancel,ctrl:nocaps,grp:rctrl_rshift_toggle"
