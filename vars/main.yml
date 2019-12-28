@@ -1,41 +1,95 @@
 ---
+---
 patterns:
-    - fonts
+    - base
 packages:
+    - grub2-systemd-sleep-plugin
+    - patterns-desktop-laptop
     - xorg-x11 xorg-x11-essentials 
     - xorg-x11-server
     - xorg-x11-server-extra
-    - gnome-shell
-    - gdm
-    - nautilus
-    - nautilus-share
-    - NetworkManager-openvpn-gnome
-    - NetworkManager-connection-editor
-    - gnome-terminal
-    - gnome-calculator
-    - gnome-tweak-tool
-    - gnome-menus-branding-openSUSE
-    - gnome-power-manager
-    - evince-plugin-pdfdocument
-    - seahorse
-    - pinentry-gnome3
-    - gstreamer-plugins-libav
-    - gtk2-metatheme-adapta
-    - gtk3-metatheme-adapta
+    - xorg-x11-fonts-core
+    - xorg-x11-fonts
+    - lightdm
+    - i3-gaps
+    - xdg-user-dirs
+    - xdg-user-dirs-gtk
+    - i3lock
+    - polybar
+    - rofi
+    - feh
+    - rxvt-unicode
+    - urxvt-perls
+    - xfconf
+    - xfce4-settings
     - papirus-icon-theme
-    - fontawesome-fonts
+    - dex
+    - avahi
+    - polkit-gnome
+    - gconf-polkit
+    - pinentry-gnome3
+    - NetworkManager
+    - NetworkManager-applet
+    - NetworkManager-openvpn
+    - NetworkManager-connection-editor
+    - blueman
+    - xfce4-volumed-pulse
+    - xfce4-notifyd
+    - thunar
+    - thunar-volman
+    - thunar-plugin-archive
+    - thunar-plugin-shares
+    - gvfs
+    - gvfs-backends
+    - gvfs-fuse
+    - gvfs-backend-samba
+    - system-config-printer
+    - evince
+    - evince-plugin-pdfdocument
+    - remmina
+    - xarchiver
+    - pidgin
+    - pidgin-plugin-sipe
+    - pidgin-plugin-indicator
+    - pidgin-plugin-libnotify
+    - gstreamer-plugins-libav
+    - parole
+    - ristretto
+    - mousepad
+    - hexchat
+    - code
+    - update-desktop-files
+    - gnome-calculator
+    - yast2-sound
+    - pulseaudio
+    - alsa-firmware
+    - pasystray
+    - pavucontrol
     - MozillaFirefox
     - MozillaFirefox-branding-openSUSE
-    - remmina
-    - code
-    - system-config-printer
     - branding-openSUSE
-    - gconf2-branding-openSUSE
     - grub2-branding-openSUSE
     - wallpaper-branding-openSUSE
-    - system-group-wheel
     - man
+    - libnotify-tools
+    - zenity
     - zip
+    - zsh
+    - jq
+    - python3-qt5
+    - keepassxc
+    - breeze5-cursors
+    - dejavu-fonts
+    - fontawesome-fonts
+    - google-opensans-fonts
+    - google-roboto-fonts
+    - google-droid-fonts
+    - noto-sans-fonts
+    - ghostscript-fonts-std
+    - ghostscript-fonts-other
+    - psmisc
+    - system-group-wheel
+    - system-user-bin
     - unzip
     - rsync
     - wget
@@ -43,7 +97,6 @@ packages:
     - bash-completion
     - bzip2
     - cabextract
-    - avahi
     - fuse
     - command-not-found
     - deltarpm
@@ -52,24 +105,12 @@ packages:
     - sensors
     - yast2-control-center
     - desktop-data-openSUSE
-    - gedit
-    - gnome-system-monitor
-    - gsettings-backend-dconf
-    - xdg-user-dirs-gtk
-    - papirus-icon-theme
-    - papirus-icon-theme
-    - keepassxc
     - java-1_8_0-openjdk
     - java-11-openjdk
-    - dconf-editor
+    - icedtea-web
     - kernel-default-devel
     - ncat
     - telnet
     - tcptraceroute
     - traceroute
-    - jq
-    - yast2-sound
-    - alsa-firmware
-    - pulseaudio
-    - pulseaudio-module-gconf
     - VirtualBox-6.1
