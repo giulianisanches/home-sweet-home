@@ -1,0 +1,47 @@
+#!/bin/bash
+
+function _stop() {
+    # Terminate already running bar instances
+    killall -q polybar
+
+    # Wait until the processes have been shut down
+    while pgrep -u ${UID} -x polybar >/dev/null; do sleep 1; done
+}
+
+function _start() {
+    local _primary
+    local _screens
+
+    _primary="$(xrandr -q | grep -i 'primary' | cut -d ' ' -f1)"
+    [[ -n "${_primary}" ]] && PRIMARY_MONITOR="${_primary}" polybar primary &
+
+    mapfile -t _screens < <( xrandr | grep -v 'primary' | grep -E "\bconnected\b" | cut -d ' ' -f1 )
+
+    for _screen in "${_screens[@]}"
+    do
+        [[ ${_screen} ]] && SECONDARY_MONITOR=${_screen} polybar simple &
+    done
+
+    echo "Bars launched..."
+}
+
+function main() {
+    local _opt
+
+    _opt="$1"
+
+    case ${_opt} in
+        start)
+            _start
+            ;;
+        stop)
+            _stop
+            ;;
+        restart)
+            _stop
+            _start
+            ;;
+    esac
+}
+
+main "$@"
