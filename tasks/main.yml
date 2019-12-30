@@ -1,6 +1,8 @@
 ---
 - include_tasks: "packages.yml"
-  tags: packages
+  tags:
+    - packages
+    - repositories
 
 - include_tasks: desktop.yml
   tags: desktop

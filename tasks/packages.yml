@@ -5,7 +5,7 @@
     src: "{{ role_path }}/files/system/zypp.conf"
     dest: /etc/zypp/zypp.conf
   tags:
-    - packages
+    - repositories
 
 - name: 'Configure repository: Packman Essentials'
   become: yes
@@ -16,7 +16,7 @@
     auto_import_keys: yes
     state: present
   tags:
-    - packages
+    - repositories
 
 - name: 'Configure repository: Microsoft'
   become: yes
@@ -34,7 +34,7 @@
         auto_import_keys: yes
         state: present
   tags:
-    - packages
+    - repositories
 
 - name: 'Configure repository: Oracle'
   become: yes
@@ -52,7 +52,7 @@
         auto_import_keys: yes
         state: present
   tags:
-    - packages
+    - repositories
 
 - name: 'Refresh all repos'
   become: yes
