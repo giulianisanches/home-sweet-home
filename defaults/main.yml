@@ -1,2 +1,3 @@
 ---
 # defaults file for home-sweet-home
+home: "{{ lookup('env', 'HOME') }}"

@@ -21,13 +21,13 @@
 
 - name: Configure Polybar
   copy:
-    src: config/polybar/config
+    src: desktop/config/polybar/config
     dest: "{{ home }}/.config/polybar/"
   tags: desktop
 
 - name: Configure rofi
   copy:
-    src: config/rofi/config.rasi
+    src: desktop/config/rofi/config.rasi
     dest: "{{ home }}/.config/rofi/"
   tags: desktop
 
@@ -60,7 +60,7 @@
 - name: Configure LightDM
   become: yes
   copy:
-    src: lightdm-gtk-greeter.conf
+    src: system/lightdm-gtk-greeter.conf
     dest: /etc/lightdm/lightdm-gtk-greeter.conf
   tags: desktop
 
@@ -87,15 +87,3 @@
         path: /tmp/papirus-folders-install.sh
   tags: desktop
 
-- name: Configure additional groups
-  become: yes
-  user:
-    append: true
-    groups: "{{ item }}"
-    name: "{{ lookup('env', 'USER') }}"
-  loop:
-    - lp
-    - audio
-    - video
-    - nm-openvpn
-  tags: desktop

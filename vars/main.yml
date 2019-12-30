@@ -2,114 +2,70 @@
 patterns:
     - base
 packages:
-    - grub2-systemd-sleep-plugin
-    - patterns-desktop-laptop
-    - xorg-x11 xorg-x11-essentials 
+    - xorg-x11
     - xorg-x11-server
     - xorg-x11-server-extra
-    - xorg-x11-fonts-core
     - xorg-x11-fonts
     - lightdm
     - i3-gaps
-    - xdg-user-dirs
-    - xdg-user-dirs-gtk
-    - i3lock
-    - polybar
-    - rofi
-    - feh
-    - rxvt-unicode
-    - urxvt-perls
-    - xfconf
+    - yast2-control-center
+    - yast2-sound
     - xfce4-settings
-    - papirus-icon-theme
-    - dex
-    - avahi
-    - polkit-gnome
-    - gconf-polkit
-    - pinentry-gnome3
-    - NetworkManager
-    - NetworkManager-applet
-    - NetworkManager-openvpn
-    - NetworkManager-connection-editor
-    - blueman
-    - xfce4-volumed-pulse
-    - xfce4-notifyd
     - thunar
-    - thunar-volman
     - thunar-plugin-archive
     - thunar-plugin-shares
-    - gvfs
-    - gvfs-backends
-    - gvfs-fuse
-    - gvfs-backend-samba
+    - NetworkManager-openvpn
+    - blueman
     - system-config-printer
+    - gnome-calculator
     - evince
-    - evince-plugin-pdfdocument
     - remmina
     - xarchiver
-    - pidgin
-    - pidgin-plugin-sipe
-    - pidgin-plugin-indicator
-    - pidgin-plugin-libnotify
-    - gstreamer-plugins-libav
+    - bitlbee
+    - libpurple-plugin-sipe
+    - hexchat
     - parole
     - ristretto
     - mousepad
-    - hexchat
-    - code
-    - update-desktop-files
-    - gnome-calculator
-    - yast2-sound
-    - pulseaudio
-    - alsa-firmware
+    - gstreamer-plugins-libav
     - pasystray
     - pavucontrol
     - MozillaFirefox
-    - MozillaFirefox-branding-openSUSE
-    - branding-openSUSE
-    - grub2-branding-openSUSE
-    - wallpaper-branding-openSUSE
-    - man
-    - libnotify-tools
-    - zenity
-    - zip
-    - zsh
-    - jq
-    - python3-qt5
+    - polybar
+    - rofi
+    - nitrogen
+    - rxvt-unicode
+    - urxvt-perls
+    - papirus-icon-theme
+    - xfce4-volumed-pulse
+    - xfce4-notifyd
+    - pinentry-gnome3
     - keepassxc
-    - breeze5-cursors
-    - dejavu-fonts
-    - fontawesome-fonts
-    - google-opensans-fonts
-    - google-roboto-fonts
-    - google-droid-fonts
-    - noto-sans-fonts
-    - ghostscript-fonts-std
-    - ghostscript-fonts-other
-    - psmisc
-    - system-group-wheel
-    - system-user-bin
-    - unzip
-    - rsync
-    - wget
-    - curl
-    - bash-completion
-    - bzip2
-    - cabextract
-    - fuse
-    - command-not-found
-    - deltarpm
-    - p7zip
+    - dex
+    - code
+    - jq
     - xclip
     - sensors
-    - yast2-control-center
-    - desktop-data-openSUSE
-    - java-1_8_0-openjdk
-    - java-11-openjdk
     - icedtea-web
+    - java-1_8_0-openjdk
     - kernel-default-devel
+    - VirtualBox-6.1
+    - xdg-user-dirs
+    - xdg-user-dirs-gtk
+    - avahi
+    - pulseaudio
+    - alsa-firmware
+    - polkit-gnome
+    - gconf-polkit
+    - update-desktop-files
+    - zenity
+    - python3-qt5
+    - dejavu-fonts
+    - fontawesome-fonts
+    - google-roboto-fonts
+    - google-droid-fonts
+    - ghostscript-fonts-std
+    - ghostscript-fonts-other
     - ncat
     - telnet
     - tcptraceroute
-    - traceroute
-    - VirtualBox-6.1

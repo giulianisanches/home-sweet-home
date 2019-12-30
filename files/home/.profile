@@ -36,7 +36,7 @@ export ANSIBLE_CONFIG
 export GOROOT
 export GOPATH
 
-PATH="$HOME/.local/bin:$HOME/bin:$PATH:$GOROOT/bin:$GOPATH/bin"
+PATH="$HOME/.local/bin:$HOME/.local/sbin:$HOME/bin:$PATH:$GOROOT/bin:$GOPATH/bin"
 
 # The following variable is needed when using rxvt-unicode as
 # home and end key need to be remapped
