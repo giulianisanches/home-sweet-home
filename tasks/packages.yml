@@ -18,6 +18,33 @@
   tags:
     - repositories
 
+- name: 'Configure repository: X11:/Xfce'
+  tags: repositories
+  zypper_repository:
+    name: 'X11:/Xfce'
+    repo: 'http://download.opensuse.org/repositories/X11:/xfce/openSUSE_Leap_15.1/'
+    priority: 89
+    auto_import_keys: yes
+    state: present
+
+- name: 'Configure repository: X11:/windowmanagers'
+  tags: repositories
+  zypper_repository:
+    name: 'X11:/windowmanagers'
+    repo: 'https://download.opensuse.org/repositories/X11:/windowmanagers/openSUSE_Leap_15.1/'
+    priority: 89
+    auto_import_keys: yes
+    state: present
+
+- name: 'Configure repository: X11:/Utilities'
+  tagss: repositories
+  zypper_repository:
+    name: 'X11:/Utilities'
+    repo: 'https://download.opensuse.org/repositories/X11:/Utilities/openSUSE_Leap_15.1/'
+    priority: 89
+    auto_import_keys: yes
+    state: present
+
 - name: 'Configure repository: Microsoft'
   become: yes
   block:
