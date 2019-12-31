@@ -66,6 +66,7 @@ assign [class="VirtualBox Machine"] 6
 assign [class="VirtualBox Manager"] 6
 assign [class="org.remmina.Remmina"] 7
 assign [class="realvnc-vncviewer"] 7
+assign [class="TelegramDesktop"] 7
 
 # Some windows are better floating, as they will be used for "focused" or short tasks
 # or to drag and drop between than, or just because i want
@@ -74,8 +75,8 @@ for_window [class="org.remmina.Remmina"] layout tabbed
 for_window [class="Firefox"] layout tabbed
 for_window [class="Chromium-browser"] layout tabbed
 for_window [class="Pidgin"] layout tabbed
-for_window [class="URxvt" instance="irssi"] layout tabbed
 for_window [class="realvnc-vncviewer"] layout tabbed
+for_window [class="TelegramDesktop"] layout tabbed
 
 for_window [class="Nm-connection-editor"] floating enable
 for_window [class="Firefox" instance="Places"] floating enable
