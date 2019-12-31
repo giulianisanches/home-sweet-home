@@ -36,7 +36,6 @@ packages:
     - rofi
     - nitrogen
     - rxvt-unicode
-    - urxvt-perls
     - papirus-icon-theme
     - xfce4-volumed-pulse
     - xfce4-notifyd
