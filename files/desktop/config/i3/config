@@ -40,10 +40,13 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 workspace 1 output primary
-workspace 2 output primary
-workspace 3 output eDP-1 eDP1 primary
+workspace 3 output primary
+workspace 5 output primary
+workspace 7 output primary
+workspace 2 output eDP-1 eDP1 primary
 workspace 4 output eDP-1 eDP1 primary
-workspace 5 output eDP-1 eDP1 primary
+workspace 6 output eDP-1 eDP1 primary
+workspace 8 output eDP-1 eDP1 primary
 
 # move workspaces between monitors
 bindsym $mod+Shift+Ctrl+h move workspace to output left
@@ -56,15 +59,13 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 assign [class="URxvt"] 1
-assign [class="Code"] 2
-assign [class="Firefox"] 3
-assign [class="Chromium-browser"] 3
-assign [class="URxvt" instance="irssi"] 4
-assign [class="Pidgin"] 4
-assign [class="VirtualBox Machine"] 5
-assign [class="VirtualBox Manager"] 5
-assign [class="org.remmina.Remmina"] 5
-assign [class="realvnc-vncviewer"] 5
+assign [class="Code"] 3
+assign [class="Firefox"] 5
+assign [class="Chromium-browser"] 2
+assign [class="VirtualBox Machine"] 6
+assign [class="VirtualBox Manager"] 6
+assign [class="org.remmina.Remmina"] 7
+assign [class="realvnc-vncviewer"] 7
 
 # Some windows are better floating, as they will be used for "focused" or short tasks
 # or to drag and drop between than, or just because i want
