@@ -46,18 +46,16 @@ packages:
     - jq
     - xclip
     - sensors
-    - icedtea-web
+    - java-11-openjdk
     - java-1_8_0-openjdk
+    - icedtea-web
     - kernel-default-devel
     - VirtualBox-6.1
     - xdg-user-dirs
     - xdg-user-dirs-gtk
     - avahi
-    - pulseaudio
     - alsa-firmware
     - polkit-gnome
-    - gconf-polkit
-    - update-desktop-files
     - zenity
     - python3-qt5
     - dejavu-fonts
