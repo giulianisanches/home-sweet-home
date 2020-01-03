@@ -39,6 +39,7 @@ packages:
     - papirus-icon-theme
     - xfce4-volumed-pulse
     - xfce4-notifyd
+    - xfce4-screenshooter
     - pinentry-gnome3
     - keepassxc
     - dex
