@@ -11,11 +11,23 @@ function _stop() {
 function _start() {
     local _primary
     local _screens
+    local _displays
 
-    _primary="$(xrandr -q | grep -i 'primary' | cut -d ' ' -f1)"
-    [[ -n "${_primary}" ]] && PRIMARY_MONITOR="${_primary}" polybar primary &
+    _displays=$( xrandr | grep "connected" )
+    _screens=$( xrandr | grep -E "\bconnected\b" | cut -d ' ' -f 1 )
 
-    mapfile -t _screens < <( xrandr | grep -v 'primary' | grep -E "\bconnected\b" | cut -d ' ' -f1 )
+	if [[ "$(echo "${_screens}" | wc -l)" == 1 ]]
+    then
+        _primary="${_screens}"
+    else
+        _primary="$(echo "${_displays}" | grep primary | cut -d ' ' -f 1 )"
+        # fallback to built-in monitor
+        [[ -z ${_primary}  ]] && _primary="$( echo "${_screens}" | grep -iE 'edp-?1' )"
+	fi
+
+    PRIMARY_MONITOR="${_primary}" polybar primary &
+
+    mapfile -t _screens < <( echo "${_screens}" | grep -v "${_primary}" )
 
     for _screen in "${_screens[@]}"
     do
