@@ -18,7 +18,7 @@
   tags:
     - repositories
 
-- name: 'Configure repository: X11:/Xfce'
+- name: 'Configure repository: X11 - Xfce'
   become: yes
   tags: repositories
   zypper_repository:
@@ -28,7 +28,7 @@
     auto_import_keys: yes
     state: present
 
-- name: 'Configure repository: X11:/windowmanagers'
+- name: 'Configure repository: X11 - windowmanagers'
   become: yes
   tags: repositories
   zypper_repository:
@@ -38,12 +38,22 @@
     auto_import_keys: yes
     state: present
 
-- name: 'Configure repository: X11:/Utilities'
+- name: 'Configure repository: X11 - Utilities'
   become: yes
   tags: repositories
   zypper_repository:
-    name: 'X11-Utilities'
+    name: 'X11-utilities'
     repo: 'https://download.opensuse.org/repositories/X11:/Utilities/openSUSE_Leap_15.1/'
+    priority: 89
+    auto_import_keys: yes
+    state: present
+
+- name: 'Configure repository: Virtualization - Containers'
+  become: yes
+  tags: repositories
+  zypper_repository:
+    name: 'virtualization-containers'
+    repo: 'https://download.opensuse.org/repositories/Virtualization:/containers/openSUSE_Leap_15.1/'
     priority: 89
     auto_import_keys: yes
     state: present
