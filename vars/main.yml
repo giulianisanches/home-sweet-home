@@ -68,3 +68,4 @@ packages:
     - ncat
     - telnet
     - tcptraceroute
+    - docker
