@@ -142,4 +142,4 @@ label-connected-underline = ${colors.green}
 type = internal/network
 interface = wlan0
 label-connected = %local_ip% %local_ip6% %essid%
-label-connected-underline = ${colors.green}
+label-connected-underline = ${colors.cyan}
