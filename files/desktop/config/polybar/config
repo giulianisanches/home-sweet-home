@@ -59,7 +59,7 @@ label-visible-foreground = #ffffff
 label-visible-padding = 2
 
 label-focused = %index%
-label-focused-background = ${colors.cyan}
+label-focused-background = ${colors.blue}
 label-focused-foreground = #ffffff
 label-focused-padding = 2
 
