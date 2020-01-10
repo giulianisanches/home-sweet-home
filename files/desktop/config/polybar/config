@@ -82,7 +82,7 @@ label-muted = muted
 label-muted-foreground = #666
 
 label-volume-underline = ${colors.green}
-label-muted-underline = ${colors.green}
+label-muted-underline = ${colors.red}
 
 ; Interval for volume increase/decrease (in percent points)
 ; Default: 5
@@ -107,7 +107,7 @@ label-full = F %percentage%%
 
 label-charging-underline = ${colors.yellow}
 label-discharging-underline = ${colors.yellow}
-label-full-underline = ${colors.yellow}
+label-full-underline = ${colors.green}
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -118,7 +118,7 @@ blacklist-1 = scroll lock
 
 label-layout = %layout%
 label-layout-padding = 2
-label-layout-underline = ${colors.magenta}
+label-layout-underline = ${colors.violet}
 
 [module/date]
 type = internal/date
@@ -136,7 +136,7 @@ label-underline = ${colors.violet}
 type = internal/network
 interface = eth0
 label-connected = %local_ip% %local_ip6%
-label-connected-underline = ${colors.green}
+label-connected-underline = ${colors.cyan}
 
 [module/wireless-network]
 type = internal/network
