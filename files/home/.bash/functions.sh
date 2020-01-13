@@ -23,43 +23,44 @@ function ldap_search () {
   esac
 }
 
-function v() {  
-  function usage() {
-    echo "Usage: "
-    echo "    v (puc|cas) (dev|tst|uat|prd) <default vault command line arguments - read, write (...)> "
-  }
+[[ -f $HOME/.bash/extras.sh ]] && . $HOME/.bash/extras.sh
+# function v() {  
+#   function usage() {
+#     echo "Usage: "
+#     echo "    v (puc|cas) (dev|tst|uat|prd) <default vault command line arguments - read, write (...)> "
+#   }
 
-  ## TODO: Implement a token helper  
-  local site="${1,,}"; shift
-  local stage="${1,,}"; shift
-  local parameters="$*"
+#   ## TODO: Implement a token helper  
+#   local site="${1,,}"; shift
+#   local stage="${1,,}"; shift
+#   local parameters="$*"
 
-  case "${site}" in
-	puc)
-		export VAULT_ADDR="https://vault.${stage}-sicredi.in:8200"
-		;;
-  cas)
-    export VAULT_ADDR="https://vault.digital.${stage}.sicredi.net:8200"
-    ;;
-	*)
-    usage && return
-		;;
-  esac
+#   case "${site}" in
+# 	puc)
+# 		export VAULT_ADDR="https://vault.${stage}-sicredi.in:8200"
+# 		;;
+#   cas)
+#     export VAULT_ADDR="https://vault.digital.${stage}.sicredi.net:8200"
+#     ;;
+# 	*)
+#     usage && return
+# 		;;
+#   esac
 
-  [[ -z stage ]] && usage && return
-  [[ -z parameters ]] && usage && return
+#   [[ -z stage ]] && usage && return
+#   [[ -z parameters ]] && usage && return
 
-  ## TODO: Implement a token helper
-  if [[ -z ${token} ]] 
-  then
-    token=$( vault login -method=ldap username="${LDAP_USERNAME}" -format=json | jq .auth.client_token )
-    echo "${site};${stage};${token};$( date +'%s')" >> "$HOME/.config/vault/tokens"
-  else
-    vault login ${token}
-  fi
+#   ## TODO: Implement a token helper
+#   if [[ -z ${token} ]] 
+#   then
+#     token=$( vault login -method=ldap username="${LDAP_USERNAME}" -format=json | jq .auth.client_token )
+#     echo "${site};${stage};${token};$( date +'%s')" >> "$HOME/.config/vault/tokens"
+#   else
+#     vault login ${token}
+#   fi
 
-  vault ${parameters}
-}
+#   vault ${parameters}
+# }
 
 function pyenv() {
   [[ -z ${VENV_HOME}  ]] && echo "Set VENV_HOME environment variable" && return 1
