@@ -48,6 +48,16 @@
     auto_import_keys: yes
     state: present
 
+- name: 'Configure repository: X11 - Terminals'
+  become: yes
+  tags: repositories
+  zypper_repository:
+    name: 'X11-terminals'
+    repo: 'https://download.opensuse.org/repositories/X11:/terminals/openSUSE_Leap_15.1/'
+    priority: 89
+    auto_import_keys: yes
+    state: present
+
 - name: 'Configure repository: Virtualization - Containers'
   become: yes
   tags: repositories
