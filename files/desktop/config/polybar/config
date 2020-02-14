@@ -70,24 +70,7 @@ label-unfocused-background = ${colors.base01}
 label-unfocused-foreground = ${colors.base03}
 
 label-urgent = %index%
-label-urgent-background = ${colors.orange}
-label-urgent-underline = ${colors.red}
 label-urgent-padding = 2
-
-[module/pulseaudio]
-type = internal/pulseaudio
-
-use-ui-max = false
-
-label-muted = muted
-label-muted-foreground = #666
-
-label-volume-underline = ${colors.green}
-label-muted-underline = ${colors.red}
-
-; Interval for volume increase/decrease (in percent points)
-; Default: 5
-interval = 5
 
 [module/battery]
 type = internal/battery
@@ -106,9 +89,9 @@ label-charging = %percentage%%
 label-discharging = %percentage%%
 label-full = %percentage%%
 
-label-charging-underline = ${colors.yellow}
-label-discharging-underline = ${colors.yellow}
-label-full-underline = ${colors.green}
+label-charging-underline = ${colors.base1}
+label-discharging-underline = ${colors.base1}
+label-full-underline = ${colors.base1}
 
 [module/date]
 type = internal/date
@@ -120,4 +103,4 @@ date = %b, %d %a %Y
 time = %H:%M
 
 label = %date% %time%
-label-underline = ${colors.violet}
+label-underline = ${colors.base1}
