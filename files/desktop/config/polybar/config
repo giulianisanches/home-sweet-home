@@ -28,7 +28,7 @@ module-margin-right = 1
 
 font-0 = "Noto Sans:size=11"
 
-background = ${colors.base03}
+background = ${colors.base02}
 foreground = ${colors.base1}
 
 [bar/primary]
