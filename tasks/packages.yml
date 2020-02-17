@@ -68,6 +68,16 @@
     auto_import_keys: yes
     state: present
 
+- name: 'Configure repository: Mozilla'
+  become: yes
+  tags: repositories
+  zypper_repository:
+    name: 'mozilla'
+    repo: 'https://download.opensuse.org/repositories/mozilla/openSUSE_Leap_15.1/'
+    priority: 89
+    auto_import_keys: yes
+    state: present
+
 - name: 'Configure repository: Microsoft'
   become: yes
   block:
