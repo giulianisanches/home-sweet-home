@@ -77,7 +77,7 @@ URxvt.keysym.M-u: perl:matcher:select
 #define S_cyan          #2aa198
 #define S_green         #859900
 
-*background:            S_base03
+*background:            S_base3
 *foreground:            S_base0
 *fadeColor:             S_base03
 *cursorColor:           S_base1
@@ -94,15 +94,15 @@ URxvt.keysym.M-u: perl:matcher:select
 
 !! green dark/light
 *color2:                S_green
-*color10:               S_base01
+*color10:               S_green
 
 !! yellow dark/light
 *color3:                S_yellow
-*color11:               S_base00
+*color11:               S_yellow
 
 !! blue dark/light
 *color4:                S_blue
-*color12:               S_base0
+*color12:               S_blue
 
 !! magenta dark/light
 *color5:                S_magenta
@@ -110,7 +110,7 @@ URxvt.keysym.M-u: perl:matcher:select
 
 !! cyan dark/light
 *color6:                S_cyan
-*color14:               S_base1
+*color14:               S_cyan
 
 !! white dark/light
 *color7:                S_base2
