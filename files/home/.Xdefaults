@@ -19,7 +19,6 @@ URxvt.secondaryScroll: 0
 URxvt.transparent: false
 URxvt.fading:0
 URxvt.loginShell: true
-URxvt.termName: xterm
 URxvt.lineSpace: 0
 
 !! Scrollbar
@@ -32,9 +31,9 @@ URxvt.scrollWithBuffer: true
 URxvt.scrollTtyKeypress: true
 
 !! Fonts
-Rxvt.allow_bold: false
-URxvt.font:        xft:DejaVu Sans Mono:size=16::antialias=true
-URxvt.boldFont:    xft:DejaVu Sans Mono:size=16::antialias=true
+Rxvt.allow_bold: true
+URxvt.font:        xft:JetBrains Mono:size=16::antialias=true
+URxvt.boldFont:    xft:JetBrains Mono:size=16::antialias=true::style=bold
 ! Fix font space for xft fonts.
 URxvt*letterSpace: -1
 
