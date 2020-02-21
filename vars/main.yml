@@ -35,7 +35,7 @@ packages:
     - polybar
     - rofi
     - nitrogen
-    - kitty
+    - rxvt-unicode
     - papirus-icon-theme
     - xfce4-volumed-pulse
     - xfce4-notifyd
