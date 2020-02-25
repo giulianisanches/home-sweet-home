@@ -6,42 +6,26 @@ packages:
     - xorg-x11-server
     - xorg-x11-server-extra
     - xorg-x11-fonts
-    - lightdm
-    - i3-gaps
+    - sddm
+    - sddm-branding-openSUSE
+    - sddm-theme-openSUSE
+    - plasma5-desktop
+    - plasma5-session
+    - plasma5-session-wayland
+    - plasma5-pa
+    - kate
+    - konsole
+    - vlc
+    - yast2
     - yast2-control-center
     - yast2-sound
-    - xfce4-settings
-    - thunar
-    - thunar-plugin-archive
-    - thunar-plugin-shares
-    - NetworkManager-openvpn
-    - blueman
     - system-config-printer
-    - gnome-calculator
-    - evince
-    - remmina
-    - xarchiver
-    - bitlbee
     - libpurple-plugin-sipe
-    - hexchat
-    - parole
-    - ristretto
-    - mousepad
     - gstreamer-plugins-libav
-    - pasystray
-    - pavucontrol
     - MozillaFirefox
     - chromium
-    - polybar
-    - rofi
-    - rxvt-unicode
     - papirus-icon-theme
-    - xfce4-volumed-pulse
-    - xfce4-notifyd
-    - xfce4-screenshooter
-    - pinentry-gnome3
     - keepassxc
-    - dex
     - code
     - jq
     - xclip
