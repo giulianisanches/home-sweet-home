@@ -53,7 +53,7 @@
   tags: repositories
   zypper_repository:
     name: 'argon_kde_extras'
-    repo: 'https://download.opensuse.org/repositories/KDE:/Applications/KDE_Frameworks5_openSUSE_Leap_15.1/'
+    repo: 'https://download.opensuse.org/repositories/KDE:/Extra/KDE_Applications_openSUSE_Leap_15.1/'
     priority: 89
     auto_import_keys: yes
     state: present
