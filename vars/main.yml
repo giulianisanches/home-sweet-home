@@ -16,8 +16,10 @@ packages:
     - plasma5-session-wayland
     - pinentry-qt5
     - plasma5-pa
+    - bluedevil5
     - kate
     - konsole
+    - krita
     - kvantum-qt5
     - kvantum-themes
     - kvantum-manager
