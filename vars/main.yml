@@ -10,6 +10,8 @@ packages:
     - sddm-branding-openSUSE
     - sddm-theme-openSUSE
     - plasma5-desktop
+    - dolphin
+    - dolphin-plugins
     - plasma5-session
     - plasma5-session-wayland
     - pinentry-qt5
