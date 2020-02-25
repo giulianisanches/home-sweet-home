@@ -16,6 +16,9 @@ packages:
     - plasma5-pa
     - kate
     - konsole
+    - kvantum-qt5
+    - kvantum-themes
+    - kvantum-manager
     - vlc
     - yast2
     - yast2-control-center
