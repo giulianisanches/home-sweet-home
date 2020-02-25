@@ -32,6 +32,8 @@ packages:
     - gstreamer-plugins-libav
     - MozillaFirefox
     - chromium
+    - falkon
+    - krdc
     - papirus-icon-theme
     - keepassxc
     - code
