@@ -60,5 +60,4 @@ packages:
     - docker
     - libreoffice-writer
     - libreoffice-calc
-    - libreoffice-gtk2
-    - libreoffice-gtk3
+    - libreoffice-qt5
