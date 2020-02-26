@@ -31,9 +31,9 @@ URxvt.scrollWithBuffer: true
 URxvt.scrollTtyKeypress: true
 
 !! Fonts
-Rxvt.allow_bold: true
-URxvt.font:        xft:JetBrains Mono:size=16::antialias=true
-URxvt.boldFont:    xft:JetBrains Mono:size=16::antialias=true::style=bold
+URxvt.allow_bold: true
+URxvt*font:        xft:JetBrains Mono:size=16::antialias=true
+URxvt*boldFont:    xft:JetBrains Mono:size=16::antialias=true::style=bold
 ! Fix font space for xft fonts.
 URxvt*letterSpace: -1
 
