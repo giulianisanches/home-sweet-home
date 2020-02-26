@@ -77,7 +77,7 @@ URxvt.keysym.M-u: perl:matcher:select
 #define S_green         #859900
 
 *background:            S_base3
-*foreground:            S_base01
+*foreground:            S_base0
 *fadeColor:             S_base03
 *cursorColor:           S_base1
 *pointerColorBackground:S_base01
