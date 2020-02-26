@@ -6,40 +6,43 @@ packages:
     - xorg-x11-server
     - xorg-x11-server-extra
     - xorg-x11-fonts
-    - sddm
-    - sddm-branding-openSUSE
-    - sddm-theme-openSUSE
-    - plasma5-desktop
-    - dolphin
-    - dolphin-plugins
-    - plasma5-session
-    - plasma5-session-wayland
-    - pinentry-qt5
-    - plasma5-pa
-    - bluedevil5
-    - kate
-    - konsole
-    - krita
-    - kvantum-qt5
-    - kvantum-themes
-    - kvantum-manager
-    - vlc
-    - yast2
+    - lightdm
+    - i3-gaps
     - yast2-control-center
     - yast2-sound
+    - xfce4-settings
+    - thunar
+    - thunar-plugin-archive
+    - thunar-plugin-shares
+    - NetworkManager-openvpn
+    - blueman
     - system-config-printer
+    - gnome-calculator
+    - evince
+    - remmina
+    - xarchiver
+    - bitlbee
     - libpurple-plugin-sipe
+    - hexchat
+    - parole
+    - ristretto
+    - mousepad
     - gstreamer-plugins-libav
+    - pasystray
+    - pavucontrol
     - MozillaFirefox
     - chromium
-    - falkon
-    - krdc
-    - materia-gtk-theme
-    - materia-kde-style
-    - materia-kde-kvantum
-    - materia-kde-decoration
+    - polybar
+    - rofi
+    - nitrogen
+    - rxvt-unicode
     - papirus-icon-theme
+    - xfce4-volumed-pulse
+    - xfce4-notifyd
+    - xfce4-screenshooter
+    - pinentry-gnome3
     - keepassxc
+    - dex
     - code
     - jq
     - xclip
@@ -68,4 +71,5 @@ packages:
     - docker
     - libreoffice-writer
     - libreoffice-calc
-    - libreoffice-qt5
+    - libreoffice-gtk2
+    - libreoffice-gtk3

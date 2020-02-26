@@ -7,7 +7,7 @@
   tags:
     - repositories
 
-- name: 'Configure repository: Packman - Essentials'
+- name: 'Configure repository: Packman Essentials'
   become: yes
   zypper_repository:
     name: 'packman-essentials'
@@ -18,42 +18,42 @@
   tags:
     - repositories
 
-- name: 'Configure repository: Argon - QT5'
+- name: 'Configure repository: X11 - Xfce'
   become: yes
   tags: repositories
   zypper_repository:
-    name: 'argon_qt5'
-    repo: 'https://download.opensuse.org/repositories/KDE:/Qt5/openSUSE_Leap_15.1/'
+    name: 'X11-xfce'
+    repo: 'http://download.opensuse.org/repositories/X11:/xfce/openSUSE_Leap_15.1/'
     priority: 89
     auto_import_keys: yes
     state: present
 
-- name: 'Configure repository: Argon - KDE Frameworks '
+- name: 'Configure repository: X11 - windowmanagers'
   become: yes
   tags: repositories
   zypper_repository:
-    name: 'argon_kde_frameworks'
-    repo: 'https://download.opensuse.org/repositories/KDE:/Frameworks5/openSUSE_Leap_15.1/'
+    name: 'X11-windowmanagers'
+    repo: 'https://download.opensuse.org/repositories/X11:/windowmanagers/openSUSE_Leap_15.1/'
     priority: 89
     auto_import_keys: yes
     state: present
 
-- name: 'Configure repository: Argon - KDE Applications'
+- name: 'Configure repository: X11 - Utilities'
   become: yes
   tags: repositories
   zypper_repository:
-    name: 'argon_kde_applications'
-    repo: 'https://download.opensuse.org/repositories/KDE:/Applications/KDE_Frameworks5_openSUSE_Leap_15.1/'
+    name: 'X11-utilities'
+    repo: 'https://download.opensuse.org/repositories/X11:/Utilities/openSUSE_Leap_15.1/'
     priority: 89
     auto_import_keys: yes
     state: present
 
-- name: 'Configure repository: Argon - KDE Extras'
+- name: 'Configure repository: X11 - Terminals'
   become: yes
   tags: repositories
   zypper_repository:
-    name: 'argon_kde_extras'
-    repo: 'https://download.opensuse.org/repositories/KDE:/Extra/KDE_Applications_openSUSE_Leap_15.1/'
+    name: 'X11-terminals'
+    repo: 'https://download.opensuse.org/repositories/X11:/terminals/openSUSE_Leap_15.1/'
     priority: 89
     auto_import_keys: yes
     state: present
