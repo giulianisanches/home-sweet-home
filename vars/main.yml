@@ -34,7 +34,7 @@ packages:
     - chromium
     - polybar
     - rofi
-    - nitrogen
+    - feh
     - rxvt-unicode
     - papirus-icon-theme
     - xfce4-volumed-pulse
