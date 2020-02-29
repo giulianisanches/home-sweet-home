@@ -10,7 +10,7 @@
 - name: 'Configure repository: Packman Essentials'
   become: yes
   zypper_repository:
-    name: 'packman-essentials'
+    name: 'packman_essentials'
     repo: 'http://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Leap_15.1/Essentials'
     priority: 79
     auto_import_keys: yes
@@ -18,42 +18,42 @@
   tags:
     - repositories
 
-- name: 'Configure repository: X11 - Xfce'
+- name: 'Configure repository: Argon Qt5'
   become: yes
   tags: repositories
   zypper_repository:
-    name: 'X11-xfce'
-    repo: 'http://download.opensuse.org/repositories/X11:/xfce/openSUSE_Leap_15.1/'
+    name: 'argon_qt5'
+    repo: 'https://download.opensuse.org/repositories/KDE:/Qt5/openSUSE_Leap_15.1/'
     priority: 89
     auto_import_keys: yes
     state: present
 
-- name: 'Configure repository: X11 - windowmanagers'
+- name: 'Configure repository: Argon Frameworks 5'
   become: yes
   tags: repositories
   zypper_repository:
-    name: 'X11-windowmanagers'
-    repo: 'https://download.opensuse.org/repositories/X11:/windowmanagers/openSUSE_Leap_15.1/'
+    name: 'argon_frameworks5'
+    repo: 'https://download.opensuse.org/repositories/KDE:/Frameworks5/openSUSE_Leap_15.1/'
     priority: 89
     auto_import_keys: yes
     state: present
 
-- name: 'Configure repository: X11 - Utilities'
+- name: 'Configure repository: Argon Applications 5'
   become: yes
   tags: repositories
   zypper_repository:
-    name: 'X11-utilities'
-    repo: 'https://download.opensuse.org/repositories/X11:/Utilities/openSUSE_Leap_15.1/'
+    name: 'argon_applications5'
+    repo: 'https://download.opensuse.org/repositories/KDE:/Applications/KDE_Frameworks5_openSUSE_Leap_15.1/'
     priority: 89
     auto_import_keys: yes
     state: present
 
-- name: 'Configure repository: X11 - Terminals'
+- name: 'Configure repository: Argon Extra'
   become: yes
   tags: repositories
   zypper_repository:
-    name: 'X11-terminals'
-    repo: 'https://download.opensuse.org/repositories/X11:/terminals/openSUSE_Leap_15.1/'
+    name: 'argon_extra'
+    repo: 'https://download.opensuse.org/repositories/KDE:/Extra/KDE_Applications_openSUSE_Leap_15.1/'
     priority: 89
     auto_import_keys: yes
     state: present
@@ -62,7 +62,7 @@
   become: yes
   tags: repositories
   zypper_repository:
-    name: 'virtualization-containers'
+    name: 'virtualization_containers'
     repo: 'https://download.opensuse.org/repositories/Virtualization:/containers/openSUSE_Leap_15.1/'
     priority: 89
     auto_import_keys: yes
@@ -72,7 +72,7 @@
   become: yes
   tags: repositories
   zypper_repository:
-    name: 'mozilla'
+    name: 'mozilla_firefox'
     repo: 'https://download.opensuse.org/repositories/mozilla/openSUSE_Leap_15.1/'
     priority: 89
     auto_import_keys: yes
@@ -88,7 +88,7 @@
 
     - name: 'Configure repository: Visual Studio Code'
       zypper_repository:
-        name: 'visual-studio-code'
+        name: 'visual_studio_code'
         repo: 'https://packages.microsoft.com/yumrepos/vscode'
         priority: 99
         auto_import_keys: yes
@@ -106,7 +106,7 @@
 
     - name: 'Configure repository: VirtualBox'
       zypper_repository:
-        name: 'virtual-box'
+        name: 'oracle_virtual_box'
         repo: 'http://download.virtualbox.org/virtualbox/rpm/opensuse/15.0/x86_64'
         priority: 99
         auto_import_keys: yes

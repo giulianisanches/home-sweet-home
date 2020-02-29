@@ -2,74 +2,43 @@
 patterns:
     - base
 packages:
+    - plasma5-desktop
     - xorg-x11
-    - xorg-x11-server
     - xorg-x11-server-extra
     - xorg-x11-fonts
-    - lightdm
-    - i3-gaps
     - yast2-control-center
     - yast2-sound
-    - xfce4-settings
-    - thunar
-    - thunar-plugin-archive
-    - thunar-plugin-shares
+    - dolphin
+    - dolphin-plugins
+    - kcalc
+    - kate
+    - konsole
+    - krdc
+    - plasma5-pa
+    - bluedevil5
+    - vlc
     - NetworkManager-openvpn
-    - blueman
-    - system-config-printer
-    - gnome-calculator
-    - evince
-    - remmina
-    - xarchiver
-    - bitlbee
-    - libpurple-plugin-sipe
-    - hexchat
-    - parole
-    - ristretto
-    - mousepad
+    - kde-print-manager
     - gstreamer-plugins-libav
-    - pasystray
-    - pavucontrol
     - MozillaFirefox
-    - chromium
-    - polybar
-    - rofi
-    - feh
-    - rxvt-unicode
-    - papirus-icon-theme
-    - xfce4-volumed-pulse
-    - xfce4-notifyd
-    - xfce4-screenshooter
-    - pinentry-gnome3
+    - falkon
+    - pinentry-qt5
     - keepassxc
-    - dex
     - code
     - jq
     - xclip
-    - sensors
     - java-11-openjdk
     - java-1_8_0-openjdk
     - icedtea-web
     - kernel-default-devel
     - VirtualBox-6.1
     - xdg-user-dirs
-    - xdg-user-dirs-gtk
-    - avahi
-    - alsa-firmware
-    - polkit-gnome
-    - zenity
     - python3-qt5
     - dejavu-fonts
-    - fontawesome-fonts
-    - google-roboto-fonts
-    - google-droid-fonts
-    - ghostscript-fonts-std
-    - ghostscript-fonts-other
     - ncat
     - telnet
     - tcptraceroute
     - docker
     - libreoffice-writer
     - libreoffice-calc
-    - libreoffice-gtk2
-    - libreoffice-gtk3
+    - libreoffice-qt5
