@@ -24,6 +24,7 @@ packages:
     - falkon
     - pinentry-qt5
     - keepassxc
+    - spectacle
     - code
     - jq
     - xclip
