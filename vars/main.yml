@@ -25,6 +25,7 @@ packages:
     - pinentry-qt5
     - keepassxc
     - spectacle
+    - okular
     - code
     - jq
     - xclip
