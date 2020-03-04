@@ -26,6 +26,13 @@ packages:
     - keepassxc
     - spectacle
     - okular
+    - ark
+    - kvantum-manager
+    - materia-kde-kvantum
+    - materia-gtk-theme
+    - materia-kde-style
+    - papirus-icon-theme
+    - gwenview
     - code
     - jq
     - xclip
