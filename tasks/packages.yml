@@ -18,46 +18,6 @@
   tags:
     - repositories
 
-- name: 'Configure repository: Argon Qt5'
-  become: yes
-  tags: repositories
-  zypper_repository:
-    name: 'argon_qt5'
-    repo: 'https://download.opensuse.org/repositories/KDE:/Qt5/openSUSE_Leap_15.1/'
-    priority: 89
-    auto_import_keys: yes
-    state: present
-
-- name: 'Configure repository: Argon Frameworks 5'
-  become: yes
-  tags: repositories
-  zypper_repository:
-    name: 'argon_frameworks5'
-    repo: 'https://download.opensuse.org/repositories/KDE:/Frameworks5/openSUSE_Leap_15.1/'
-    priority: 89
-    auto_import_keys: yes
-    state: present
-
-- name: 'Configure repository: Argon Applications 5'
-  become: yes
-  tags: repositories
-  zypper_repository:
-    name: 'argon_applications5'
-    repo: 'https://download.opensuse.org/repositories/KDE:/Applications/KDE_Frameworks5_openSUSE_Leap_15.1/'
-    priority: 89
-    auto_import_keys: yes
-    state: present
-
-- name: 'Configure repository: Argon Extra'
-  become: yes
-  tags: repositories
-  zypper_repository:
-    name: 'argon_extra'
-    repo: 'https://download.opensuse.org/repositories/KDE:/Extra/KDE_Applications_openSUSE_Leap_15.1/'
-    priority: 89
-    auto_import_keys: yes
-    state: present
-
 - name: 'Configure repository: Virtualization - Containers'
   become: yes
   tags: repositories
