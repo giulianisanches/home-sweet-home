@@ -9,6 +9,9 @@ packages:
     - keepassxc
     - remmina
     - papirus-icon-theme
+    - seahorse
+    - nautilus-extension-seahorse
+    - system-config-printer
     - code
     - jq
     - xclip
