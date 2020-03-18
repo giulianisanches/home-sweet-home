@@ -1,38 +1,14 @@
 ---
 patterns:
     - base
+    - gnome_basic
 packages:
-    - plasma5-desktop
-    - xorg-x11
-    - xorg-x11-server-extra
-    - xorg-x11-fonts
-    - yast2-control-center
-    - yast2-sound
-    - dolphin
-    - dolphin-plugins
-    - kcalc
-    - kate
-    - konsole
-    - krdc
-    - plasma5-pa
-    - bluedevil5
-    - vlc
-    - NetworkManager-openvpn
-    - kde-print-manager
-    - gstreamer-plugins-libav
-    - MozillaFirefox
-    - falkon
-    - pinentry-qt5
-    - keepassxc
-    - spectacle
-    - okular
-    - ark
-    - kvantum-manager
-    - materia-kde-kvantum
     - materia-gtk-theme
-    - materia-kde-style
+    - NetworkManager-openvpn-gnome
+    - gstreamer-plugins-libav
+    - keepassxc
+    - remmina
     - papirus-icon-theme
-    - gwenview
     - code
     - jq
     - xclip
@@ -50,4 +26,5 @@ packages:
     - docker
     - libreoffice-writer
     - libreoffice-calc
-    - libreoffice-qt5
+    - libreoffice-gtk2
+    - libreoffice-gtk3
