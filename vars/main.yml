@@ -13,6 +13,7 @@ packages:
     - nautilus-extension-seahorse
     - system-config-printer
     - gthumb
+    - chromium
     - code
     - jq
     - xclip
