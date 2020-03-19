@@ -12,8 +12,7 @@ packages:
     - seahorse
     - nautilus-extension-seahorse
     - system-config-printer
-    - eog
-    - eog-plugins
+    - gthumb
     - code
     - jq
     - xclip
