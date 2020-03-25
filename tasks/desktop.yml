@@ -10,3 +10,26 @@
     - name: Apply font configuration
       command: fonts-config
   tags: desktop
+
+- name: Configure papirus folder colors
+  block:
+    - name: Download papirus folders installer
+      get_url:
+        url: https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-folders/master/install.sh
+        dest: /tmp/papirus-folders-install.sh
+        mode: '0700'
+
+    - name: Install papirus folders
+      command: /tmp/papirus-folders-install.sh
+
+    - name: Define colors to match theme
+      command: "papirus-folders -C {{ papirus_folders_color }} --theme {{ papirus_folders_theme }}"
+
+    - name: Remove papirus folders
+      command: env uninstall=true /tmp/papirus-folders-install.sh
+
+    - name: Clean up
+      file:
+        state: absent
+        path: /tmp/papirus-folders-install.sh
+  tags: desktop
