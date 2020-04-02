@@ -21,8 +21,6 @@ packages:
     - evince
     - remmina
     - xarchiver
-    - bitlbee
-    - libpurple-plugin-sipe
     - hexchat
     - parole
     - ristretto
@@ -35,7 +33,7 @@ packages:
     - polybar
     - rofi
     - feh
-    - rxvt-unicode
+    - xfce4-terminal
     - papirus-icon-theme
     - xfce4-volumed-pulse
     - xfce4-notifyd
