@@ -10,7 +10,7 @@
 - name: 'Configure repository: Packman Essentials'
   become: yes
   zypper_repository:
-    name: 'packman-essentials'
+    name: 'packman_essentials'
     repo: 'http://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Leap_15.1/Essentials'
     priority: 79
     auto_import_keys: yes
@@ -22,7 +22,7 @@
   become: yes
   tags: repositories
   zypper_repository:
-    name: 'X11-xfce'
+    name: 'x11_xfce'
     repo: 'http://download.opensuse.org/repositories/X11:/xfce/openSUSE_Leap_15.1/'
     priority: 89
     auto_import_keys: yes
@@ -32,7 +32,7 @@
   become: yes
   tags: repositories
   zypper_repository:
-    name: 'X11-windowmanagers'
+    name: 'x11_windowmanagers'
     repo: 'https://download.opensuse.org/repositories/X11:/windowmanagers/openSUSE_Leap_15.1/'
     priority: 89
     auto_import_keys: yes
@@ -42,7 +42,7 @@
   become: yes
   tags: repositories
   zypper_repository:
-    name: 'X11-utilities'
+    name: 'x11_utilities'
     repo: 'https://download.opensuse.org/repositories/X11:/Utilities/openSUSE_Leap_15.1/'
     priority: 89
     auto_import_keys: yes
@@ -52,7 +52,7 @@
   become: yes
   tags: repositories
   zypper_repository:
-    name: 'virtualization-containers'
+    name: 'virtualization_containers'
     repo: 'https://download.opensuse.org/repositories/Virtualization:/containers/openSUSE_Leap_15.1/'
     priority: 89
     auto_import_keys: yes
@@ -78,7 +78,7 @@
 
     - name: 'Configure repository: Visual Studio Code'
       zypper_repository:
-        name: 'visual-studio-code'
+        name: 'visual_studio_code'
         repo: 'https://packages.microsoft.com/yumrepos/vscode'
         priority: 99
         auto_import_keys: yes
@@ -96,7 +96,7 @@
 
     - name: 'Configure repository: VirtualBox'
       zypper_repository:
-        name: 'virtual-box'
+        name: 'oracle_virtual_box'
         repo: 'http://download.virtualbox.org/virtualbox/rpm/opensuse/15.0/x86_64'
         priority: 99
         auto_import_keys: yes
