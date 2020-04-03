@@ -30,7 +30,6 @@ packages:
     - pavucontrol
     - MozillaFirefox
     - chromium
-    - polybar
     - rofi
     - feh
     - xfce4-terminal
