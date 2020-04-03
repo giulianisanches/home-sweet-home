@@ -19,10 +19,10 @@
     - "{{ role_path }}/files/desktop/config/i3/*"
   tags: desktop
 
-- name: Configure Polybar
+- name: Configure i3status
   copy:
-    src: desktop/config/polybar/config
-    dest: "{{ home }}/.config/polybar/"
+    src: desktop/config/i3status/config
+    dest: "{{ home }}/.config/i3status/"
   tags: desktop
 
 - name: Configure rofi
@@ -31,7 +31,7 @@
     dest: "{{ home }}/.config/rofi/"
   tags: desktop
 
-- name: Install scripts used by i3, rofi, polybar...
+- name: Install scripts
   copy:
     src: "{{ item }}"
     dest: "{{ home }}/.local/sbin/"
