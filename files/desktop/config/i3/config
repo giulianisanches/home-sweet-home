@@ -199,7 +199,6 @@ exec --no-startup-id xfce4-volumed-pulse
 
 exec_always --no-startup-id feh --bg-scale ~/.wallpaper
 exec_always --no-startup-id setxkbmap -layout br,us -variant abnt2,intl -option "shift:both_capslock_cancel,ctrl:nocaps,grp:rctrl_rshift_toggle"
-exec_always --no-startup-id polybar-service restart
 
 # xinput list | grep Touchpad
 # xinput list-props <id_number_from_above_command>
