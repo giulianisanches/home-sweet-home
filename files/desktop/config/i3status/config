@@ -6,6 +6,9 @@
 general {
         colors = true
         interval = 5
+	color_good = '#859900'
+	color_degraded = '#b58900'
+	color_bad = '#dc322f'
 }
 
 order += "ipv6"
@@ -52,5 +55,5 @@ load {
 }
 
 disk "/" {
-        format = "/ - %avail"
+        format = "/ - %percentage_used"
 }
