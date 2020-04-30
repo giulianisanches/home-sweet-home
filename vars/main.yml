@@ -69,6 +69,7 @@ packages:
     - gphoto
     - v4l2loopback-kmp-default
     - v4l2loopback-utils
+    - ffmpeg-3
     - libreoffice-writer
     - libreoffice-calc
     - libreoffice-gtk2
