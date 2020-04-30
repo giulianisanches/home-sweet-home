@@ -66,6 +66,9 @@ packages:
     - telnet
     - tcptraceroute
     - docker
+    - gphoto
+    - v4l2loopback-kmp-default
+    - v4l2loopback-utils
     - libreoffice-writer
     - libreoffice-calc
     - libreoffice-gtk2
