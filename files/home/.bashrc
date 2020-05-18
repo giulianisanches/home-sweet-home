@@ -26,6 +26,7 @@ COLOR_FAILURE='\[\e[1;31m\]'
 COLOR_GIT='\[\e[0;36m\]'
 
 # check if th gpg-agent is running
+# for debian 10 (and newer) based distributions https://github.com/microsoft/vscode/issues/87027
 gpg-connect-agent -q updatestartuptty /bye &> /dev/null
 SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 
