@@ -7,7 +7,7 @@ packages:
     - xorg-x11-server-extra
     - xorg-x11-fonts
     - lightdm
-    - i3-gaps
+    - i3
     - yast2-control-center
     - yast2-sound
     - xfce4-settings

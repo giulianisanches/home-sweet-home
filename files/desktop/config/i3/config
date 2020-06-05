@@ -218,9 +218,6 @@ client.background       #ffffff
 default_border pixel 3
 default_floating_border pixel 3
 
-# Gaps
-gaps inner 2
-
 # custom configurations 
 bindsym Ctrl+mod1+l exec i3lock -c 173f4f
 
