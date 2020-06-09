@@ -8,6 +8,7 @@ packages:
     - xorg-x11-fonts
     - lightdm
     - i3
+    - emacs
     - yast2-control-center
     - yast2-sound
     - xfce4-settings
