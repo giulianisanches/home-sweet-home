@@ -60,6 +60,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 
 assign [class="Xfce4-terminal"] 1
 assign [class="Code"] 3
+assign [class="Emacs"] 3
 assign [class="Firefox"] 5
 assign [class="Chromium-browser"] 2
 assign [class="Microsoft Teams - Preview"] 2
