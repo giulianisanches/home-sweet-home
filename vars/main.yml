@@ -3,9 +3,43 @@ patterns:
     - base
     - gnome_basic
 packages:
-    - materia-gtk-theme
-    - NetworkManager-openvpn-gnome
+    - xorg-x11
+    - xorg-x11-server
+    - xorg-x11-server-extra
+    - xorg-x11-fonts
+    - lightdm
+    - i3
+    - emacs
+    - yast2-control-center
+    - yast2-sound
+    - xfce4-settings
+    - thunar
+    - thunar-plugin-archive
+    - thunar-plugin-shares
+    - NetworkManager-openvpn
+    - blueman
+    - system-config-printer
+    - gnome-calculator
+    - evince
+    - remmina
+    - xarchiver
+    - hexchat
+    - parole
+    - ristretto
+    - mousepad
     - gstreamer-plugins-libav
+    - pasystray
+    - pavucontrol
+    - MozillaFirefox
+    - chromium
+    - rofi
+    - feh
+    - xfce4-terminal
+    - papirus-icon-theme
+    - xfce4-volumed-pulse
+    - xfce4-notifyd
+    - xfce4-screenshooter
+    - pinentry-gnome3
     - keepassxc
     - remmina
     - papirus-icon-theme
@@ -29,6 +63,10 @@ packages:
     - telnet
     - tcptraceroute
     - docker
+    - gphoto
+    - v4l2loopback-kmp-default
+    - v4l2loopback-utils
+    - ffmpeg-3
     - libreoffice-writer
     - libreoffice-calc
     - libreoffice-gtk2

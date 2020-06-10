@@ -11,6 +11,59 @@
       command: fonts-config
   tags: desktop
 
+- name: Configure i3
+  copy:
+    src: "{{ item }}"
+    dest: "{{ home }}/.config/i3/"
+  with_fileglob:
+    - "{{ role_path }}/files/desktop/config/i3/*"
+  tags: desktop
+
+- name: Configure i3status
+  copy:
+    src: desktop/config/i3status/config
+    dest: "{{ home }}/.config/i3status/"
+  tags: desktop
+
+- name: Configure rofi
+  copy:
+    src: desktop/config/rofi/config.rasi
+    dest: "{{ home }}/.config/rofi/"
+  tags: desktop
+
+- name: Install scripts
+  copy:
+    src: "{{ item }}"
+    dest: "{{ home }}/.local/sbin/"
+    mode: 0700
+  with_fileglob:
+    - "{{ role_path }}/files/desktop/local/sbin/*"
+  tags: desktop
+
+- name: Configure Xfce components
+  command: "{{ item }}"
+  loop:
+    - xfconf-query -c xfce4-keyboard-shortcuts -p /commands/default/Super_L -n -t string -s ""
+    - xfconf-query -c xfce4-keyboard-shortcuts -p /commands/default/Print -n -t string -s ""
+    - xfconf-query -c xsettings -p /Net/ThemeName -n -t string-s "Greybird-Geeko-Light"
+    - xfconf-query -c xsettings -p /Net/IconThemeName -n -t string -s "Papirus"
+    - xfconf-query -c xsettings -p /Gtk/FontName -n -t string -s "Noto Sans 12"
+    - xfconf-query -c xsettings -p /Gtk/MonospaceFontName -n -t string -s "DejaVu Sans Mono 12"
+    - xfconf-query -c xsettings -p /Xft/Antialias -n -t int -s 1
+    - xfconf-query -c xsettings -p /Xft/Hinting -n -t int -s 1
+    - xfconf-query -c xsettings -p /Xft/HintStyle -n -t string  -s "hintslight"
+    - xfconf-query -c xsettings -p /Xft/RGBA -n -t string -s "rgb"
+    - xfconf-query -c thunar -p /default-view -n -t string -s "ThunarDetailsView"
+  ignore_errors: yes
+  tags: desktop
+
+- name: Configure LightDM
+  become: yes
+  copy:
+    src: system/lightdm-gtk-greeter.conf
+    dest: /etc/lightdm/lightdm-gtk-greeter.conf
+  tags: desktop
+
 - name: Configure papirus folder colors
   block:
     - name: Download papirus folders installer

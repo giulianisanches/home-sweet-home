@@ -18,12 +18,63 @@
   tags:
     - repositories
 
+- name: 'Configure repository: Packman Multimedia'
+  become: yes
+  zypper_repository:
+    name: 'packman_multimedia'
+    repo: 'http://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Leap_15.1/Multimedia'
+    priority: 79
+    auto_import_keys: yes
+    state: present
+  tags:
+    - repositories
+
+- name: 'Configure repository: X11 - Xfce'
+  become: yes
+  tags: repositories
+  zypper_repository:
+    name: 'x11_xfce'
+    repo: 'http://download.opensuse.org/repositories/X11:/xfce/openSUSE_Leap_15.1/'
+    priority: 89
+    auto_import_keys: yes
+    state: present
+
+- name: 'Configure repository: X11 - windowmanagers'
+  become: yes
+  tags: repositories
+  zypper_repository:
+    name: 'x11_windowmanagers'
+    repo: 'https://download.opensuse.org/repositories/X11:/windowmanagers/openSUSE_Leap_15.1/'
+    priority: 89
+    auto_import_keys: yes
+    state: present
+
+- name: 'Configure repository: X11 - Utilities'
+  become: yes
+  tags: repositories
+  zypper_repository:
+    name: 'x11_utilities'
+    repo: 'https://download.opensuse.org/repositories/X11:/Utilities/openSUSE_Leap_15.1/'
+    priority: 89
+    auto_import_keys: yes
+    state: present
+
 - name: 'Configure repository: Virtualization - Containers'
   become: yes
   tags: repositories
   zypper_repository:
     name: 'virtualization_containers'
     repo: 'https://download.opensuse.org/repositories/Virtualization:/containers/openSUSE_Leap_15.1/'
+    priority: 89
+    auto_import_keys: yes
+    state: present
+
+- name: 'Configure repository: Editors'
+  become: yes
+  tags: repositories
+  zypper_repository:
+    name: 'editors'
+    repo: 'https://download.opensuse.org/repositories/editors/openSUSE_Leap_15.1/'
     priority: 89
     auto_import_keys: yes
     state: present
@@ -37,6 +88,7 @@
     priority: 89
     auto_import_keys: yes
     state: present
+
 
 - name: 'Configure repository: Microsoft'
   become: yes
