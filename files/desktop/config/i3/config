@@ -176,7 +176,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-focus_follows_mouse no
+focus_follows_mouse yes
 
 bar {
     output primary
