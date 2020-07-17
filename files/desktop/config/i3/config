@@ -64,6 +64,7 @@ assign [class="Emacs"] 3
 assign [class="Firefox"] 5
 assign [class="Chromium-browser"] 2
 assign [class="Microsoft Teams - Preview"] 2
+assign [class="discord"] 2
 assign [class="VirtualBox Machine"] 6
 assign [class="VirtualBox Manager"] 6
 assign [class="org.remmina.Remmina"] 7
