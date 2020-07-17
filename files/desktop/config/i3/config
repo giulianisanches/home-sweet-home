@@ -178,6 +178,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 focus_follows_mouse yes
+focus_wrapping no
 
 bar {
     output primary
