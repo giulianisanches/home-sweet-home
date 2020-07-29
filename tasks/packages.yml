@@ -1,64 +1,4 @@
 ---
-- name: Zypper configuration
-  become: yes
-  copy:
-    src: "{{ role_path }}/files/system/zypp.conf"
-    dest: /etc/zypp/zypp.conf
-  tags:
-    - repositories
-
-- name: 'Configure repository: Packman Essentials'
-  become: yes
-  zypper_repository:
-    name: 'packman_essentials'
-    repo: 'http://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Leap_15.1/Essentials'
-    priority: 79
-    auto_import_keys: yes
-    state: present
-  tags:
-    - repositories
-
-- name: 'Configure repository: Packman Multimedia'
-  become: yes
-  zypper_repository:
-    name: 'packman_multimedia'
-    repo: 'http://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Leap_15.1/Multimedia'
-    priority: 79
-    auto_import_keys: yes
-    state: present
-  tags:
-    - repositories
-
-- name: 'Configure repository: X11 - Xfce'
-  become: yes
-  tags: repositories
-  zypper_repository:
-    name: 'x11_xfce'
-    repo: 'http://download.opensuse.org/repositories/X11:/xfce/openSUSE_Leap_15.1/'
-    priority: 89
-    auto_import_keys: yes
-    state: present
-
-- name: 'Configure repository: X11 - windowmanagers'
-  become: yes
-  tags: repositories
-  zypper_repository:
-    name: 'x11_windowmanagers'
-    repo: 'https://download.opensuse.org/repositories/X11:/windowmanagers/openSUSE_Leap_15.1/'
-    priority: 89
-    auto_import_keys: yes
-    state: present
-
-- name: 'Configure repository: X11 - Utilities'
-  become: yes
-  tags: repositories
-  zypper_repository:
-    name: 'x11_utilities'
-    repo: 'https://download.opensuse.org/repositories/X11:/Utilities/openSUSE_Leap_15.1/'
-    priority: 89
-    auto_import_keys: yes
-    state: present
-
 - name: 'Configure repository: Virtualization - Containers'
   become: yes
   tags: repositories
@@ -142,14 +82,6 @@
         name: "*"
         state: latest
         update_cache: yes
-
-    - name: Install patterns
-      zypper:
-        name: "{{ patterns }}"
-        type: pattern
-        state: latest
-        disable_recommends: no
-        force: yes
 
     - name: Install packages
       zypper:
