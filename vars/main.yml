@@ -7,6 +7,9 @@ packages:
     - libreoffice-writer
     - keepassxc
     - dconf-editor
+    - mongodb-clients
+    - postgresql-client
+    - mysql-client
     - flameshot
     - code
     - remmina
