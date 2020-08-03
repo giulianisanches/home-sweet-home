@@ -12,6 +12,7 @@ packages:
     - mysql-client
     - flameshot
     - code
+    - openjdk-8-sdk
     - remmina
     - vim
     - curl
