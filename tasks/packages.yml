@@ -89,7 +89,6 @@
     auto_import_keys: yes
     state: present
 
-
 - name: 'Configure repository: Microsoft'
   become: yes
   block:
