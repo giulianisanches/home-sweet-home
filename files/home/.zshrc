@@ -4,6 +4,8 @@ bindkey -e
 source ~/.zinit/bin/zinit.zsh
 
 autoload -Uz compinit
+autoload -Uz $fpath[1]/*(.:t)
+
 compinit
 
 [[ -f $HOME/.aliases ]] && source "$HOME/.aliases"
