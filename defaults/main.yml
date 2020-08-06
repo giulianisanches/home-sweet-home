@@ -1,5 +1,3 @@
 ---
 # defaults file for home-sweet-home
 home: "{{ lookup('env', 'HOME') }}"
-papirus_folders_theme: Papirus
-papirus_folders_color: teal

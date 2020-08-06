@@ -31,10 +31,10 @@
     - echo "Hidden=true" >> ~/.config/autostart/gnome-keyring-ssh.desktop
   ignore_errors: yes
   tags: desktop
-  
+
 - name: Install home files
   copy:
-    src: "{{ role_path }}/files/home/{{ item }}"
+    src: "{{ role_path }}/files/{{ item }}"
     dest: "{{ home }}"
   loop:
     - .zsh
