@@ -13,6 +13,8 @@ mkdir -p "$HOME/dev/src/github.com/giulianisanches"
 (
     cd "$HOME/dev/src/github.com/giulianisanches"
     git clone git@gitlab.com:giulianideon/home-sweet-home.git
+    cd home-sweet-home
+    "$HOME/.local/bin/ansible-playbook" -K ./home_sweet_home.yml
 )
 
 gsettings set org.gnome.shell.app-switcher current-workspace-only true
