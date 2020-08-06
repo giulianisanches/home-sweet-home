@@ -1,7 +1,5 @@
 #!/bin/bash
 
-source "$HOME/.bash/functions.sh"
-
 for al in $(git config --get-regexp '^alias.' | cut -d' ' -f1 | cut -d'.' -f2); do
     alias g$al="git $al"
 done
