@@ -12,10 +12,8 @@
     src: "{{ role_path }}/files/home/{{ item }}"
     dest: "{{ home }}"
   loop:
-    - .bashrc
-    - .bash
-    - .profile
+    - .zsh
+    - .zshrc
+    - .zshenv
     - .aliases
-    - .tmux.conf
-    - .Xdefaults
   tags: home
