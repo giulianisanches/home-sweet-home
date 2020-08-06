@@ -18,5 +18,3 @@ packages:
     - curl
     - whois
     - jq
-    - git
-    - zsh

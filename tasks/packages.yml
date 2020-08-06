@@ -1,22 +1,4 @@
 ---
-- name: 'Configure repository: Oracle'
-  become: yes
-  block:
-    - name: 'Configure repository: Import Oracle Key'
-      rpm_key:
-        key: https://www.virtualbox.org/download/oracle_vbox.asc
-        state: present
-
-    - name: 'Configure repository: VirtualBox'
-      zypper_repository:
-        name: 'oracle_virtual_box'
-        repo: 'http://download.virtualbox.org/virtualbox/rpm/opensuse/15.0/x86_64'
-        priority: 99
-        auto_import_keys: yes
-        state: present
-  tags:
-    - repositories
-
 - name: 'Refresh all repos'
   become: yes
   zypper_repository:
