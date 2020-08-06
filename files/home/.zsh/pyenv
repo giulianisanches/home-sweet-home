@@ -1,7 +1,7 @@
   [[ -z ${VENV_HOME}  ]] && echo "Set VENV_HOME environment variable" && return 1
 
-  local op="${1,,}"
-  local venv="${2,,}"
+  local op="${(L)1}"
+  local venv="${(L)2}"
 
   case "${op}" in
 	create)
