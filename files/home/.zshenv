@@ -1,7 +1,7 @@
 typeset -U path
 typeset -U fpath
 
-fpath=("$HOME/.zsh" $fpath)
+fpath=($HOME/.zsh $fpath)
 
 HISTFILE=~/.histfile
 HISTSIZE=1000
