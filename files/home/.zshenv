@@ -27,3 +27,4 @@ export GOPATH
 export LESS
 export PATH
 export SSH_AUTH_SOCK
+export GPG_AGENT_INFO
