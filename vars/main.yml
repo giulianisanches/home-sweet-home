@@ -12,7 +12,8 @@ packages:
     - mysql-client
     - flameshot
     - code
-    - openjdk-8-sdk
+    - openjdk-11-jdk
+    - openjdk-8-jdk
     - remmina
     - vim
     - curl
