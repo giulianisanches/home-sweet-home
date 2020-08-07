@@ -6,7 +6,7 @@ source ~/.zinit/bin/zinit.zsh
 autoload -Uz compinit; compinit
 autoload -U promptinit; promptinit
 
-zinit light zsh-users/zsh-autocompletion
+zinit light zsh-users/zsh-completions
 zinit light zdharma/fast-syntax-highlighting
 # Load the pure theme, with zsh-async library that's bundled with it.
 zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
