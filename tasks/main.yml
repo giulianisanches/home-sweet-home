@@ -34,7 +34,7 @@
 
 - name: Install home files
   copy:
-    src: "{{ role_path }}/files/{{ item }}"
+    src: "{{ item }}"
     dest: "{{ home }}"
   loop:
     - .zsh
