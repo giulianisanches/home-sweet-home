@@ -15,6 +15,4 @@ zinit light sindresorhus/pure
 autoload -Uz ~/.zsh/**/*
 [[ -f $HOME/.aliases ]] && source "$HOME/.aliases"
 
-prompt pure
-
 gpg-connect-agent -q updatestartuptty /bye &> /dev/null
