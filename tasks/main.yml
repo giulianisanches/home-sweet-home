@@ -27,7 +27,7 @@
     - gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command '/usr/bin/flameshot gui'
     - gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding 'Print'
     # disable gnome keyring ssh autostart
-    - cp /etc/xdg/autostart/gnome-keyring-ssh.desktop .config/autostart/
+    - cp /etc/xdg/autostart/gnome-keyring-ssh.desktop ~/.config/autostart/
     - echo "Hidden=true" >> ~/.config/autostart/gnome-keyring-ssh.desktop
   ignore_errors: yes
   tags: desktop
