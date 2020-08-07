@@ -19,6 +19,9 @@ ANSIBLE_CONFIG="$HOME/.config/ansible"
 
 path=($path[@] $HOME/.local/bin $GOROOT/bin $GOPATH/bin)
 
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=7'
+
+
 export ANSIBLE_CONFIG
 export LDAP_USERNAME
 export VENV_HOME
@@ -28,3 +31,5 @@ export LESS
 export PATH
 export SSH_AUTH_SOCK
 export GPG_AGENT_INFO
+
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE
