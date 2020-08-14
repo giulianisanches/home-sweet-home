@@ -19,3 +19,4 @@ packages:
     - curl
     - whois
     - jq
+    - ldap-utils
