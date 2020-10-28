@@ -11,6 +11,7 @@ packages:
     - postgresql-client
     - mysql-client
     - flameshot
+    - python3-venv
     - code
     - openjdk-11-jdk
     - openjdk-8-jdk
