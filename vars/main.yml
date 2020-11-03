@@ -16,6 +16,7 @@ packages:
     - openjdk-11-jdk
     - openjdk-8-jdk
     - remmina
+    - emacs
     - vim
     - curl
     - whois
