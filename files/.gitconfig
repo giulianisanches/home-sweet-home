@@ -9,6 +9,11 @@
     cm = commit -m
     cam = commit -a -m
     m = commit --amend --verbose
+
+    ps = push
+    pl = pull
+    f  = fetch
+    fp = fetch --prune
     
     d = diff
     ds = diff --stat
