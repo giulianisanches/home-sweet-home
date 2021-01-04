@@ -16,6 +16,7 @@ VENV_HOME="$HOME/dev/venv"
 
 LDAP_USERNAME="giuliani_sanches"
 ANSIBLE_CONFIG="$HOME/.config/ansible"
+VPN_CONFIG_FILE="$HOME/.local/opt/openvpn3/client.ovpn"
 
 path=($path[@] $HOME/.local/bin $GOROOT/bin $GOPATH/bin)
 
