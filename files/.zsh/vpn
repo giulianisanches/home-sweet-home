@@ -1,0 +1,24 @@
+local op="$1"
+
+session_path="$( openvpn3 sessions-list | grep -i path | cut -d':' -f 2 | tr -d ' ' )"
+
+case "${op}" in
+connect|info)
+    [[ ${op} == "connect" ]] && openvpn3 session-start --config "${VPN_CONFIG_FILE}"
+    [[ ${op} == "info" ]] && openvpn3 sessions-list  
+    ;;
+disconnect|stats)
+    if [[ -z ${session_path} ]]
+    then
+        echo "No active VPN connection found."
+        return
+    fi
+    
+    [[ ${op} == "disconnect" ]] && \
+        openvpn3 session-manage --disconnect --session-path "${session_path}"
+    [[ ${op} == "stats" ]] && openvpn3 session-stats --session-path "${session_path}"
+    ;;
+*)
+    echo "Use connect/disconnect/stats/info"
+    ;;
+esac
