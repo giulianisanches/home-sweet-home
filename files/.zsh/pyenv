@@ -1,0 +1,29 @@
+  [[ -z ${VENV_HOME}  ]] && echo "Set VENV_HOME environment variable" && return 1
+
+  local op="${(L)1}"
+  local venv="${(L)2}"
+
+  case "${op}" in
+	create)
+    python3 -m venv "${VENV_HOME}/${venv}"
+    . "${VENV_HOME}/${venv}/bin/activate"
+		;;
+  list)
+    ls "${VENV_HOME}"
+    ;;
+  activate)
+    if [[ ! -d "${VENV_HOME}/${venv}" ]]; then
+      echo "virtualenv ${venv} does not exists!"
+      return 1
+    fi
+
+    . "${VENV_HOME}/${venv}/bin/activate"
+    ;;
+  remove)
+    [[ -d "${VENV_HOME}/${venv}" ]] && rm -rf "${VENV_HOME}/${venv}"
+    ;;
+	*)
+    echo "Usage:
+            pyenv (create|list|activate|remove) <nome_virtualevn>"
+		;;
+  esac

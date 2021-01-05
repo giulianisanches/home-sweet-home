@@ -1,55 +1,44 @@
 ---
-- include_tasks: "packages.yml"
+- name: Install desktop packages
+  become: yes
+  block:
+    - name: Upgrade packages
+      apt:
+        name: "*"
+        state: latest
+        update_cache: yes
+
+    - name: Install packages
+      apt:
+        name: "{{ packages }}"
+        state: latest
   tags:
     - packages
-    - repositories
 
-- include_tasks: desktop.yml
+- name: Configure desktop
+  command: "{{ item }}"
+  loop:
+    - gsettings set org.gnome.shell.app-switcher current-workspace-only true
+    # Set flameshot as the default screenshot tool
+    # https://askubuntu.com/questions/1036473/ubuntu-18-how-to-change-screenshot-application-to-flameshot
+    - gsettings set org.gnome.settings-daemon.plugins.media-keys screenshot '[]'
+    - gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
+    - gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'flameshot'
+    - gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command '/usr/bin/flameshot gui'
+    - gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding 'Print'
+    # disable gnome keyring ssh autostart
+    - cp /etc/xdg/autostart/gnome-keyring-ssh.desktop ~/.config/autostart/
+    - echo "Hidden=true" >> ~/.config/autostart/gnome-keyring-ssh.desktop
+  ignore_errors: yes
   tags: desktop
 
 - name: Install home files
   copy:
-    src: "{{ role_path }}/files/home/{{ item }}"
+    src: "{{ item }}"
     dest: "{{ home }}"
   loop:
-    - .bashrc
-    - .bash
-    - .profile
+    - .zsh
+    - .zshrc
+    - .zshenv
     - .aliases
-    - .tmux.conf
-    - .Xdefaults
   tags: home
-
-- name: Enable and start cups service
-  become: yes
-  systemd:
-    state: started
-    enabled: yes
-    name: cups
-  tags: system
-
-- name: Enable and start samba service
-  become: yes
-  systemd:
-    state: started
-    enabled: yes
-    name: smb
-  tags: system
-
-- name: Configure additional groups
-  become: yes
-  user:
-    append: true
-    groups: "{{ item }}"
-    name: "{{ lookup('env', 'USER') }}"
-  loop:
-    - lp
-    - audio
-    - video
-    - nm-openvpn
-  tags: system
-
-- name: Set graphical login
-  become: true
-  command: 'systemctl set-default graphical.target'
-  tags: system
