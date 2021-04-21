@@ -13,12 +13,13 @@ LESS="-M -R"
 SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 GPG_AGENT_INFO="$SSH_AUTH_SOCK:$(pgrep gpg-agent)"
 VENV_HOME="$HOME/dev/venv"
-
-LDAP_USERNAME="giuliani_sanches"
 ANSIBLE_CONFIG="$HOME/.config/ansible"
+
+# employer data
+LDAP_USERNAME="giuliani_sanches"
 VPN_CONFIG_FILE="$HOME/.local/opt/openvpn3/client.ovpn"
 
-path=($path[@] $HOME/.local/bin $GOROOT/bin $GOPATH/bin)
+path=($path[@] $HOME/.local/bin $GOROOT/bin $GOPATH/bin )
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=7'
 PURE_CMD_MAX_EXEC_TIME=86400
