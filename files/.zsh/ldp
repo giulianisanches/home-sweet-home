@@ -1,4 +1,7 @@
-local op="$1"
+#ldapsearch -x -b "dc=sicredi,dc=com,dc=br" -H ldap://openldap-digital.prd-sicredi.in "cn=dig_aws_devops" | grep member | cut -d' ' -f 2    
+#ldapsearch -x -b "dc=sicredi,dc=com,dc=br" -H ldap://openldap-digital.prd-sicredi.in "uid=nei_cunha"
+
+
 local field="$2"
 local filter="$3"
 local ldap_host="${LDAP_HOST:-ldap.hom.sicredi.net}"
