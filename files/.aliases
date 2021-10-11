@@ -27,3 +27,5 @@ alias gauth='gcloud auth'
 alias gprofile='gconfig configurations'
 alias glogin='gauth login'
 alias gapplogin='gauth application-default login'
+
+#find . -maxdepth 2 -type d -name ".git" | sed -e "s/\.git//" | while read dir ; do git -C $dir status -s ; done
