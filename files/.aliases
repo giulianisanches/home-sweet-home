@@ -20,3 +20,10 @@ alias exit='[[ -z $TMUX ]] && builtin exit || tmux detach'
 alias tmx='eval $( tmux list-sessions && tmux a -t main || tmux new -s main)'
 
 alias ssh='TERM=xterm-256color ssh'
+
+alias gconfig='gcloud config'
+alias gauth='gcloud auth'
+
+alias gprofile='gconfig configurations'
+alias glogin='gauth login'
+alias gapplogin='gauth application-default login'
