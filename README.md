@@ -1,7 +1,7 @@
 home-sweet-home
 =========
 
-Just an ansible role to configure my desktop
+Just an ansible role to configure my desktop (test)
 
 The bootsrap_home.sh will take care of a few things before execute this role
 
