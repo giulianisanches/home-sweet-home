@@ -1,3 +1,11 @@
+# Personal
+[includeIf "gitdir:~/dev/src/github.com/giulianisanches/"]
+  path = "~/dev/.gitconfig-giuliani-github"
+[includeIf "gitdir:~/dev/src/github.com/giulianisanches/"]
+  path = "~/dev/.gitconfig-giuliani-gitlab"
+[includeIf "gitdir:~/dev/src/dev.azure.com/giulianisanches/"]
+  path = "~/dev/.gitconfig-giuliani-azuredevops"
+  
 [alias]
     # one-line log
     l = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
