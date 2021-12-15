@@ -3,7 +3,7 @@
 sudo apt install curl wget python3-pip git zsh
 
 mkdir "$HOME/.zinit"
-git clone https://github.com/zdharma/zinit.git  "$HOME/.zinit/bin"
+git clone https://github.com/zdharma-continuum/zinit.git  "$HOME/.zinit/bin"
 
 pip3 install --user awscli
 pip3 install --user ansible
