@@ -1,7 +1,7 @@
 # Personal
 [includeIf "gitdir:~/dev/src/github.com/giulianisanches/"]
   path = "~/dev/.gitconfig-giuliani-github"
-[includeIf "gitdir:~/dev/src/github.com/giulianisanches/"]
+[includeIf "gitdir:~/dev/src/gitlab.com/giulianisanches/"]
   path = "~/dev/.gitconfig-giuliani-gitlab"
 [includeIf "gitdir:~/dev/src/dev.azure.com/giulianisanches/"]
   path = "~/dev/.gitconfig-giuliani-azuredevops"
