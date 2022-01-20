@@ -1,0 +1,6 @@
+local project_name=${PWD##*/}
+local python3="$( which python3 )"
+
+$python3 -m venv ".venv/$project_name"
+
+source ".venv/$project_name/bin/activate"
