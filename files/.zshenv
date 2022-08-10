@@ -24,7 +24,12 @@ GOOGLE_APPLICATION_CREDENTIALS="${SECRETS_GOOGLE_APPLICATION_CREDENTIALS}"
 
 DOTNET_CLI_TELEMETRY_OPTOUT=1
 
-path=($path[@] $HOME/.local/bin $GOROOT/bin $GOPATH/bin $HOME/.dotnet/tools )
+path=($path[@]
+      $HOME/.local/bin
+      $GOROOT/bin
+      $GOPATH/bin
+      $HOME/.dotnet/tools
+      /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/)
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=7'
 PURE_CMD_MAX_EXEC_TIME=86400
