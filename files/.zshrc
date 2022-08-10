@@ -17,13 +17,14 @@ autoload -Uz ~/.zsh/**/*
 [[ -f $HOME/.aliases ]] && source "$HOME/.aliases"
 [[ -f $HOME/.local_secrets ]] && source "$HOME/.local_secrets"
 
-$keychain=$(which keychain)
-if (( ${+keychain} )); then
-  eval `$keychain -q --nogui $HOME/.ssh/id_rsa`
-  eval `$keychain -q --nogui $HOME/.ssh/id_rsa_abi`
-  eval `$keychain -q --nogui $HOME/.ssh/id_ed25519`
-  eval `$keychain -q --nogui $HOME/.ssh/id_ed25519_abinbev`
-  eval `$keychain -q --nogui $HOME/.ssh/google_compute_engine`
-else
-  gpg-connect-agent -q updatestartuptty /bye &> /dev/null
-fi
+# TODO: This could only be run under linux (currently using macOS)
+# $keychain=$(which keychain)
+# if (( ${+keychain} )); then
+#   eval `$keychain -q --nogui $HOME/.ssh/id_rsa`
+#   eval `$keychain -q --nogui $HOME/.ssh/id_rsa_abi`
+#   eval `$keychain -q --nogui $HOME/.ssh/id_ed25519`
+#   eval `$keychain -q --nogui $HOME/.ssh/id_ed25519_abinbev`
+#   eval `$keychain -q --nogui $HOME/.ssh/google_compute_engine`
+# else
+#   gpg-connect-agent -q updatestartuptty /bye &> /dev/null
+# fi

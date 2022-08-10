@@ -10,8 +10,9 @@ SAVEHIST=1000
 GOROOT="$HOME/.local/opt/go"
 GOPATH="$HOME/dev"
 LESS="-F -M -R"
-SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-GPG_AGENT_INFO="$SSH_AUTH_SOCK:$(pgrep gpg-agent)"
+# TODO: This could only be run under linux (currently using macOS)
+# SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+# GPG_AGENT_INFO="$SSH_AUTH_SOCK:$(pgrep gpg-agent)"
 VENV_HOME="$HOME/dev/venv"
 ANSIBLE_CONFIG="$HOME/.config/ansible"
 
