@@ -29,7 +29,8 @@ path=($path[@]
       $GOROOT/bin
       $GOPATH/bin
       $HOME/.dotnet/tools
-      /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/)
+      /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/
+      ~/Library/Python/3.8/bin)
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=7'
 PURE_CMD_MAX_EXEC_TIME=86400
