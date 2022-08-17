@@ -9,7 +9,6 @@ SAVEHIST=1000
 
 [[ $(uname) != 'Darwin' ]] && GOROOT="$HOME/.local/opt/go"
 
-GOPATH="$HOME/dev"
 LESS="-F -M -R"
 # TODO: This could only be run under linux (currently using macOS)
 [[ $(uname) != 'Darwin' ]] && SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
@@ -28,8 +27,6 @@ DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 path=($path[@]
       $HOME/.local/bin
-      $GOROOT/bin
-      $GOPATH/bin
       $HOME/.dotnet/tools)
 
 if [[ $(uname) == 'Darwin' ]]
@@ -45,9 +42,6 @@ PURE_CMD_MAX_EXEC_TIME=86400
 export ANSIBLE_CONFIG
 export LDAP_USERNAME
 export VENV_HOME
-
-[[ (( ${+GOROOT} )) ]] && export GOROOT
-export GOPATH
 
 export LESS
 export PATH
