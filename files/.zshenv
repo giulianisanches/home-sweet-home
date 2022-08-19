@@ -39,6 +39,11 @@ fi
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=7'
 PURE_CMD_MAX_EXEC_TIME=86400
 
+# Disable the use of the buildkit api
+# Reference: https://github.com/containers/podman/issues/13889
+DOCKER_BUILDKIT=0
+export DOCKER_BUILDKIT
+
 export ANSIBLE_CONFIG
 export LDAP_USERNAME
 export VENV_HOME
