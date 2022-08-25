@@ -42,7 +42,14 @@ PURE_CMD_MAX_EXEC_TIME=86400
 # Disable the use of the buildkit api
 # Reference: https://github.com/containers/podman/issues/13889
 DOCKER_BUILDKIT=0
+
+# GOPATH can still be used. I don't really like the default ~/go that go modules uses
+GOPATH="$HOME/dev"
+
+# exports
 export DOCKER_BUILDKIT
+
+export GOPATH
 
 export ANSIBLE_CONFIG
 export LDAP_USERNAME
