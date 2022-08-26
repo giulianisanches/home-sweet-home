@@ -46,6 +46,15 @@ DOCKER_BUILDKIT=0
 # GOPATH can still be used. I don't really like the default ~/go that go modules uses
 GOPATH="$HOME/dev"
 
+emacs="$(which --skip-alias emacs 2> /dev/null)"
+if [[ $(uname) == 'Darwin' ]]
+then
+   emacs="/Applications/Emacs/Contents/MacOS/Emacs -nw"
+fi
+
+VISUAL="$emacs -nw"
+EDITOR="$emacs -nw"
+
 # exports
 export DOCKER_BUILDKIT
 
@@ -66,3 +75,6 @@ export PURE_CMD_MAX_EXEC_TIME
 
 export GOOGLE_APPLICATION_CREDENTIALS
 export DOTNET_CLI_TELEMETRY_OPTOUT
+
+export VISUAL
+export EDITOR
