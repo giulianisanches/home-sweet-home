@@ -19,7 +19,7 @@ autoload -Uz ~/.zsh/**/*
 
 if [[ $(uname) != 'Darwin' ]]
 then
-    $keychain=$(which keychain)
+    keychain=$(which keychain)
     if (( ${+keychain} )); then
         eval `$keychain -q --nogui $HOME/.ssh/id_rsa`
         eval `$keychain -q --nogui $HOME/.ssh/id_rsa_abi`
