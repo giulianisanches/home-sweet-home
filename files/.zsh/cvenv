@@ -1,6 +1,5 @@
-local project_name=${PWD##*/}
-local python3="$( which python3 )"
+local python3="$( which --skip-alias python3 2> /dev/null )"
 
-$python3 -m venv ".venv/$project_name"
+$python3 -m venv ".venv"
 
-source ".venv/$project_name/bin/activate"
+source ".venv/bin/activate"
