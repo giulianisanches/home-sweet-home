@@ -1,11 +1,14 @@
 # Personal
-[includeIf "gitdir:~/dev/src/github.com/giulianisanches/"]
-  path = "~/dev/.gitconfig-giuliani-github"
-[includeIf "gitdir:~/dev/src/gitlab.com/giulianisanches/"]
-  path = "~/dev/.gitconfig-giuliani-gitlab"
-[includeIf "gitdir:~/dev/src/dev.azure.com/giulianisanches/"]
-  path = "~/dev/.gitconfig-giuliani-azuredevops"
-  
+[includeIf "gitdir:~/dev/src/github.com/"]
+  path = "~/dev/src/github.com/.gitconfig"
+[includeIf "gitdir:~/dev/src/gitlab.com/"]
+  path = "~/dev/src/gitlab.com/.gitconfig"
+[includeIf "gitdir:~/dev/src/dev.azure.com/"]
+  path = "~/dev/src/dev.azure.com/.gitconfig"
+
+[include]
+  path = "~/.gitconfig_company"
+
 [alias]
     # one-line log
     l = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
@@ -22,7 +25,7 @@
     pl = pull
     f  = fetch
     fp = fetch --prune
-    
+
     d = diff
     ds = diff --stat
     dc = diff --cached
@@ -35,3 +38,5 @@
 
     # list aliases
     la = "!git config -l | grep alias | cut -c 7-"
+[checkout]
+	defaultRemote = origin
