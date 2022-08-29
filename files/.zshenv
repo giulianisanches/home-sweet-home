@@ -46,6 +46,8 @@ DOCKER_BUILDKIT=0
 # GOPATH can still be used. I don't really like the default ~/go that go modules uses
 GOPATH="$HOME/dev"
 
+NVM_DIR="$HOME/.nvm"
+
 emacs="$(which --skip-alias emacs 2> /dev/null)"
 if [[ $(uname) == 'Darwin' ]]
 then
@@ -78,3 +80,5 @@ export DOTNET_CLI_TELEMETRY_OPTOUT
 
 export VISUAL
 export EDITOR
+
+export NVM_DIR
