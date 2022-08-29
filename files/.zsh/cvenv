@@ -1,4 +1,6 @@
-local python3="$( which --skip-alias python3 2> /dev/null )"
+[[ $(uname) != 'Darwin' ]] && which_opts="--skip-alias"
+
+local python3="$( which ${which_opts} python3 2> /dev/null )"
 
 $python3 -m venv ".venv"
 
