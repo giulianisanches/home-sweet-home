@@ -27,7 +27,8 @@ DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 path=($path[@]
       $HOME/.local/bin
-      $HOME/.dotnet/tools)
+      $HOME/.dotnet/tools
+      $HOME/dev/bin)
 
 if [[ $(uname) == 'Darwin' ]]
 then
