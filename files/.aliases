@@ -28,6 +28,4 @@ alias gprofile='gconfig configurations'
 alias glogin='gauth login'
 alias gapplogin='gauth application-default login'
 
-alias emacs=emacsc
-
 [[ -f $HOME/.secret_aliases ]] && source .secret_aliases
