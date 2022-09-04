@@ -58,6 +58,10 @@ fi
 VISUAL="$emacs -nw"
 EDITOR="$emacs -nw"
 
+# emacs lsp-mode configuration
+# ref: https://emacs-lsp.github.io/lsp-mode/page/performance/
+LSP_USE_PLISTS=true
+
 # exports
 export DOCKER_BUILDKIT
 
@@ -81,5 +85,7 @@ export DOTNET_CLI_TELEMETRY_OPTOUT
 
 export VISUAL
 export EDITOR
+
+export LSP_USE_PLISTS
 
 export NVM_DIR
