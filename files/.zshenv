@@ -34,7 +34,8 @@ if [[ $(uname) == 'Darwin' ]]
 then
     path=($path[@]
           /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/
-          ~/Library/Python/3.8/bin)
+          ~/Library/Python/3.8/bin
+          ~/Library/Python/3.9/bin)
 fi
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=7'
