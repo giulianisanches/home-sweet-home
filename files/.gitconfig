@@ -1,6 +1,8 @@
 # Personal
 [includeIf "gitdir:~/dev/src/github.com/"]
   path = "~/dev/src/github.com/.gitconfig"
+[includeIf "gitdir:~/dev/src/local/"]
+  path = "~/dev/src/github.com/.gitconfig"
 [includeIf "gitdir:~/dev/src/gitlab.com/"]
   path = "~/dev/src/gitlab.com/.gitconfig"
 [includeIf "gitdir:~/dev/src/dev.azure.com/"]
