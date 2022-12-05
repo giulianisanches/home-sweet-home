@@ -6,15 +6,13 @@ fpath=($HOME/.zsh $fpath)
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
+LESS="-F -M -R"
 
 [[ $(uname) != 'Darwin' ]] && GOROOT="$HOME/.local/opt/go"
-
-LESS="-F -M -R"
 # TODO: This could only be run under linux (currently using macOS)
 [[ $(uname) != 'Darwin' ]] && SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 [[ $(uname) != 'Darwin' ]] && GPG_AGENT_INFO="$SSH_AUTH_SOCK:$(pgrep gpg-agent)"
 
-VENV_HOME="$HOME/dev/venv"
 ANSIBLE_CONFIG="$HOME/.config/ansible"
 
 # employer data
