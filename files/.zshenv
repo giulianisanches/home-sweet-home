@@ -50,14 +50,8 @@ GOPATH="$HOME/dev"
 
 NVM_DIR="$HOME/.nvm"
 
-emacs="$(which --skip-alias emacs 2> /dev/null)"
-if [[ $(uname) == 'Darwin' ]]
-then
-   emacs="/Applications/Emacs/Contents/MacOS/Emacs -nw"
-fi
-
-VISUAL="$emacs -nw"
-EDITOR="$emacs -nw"
+VISUAL="code"
+EDITOR="code"
 
 # emacs lsp-mode configuration
 # ref: https://emacs-lsp.github.io/lsp-mode/page/performance/
