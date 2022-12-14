@@ -23,6 +23,7 @@ GOOGLE_APPLICATION_CREDENTIALS="${SECRETS_GOOGLE_APPLICATION_CREDENTIALS}"
 DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 path=($path[@]
+      /usr/local/go/bin
       $HOME/.local/bin
       $HOME/.dotnet/tools
       $HOME/dev/bin)
