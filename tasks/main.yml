@@ -1,15 +1,14 @@
 ---
 - name: Install desktop packages
-  become: yes
+  become: true
   block:
     - name: Upgrade packages
-      apt:
+      ansible.builtin.dnf:
         name: "*"
         state: latest
-        update_cache: yes
 
     - name: Install packages
-      apt:
+      ansible.builtin.dnf:
         name: "{{ packages }}"
         state: latest
   tags:
@@ -29,7 +28,7 @@
     # disable gnome keyring ssh autostart
     - cp /etc/xdg/autostart/gnome-keyring-ssh.desktop ~/.config/autostart/
     - echo "Hidden=true" >> ~/.config/autostart/gnome-keyring-ssh.desktop
-  ignore_errors: yes
+  ignore_errors: true
   tags: desktop
 
 - name: Install home files
@@ -41,4 +40,5 @@
     - .zshrc
     - .zshenv
     - .aliases
+    - .gitconfig
   tags: home

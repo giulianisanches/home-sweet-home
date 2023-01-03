@@ -6,7 +6,7 @@ The bootsrap_home.sh will take care of a few things before execute this role
 
 ## License
 
-BSD
+MIT License
 
 ## Author Information
 

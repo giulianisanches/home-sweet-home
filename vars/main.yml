@@ -1,24 +1,11 @@
 ---
 packages:
-    - build-essential
-    - gnome-tweaks
-    - gimp
-    - libreoffice-calc
-    - libreoffice-writer
-    - keepassxc
-    - dconf-editor
-    - mongodb-clients
-    - postgresql-client
-    - mysql-client
-    - flameshot
-    - python3-venv
-    - code
-    - openjdk-11-jdk
-    - openjdk-8-jdk
-    - remmina
-    - emacs
-    - vim
-    - curl
-    - whois
-    - jq
-    - ldap-utils
+  - '@C Development Tools and Libraries'
+  - gnome-extensions-app
+  - gnome-tweaks
+  - flameshot
+  - code
+  - vim
+  - jq
+  - gnome-shell-extension-dash-to-dock
+  - gnome-shell-extension-drive-menu
