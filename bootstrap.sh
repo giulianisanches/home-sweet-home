@@ -20,7 +20,7 @@ mkdir -p "$HOME/dev/src/github.com/giulianisanches"
     # if you're planning to clone my repository, change the clone URL to use https
     git clone git@github.com:giulianisanches/home-sweet-home.git
     cd home-sweet-home
-    "$HOME/.local/bin/ansible-playbook" -K ./home_sweet_home.yml
+    ansible-playbook -K './home_sweet_home.yml'
 )
 
 chsh -s $( which zsh )
