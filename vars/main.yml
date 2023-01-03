@@ -1,6 +1,6 @@
 ---
 packages:
-  - build-essential
+  - '@C Development Tools and Libraries'
   - gnome-extensions-app
   - gnome-tweaks
   - flameshot
