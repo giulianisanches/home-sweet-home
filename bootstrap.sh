@@ -23,4 +23,14 @@ mkdir -p "$HOME/dev/src/github.com/giulianisanches"
     ansible-playbook -K './home_sweet_home.yml'
 )
 
+mkdir -p "$HOME/dev/src/github.com/Gogh-Co"
+(
+    cd "$HOME/dev/src/github.com/Gogh-Co"
+    git clone https://github.com/Gogh-Co/Gogh.git
+    cd Gogh/themes
+
+    export TERMINAL=gnome-terminal
+    ./dracula.sh
+)
+
 chsh -s $( which zsh )
