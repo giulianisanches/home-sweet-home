@@ -40,4 +40,5 @@
     - .zshrc
     - .zshenv
     - .aliases
+    - .gitconfig
   tags: home
