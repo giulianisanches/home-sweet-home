@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo dnf install python3-pip git zsh
+sudo dnf install python3-pip git zsh util-linux-user
 
 mkdir "$HOME/.zinit"
 git clone https://github.com/zdharma-continuum/zinit.git  "$HOME/.zinit/bin"
