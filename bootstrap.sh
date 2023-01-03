@@ -5,7 +5,10 @@ sudo dnf install python3-pip git zsh
 mkdir "$HOME/.zinit"
 git clone https://github.com/zdharma-continuum/zinit.git  "$HOME/.zinit/bin"
 
-pip3 install --user awscli
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
 pip3 install --user ansible
 
 mkdir -p "$HOME/dev/src/github.com/giulianisanches"
