@@ -17,7 +17,8 @@ mkdir -p "$HOME/dev/src/github.com/giulianisanches"
 
 (
     cd "$HOME/dev/src/github.com/giulianisanches"
-    git clone git@gitlab.com:giulianideon/home-sweet-home.git
+    # if you're planning to clone my repository, change the clone URL to use https
+    git clone git@github.com:giulianisanches/home-sweet-home.git
     cd home-sweet-home
     "$HOME/.local/bin/ansible-playbook" -K ./home_sweet_home.yml
 )
