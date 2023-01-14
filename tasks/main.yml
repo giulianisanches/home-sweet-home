@@ -51,7 +51,7 @@
 
 - name: Copy Alacritty configuration file
   ansible.builtin.file:
-    src: "{{ (playbook_dir, 'files', 'alacritty.yml') | path_join }}"
+    src: "{{ (playbook_dir, 'files', 'alacritty', 'alacritty.yml') | path_join }}"
     dest: "{{ (home, '.config', 'alacritty', 'alacritty.yml') | path_join }}"
     state: link
   tags: home
