@@ -15,7 +15,7 @@
     - packages
 
 - name: Configure desktop
-  command: "{{ item }}"
+  ansible.builtin.shell: "{{ item }}"
   loop:
     - gsettings set org.gnome.shell.app-switcher current-workspace-only true
     # Set flameshot as the default screenshot tool
@@ -28,7 +28,6 @@
     # disable gnome keyring ssh autostart
     - cp /etc/xdg/autostart/gnome-keyring-ssh.desktop ~/.config/autostart/
     - echo "Hidden=true" >> ~/.config/autostart/gnome-keyring-ssh.desktop
-  ignore_errors: true
   tags: desktop
 
 - name: Install home files
