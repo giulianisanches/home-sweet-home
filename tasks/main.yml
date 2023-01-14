@@ -32,9 +32,10 @@
   tags: desktop
 
 - name: Install home files
-  copy:
-    src: "{{ item }}"
-    dest: "{{ home }}"
+  ansible.builtin.file:
+    src: "{{ (playbook_dir, 'files', item) | path_join }}"
+    dest: "{{ (home, item) | path_join }}"
+    state: link
   loop:
     - .zsh
     - .zshrc
