@@ -19,14 +19,13 @@ autoload -Uz ~/.zsh/**/*
 
 if [[ $(uname) != 'Darwin' ]]
 then
-    keychain="$(which --skip-alias keychain 2> /dev/null)"
-    if [[ -n $keychain ]]
+    if type -p keychain > /dev/null
     then
-        eval `$keychain -q --nogui $HOME/.ssh/id_rsa`
-        eval `$keychain -q --nogui $HOME/.ssh/id_rsa_abi`
-        eval `$keychain -q --nogui $HOME/.ssh/id_ed25519`
-        eval `$keychain -q --nogui $HOME/.ssh/id_ed25519_abinbev`
-        eval `$keychain -q --nogui $HOME/.ssh/google_compute_engine`
+        eval "$(keychain -q --nogui $HOME/.ssh/id_rsa)"
+        eval "$(keychain -q --nogui $HOME/.ssh/id_rsa_abi)"
+        eval "$(keychain -q --nogui $HOME/.ssh/id_ed25519)"
+        eval "$(keychain -q --nogui $HOME/.ssh/id_ed25519_abinbev)"
+        eval "$(keychain -q --nogui $HOME/.ssh/google_compute_engine)"
     else
         gpg-connect-agent -q updatestartuptty /bye &> /dev/null
     fi
