@@ -42,3 +42,20 @@
     - .aliases
     - .gitconfig
   tags: home
+
+- name: Create gpg and ssh config directories
+  ansible.builtin.file:
+    dest: "{{ (home, item) | path_join }}"
+    state: directory
+    mode: 0700
+  loop:
+    - .ssh
+    - .gnupg
+  tags: home
+
+- name: Configure gpg agent
+  ansible.builtin.file:
+    src: "{{ (playbook_dir, 'files', 'gpg-agent.conf') | path_join }}"
+    dest: "{{ (home, '.gnupg', 'gpg-agent.conf') | path_join }}"
+    state: link
+  tags: home
