@@ -9,4 +9,3 @@ packages:
   - jq
   - gnome-shell-extension-dash-to-dock
   - gnome-shell-extension-drive-menu
-  - alacritty
