@@ -1,0 +1,20 @@
+# Reference and Documentation: https://github.com/alacritty/alacritty/blob/master/alacritty.yml
+font:
+  #normal:
+    # family: monospace
+    #style: Regular
+
+  #bold:
+    #family: monospace
+    #style: Bold
+
+  #italic:
+    #family: monospace
+    #style: Italic
+
+  #bold_italic:
+    #family: monospace
+    #style: Bold Italic
+
+  # Point size
+  size: 14.0

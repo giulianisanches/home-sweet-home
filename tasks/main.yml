@@ -51,7 +51,16 @@
 
 - name: Copy Alacritty configuration file
   ansible.builtin.file:
-    src: "{{ (playbook_dir, 'files', 'alacritty', 'alacritty.yml') | path_join }}"
-    dest: "{{ (home, '.config', 'alacritty', 'alacritty.yml') | path_join }}"
+    src: "{{ (playbook_dir, 'files', 'alacritty', item) | path_join }}"
+    dest: "{{ (alacritty_config_path, item) | path_join }}"
     state: link
+  loop:
+    - alacritty.yml
+    - "{{ distribution }}.yml"
   tags: home
+
+- name: Update Alacritty import extras
+  ansible.builtin.replace:
+    path: "{{ ( alacritty_config_path, 'alacritty.yml') | path_join }}"
+    before: 'extras.yml'
+    after: "{{ distribution }}.yml"
