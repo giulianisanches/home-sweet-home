@@ -15,28 +15,6 @@ window:
     x: 5
     y: 5
 
-# Font configuration
-font:
-  #normal:
-    # family: monospace
-    #style: Regular
-
-  #bold:
-    #family: monospace
-    #style: Bold
-
-  #italic:
-    #family: monospace
-    #style: Italic
-
-  #bold_italic:
-    #family: monospace
-    #style: Bold Italic
-
-  # Point size
-  size: 16.0
-
-
 selection:
   # This string contains all characters that are used as separators for
   # "semantic words" in Alacritty.
