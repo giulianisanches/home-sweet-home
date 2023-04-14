@@ -35,3 +35,8 @@ fi
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 if type "rbenv" &> /dev/null ; then eval "$(rbenv init - zsh)" ; fi 
+
+# pnpm
+export PNPM_HOME="/Users/I572994/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
