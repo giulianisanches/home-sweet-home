@@ -28,6 +28,4 @@ alias gprofile='gconfig configurations'
 alias glogin='gauth login'
 alias gapplogin='gauth application-default login'
 
-alias docker=podman
-
 [[ -f $HOME/.secret_aliases ]] && source $HOME/.secret_aliases
