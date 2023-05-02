@@ -6,7 +6,6 @@ done
 
 alias egrep='grep -E'
 alias ls='ls --color=auto'
-alias dkr='sudo docker'
 
 # terraform aliases
 alias tf='terraform'
