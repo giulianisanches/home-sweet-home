@@ -27,8 +27,8 @@ alias gprofile='gconfig configurations'
 alias glogin='gauth login'
 alias gapplogin='gauth application-default login'
 
-function redis-cli { podman run --network shared -it --rm redis redis-cli $@ }
-function riot-redis { podman run --network shared -it --rm fieldengineering/riot-redis $@ }
+function predis-cli { podman run -e JAVA_OPTS --network shared -it --rm redis redis-cli $@ }
+function riot-redis { podman run -e JAVA_OPTS --network shared -it --rm fieldengineering/riot-redis $@ }
 
 # used for aliases that have hardcoded secrets or specific S.O. aliases
 [[ -f $HOME/.local_aliases ]] && source $HOME/.local_aliases
