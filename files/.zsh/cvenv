@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 [[ $(uname) != 'Darwin' ]] && which_opts="--skip-alias"
 
 local python3="$( which ${which_opts} python3 2> /dev/null )"
