@@ -26,6 +26,3 @@ alias gauth='gcloud auth'
 alias gprofile='gconfig configurations'
 alias glogin='gauth login'
 alias gapplogin='gauth application-default login'
-
-# used for aliases that have hardcoded secrets or specific S.O. aliases
-[[ -f $HOME/.local_aliases ]] && source $HOME/.local_aliases

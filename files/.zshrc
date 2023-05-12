@@ -15,7 +15,7 @@ zinit light sindresorhus/pure
 
 autoload -Uz ~/.zsh/**/*
 [[ -f $HOME/.aliases ]] && source "$HOME/.aliases"
-[[ -f $HOME/.local_secrets ]] && source "$HOME/.local_secrets"
+[[ -f $HOME/.secrets ]] && source "$HOME/.secrets"
 
 if [[ $(uname) != 'Darwin' ]]
 then
