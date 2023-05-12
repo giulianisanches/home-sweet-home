@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+podman run \
+    -e JAVA_OPTS \
+    --network shared \
+    -it \
+    --rm fieldengineering/riot-redis $@

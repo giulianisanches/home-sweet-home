@@ -1,3 +1,8 @@
+#!/usr/bin/env zsh
+
 local message="$1"
 
-aws sts decode-authorization-message --encoded-message "$message" --query DecodedMessage --output text | jq '.'
+aws sts decode-authorization-message \
+    --encoded-message "$message" \
+    --query DecodedMessage \
+    --output text | jq '.'
