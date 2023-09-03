@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
 rsync -aP \
-    --exclude-from="$HOME/.local/tmp/bkp_ignorelist" \
+    --exclude-from="$HOME/.bkp_ignorelist" \
     "$HOME/" \
     "/run/media/$USER/linuxfiles/myhd/home/"

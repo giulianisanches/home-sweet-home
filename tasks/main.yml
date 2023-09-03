@@ -41,6 +41,7 @@
     - .zshenv
     - .aliases
     - .gitconfig
+    - .bkp_ignorelist
   tags: home
 
 - name: Create gpg and ssh config directories
