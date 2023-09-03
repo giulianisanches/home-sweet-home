@@ -25,17 +25,6 @@
         - cp /etc/xdg/autostart/gnome-keyring-ssh.desktop ~/.config/autostart/
         - echo "Hidden=true" >> ~/.config/autostart/gnome-keyring-ssh.desktop
 
-    - name: Get gnome-terminal default profile
-      ansible.builtin.shell: gsettings get org.gnome.Terminal.ProfilesList default | tr -d "'"
-      register: gterminal_profile
-
-    - name: Configure gnome-terminal
-      ansible.builtin.shell: "{{ item }}"
-      loop:
-        - "gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:{{gterminal_profile.stdout}}/ font 'Fira Code 14'"
-        - "gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:{{gterminal_profile.stdout}}/ use-system-font false"
-        - "gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:{{gterminal_profile.stdout}}/ audible-bell false"
-
     - name: Create a temporary directory for Gogh
       ansible.builtin.tempfile:
         state: directory
@@ -51,6 +40,22 @@
       ansible.builtin.shell: "{{ (gogh.path, 'installs', 'one-dark.sh') | path_join }}"
       environment:
         TERMINAL: gnome-terminal
+
+    - name: Set gnome-terminal default profile as One Dark
+      ansible.builtin.shell: "{{ (playbook_dir, 'files', 'scripts', 'set_default_gnome_terminal_profile.sh') | path_join }}"
+      args:
+        executable: /bin/bash
+
+    - name: Get gnome-terminal default profile
+      ansible.builtin.shell: gsettings get org.gnome.Terminal.ProfilesList default
+      register: gterminal_profile
+
+    - name: Configure gnome-terminal
+      ansible.builtin.shell: "{{ item }}"
+      loop:
+        - "gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:{{gterminal_profile.stdout}}/ font 'Fira Code 14'"
+        - "gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:{{gterminal_profile.stdout}}/ use-system-font false"
+        - "gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:{{gterminal_profile.stdout}}/ audible-bell false"
 
 - name: Install home files
   ansible.builtin.file:
