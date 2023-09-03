@@ -49,7 +49,7 @@
 - name: Create dev structure
   ansible.builtin.file:
     path: "{{ item }}"
-    state: present
+    state: directory
   loop:
     - "{{ (home, 'dev', 'src', 'github.com') | path_join }}"
     - "{{ (home, 'dev', 'src', 'gitlab.com') | path_join }}"
