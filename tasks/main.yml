@@ -1,4 +1,8 @@
 ---
+- name: "Include {{distribution}} specific tasks"
+  ansible.builtin.include_tasks: "{{ distribution }}.yml"
+  when: distribution is defined
+
 - name: Configure desktop
   ansible.builtin.shell: "{{ item }}"
   loop:
