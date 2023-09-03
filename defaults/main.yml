@@ -1,5 +1,4 @@
 ---
 # defaults file for home-sweet-home
 home: "{{ lookup('env', 'HOME') }}"
-alacritty_config_path: "{{ (home, '.config', 'alacritty') | path_join }}"
 distribution: "{{ ansible_distribution | lower }}"
