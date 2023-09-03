@@ -2,7 +2,13 @@
 
 For Debian, you should follow [wiki page to to configure sudo](https://wiki.debian.org/sudo/). Don't forget to logout/login before procceed.
 
-The bootsrap_home.sh will take care of a few things before execute this role
+After that, download the raw version of the bootstrap.sh file, give it execution permissions and run it.
+
+```bash
+~ $ curl -fsSLO https://raw.githubusercontent.com/giulianisanches/home-sweet-home/$ master/bootstrap.sh
+~ $ chmod u+x bootstrap.sh
+~ $ ./bootstrap.sh
+```
 
 ## License
 
