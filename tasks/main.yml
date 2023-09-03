@@ -45,3 +45,33 @@
     dest: "{{ (home, '.gnupg', 'gpg-agent.conf') | path_join }}"
     state: link
   tags: home
+
+- name: Create dev structure
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: present
+  loop:
+    - "{{ (home, 'dev', 'src', 'github.com') | path_join }}"
+    - "{{ (home, 'dev', 'src', 'gitlab.com') | path_join }}"
+    - "{{ (home, 'dev', 'src', 'dev.azure.com') | path_join }}"
+  tags: git
+
+- name: Create gitconfig for each 'git host provider'
+  block:
+    - name: Configure github.com user and email
+      ansible.builtin.file:
+        src: "{{ (playbook_dir, 'files', 'gitconfig_include', '.gitconfig_github') | path_join }}"
+        dest: "{{ (home, 'dev', 'src', 'github.com', '.gitconfig') | path_join }}"
+        state: link
+
+    - name: Configure gitlab.com user and email
+      ansible.builtin.file:
+        src: "{{ (playbook_dir, 'files', 'gitconfig_include', '.gitconfig_gitlab') | path_join }}"
+        dest: "{{ (home, 'dev', 'src', 'gitlab.com', '.gitconfig') | path_join }}"
+        state: link
+
+    - name: Configure dev.azure.com user and email
+      ansible.builtin.file:
+        src: "{{ (playbook_dir, 'files', 'gitconfig_include', '.gitconfig_azure') | path_join }}"
+        dest: "{{ (home, 'dev', 'src', 'dev.azure.com', '.gitconfig') | path_join }}"
+        state: link
