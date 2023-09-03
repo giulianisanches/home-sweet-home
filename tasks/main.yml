@@ -4,20 +4,53 @@
   when: distribution is defined
 
 - name: Configure desktop
-  ansible.builtin.shell: "{{ item }}"
-  loop:
-    - gsettings set org.gnome.shell.app-switcher current-workspace-only true
-    # Set flameshot as the default screenshot tool
-    # https://askubuntu.com/questions/1036473/ubuntu-18-how-to-change-screenshot-application-to-flameshot
-    - gsettings set org.gnome.shell.keybindings show-screenshot-ui '[]'
-    - gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
-    - gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'flameshot'
-    - gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command '/usr/bin/flameshot gui'
-    - gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding 'Print'
-    # disable gnome keyring ssh autostart
-    - cp /etc/xdg/autostart/gnome-keyring-ssh.desktop ~/.config/autostart/
-    - echo "Hidden=true" >> ~/.config/autostart/gnome-keyring-ssh.desktop
   tags: desktop
+  block:
+    - name: Configure app-switcher
+      ansible.builtin.shell: gsettings set org.gnome.shell.app-switcher current-workspace-only true
+
+    # https://askubuntu.com/questions/1036473/ubuntu-18-how-to-change-screenshot-application-to-flameshot
+    - name: Configure flameshot as default screenshot tool
+      ansible.builtin.shell: "{{ item }}"
+      loop:
+        - gsettings set org.gnome.shell.keybindings show-screenshot-ui '[]'
+        - gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
+        - gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'flameshot'
+        - gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command '/usr/bin/flameshot gui'
+        - gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding 'Print'
+
+    - name: Disable gnome keyring ssh autostart
+      ansible.builtin.shell: "{{ item }}"
+      loop:
+        - cp /etc/xdg/autostart/gnome-keyring-ssh.desktop ~/.config/autostart/
+        - echo "Hidden=true" >> ~/.config/autostart/gnome-keyring-ssh.desktop
+
+    - name: Get gnome-terminal default profile
+      ansible.builtin.shell: gsettings get org.gnome.Terminal.ProfilesList default | tr -d "'"
+      register: gterminal_profile
+
+    - name: Configure gnome-terminal
+      ansible.builtin.shell: "{{ item }}"
+      loop:
+        - "gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:{{gterminal_profile.stdout}}/ font 'Fira Code 14'"
+        - "gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:{{gterminal_profile.stdout}}/ use-system-font false"
+        - "gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:{{gterminal_profile.stdout}}/ audible-bell false"
+
+    - name: Create a temporary directory for Gogh
+      ansible.builtin.tempfile:
+        state: directory
+        suffix: gogh
+      register: gogh
+
+    - name: Git checkout Gogh-Co repository
+      ansible.builtin.git:
+        repo: "https://github.com/Gogh-Co/Gogh.git"
+        dest: "{{ gogh.path }}"
+
+    - name: Install one-dark colorscheme for gnome-terminal
+      ansible.builtin.shell: "{{ (gogh.path, 'installs', 'one-dark.sh') | path_join }}"
+      environment:
+        TERMINAL: gnome-terminal
 
 - name: Install home files
   ansible.builtin.file:
