@@ -8,7 +8,7 @@ then
     sudo dnf install -y python3-pip git zsh util-linux-user
 fi
 
-if [[ "distribution" == 'debian' ]]
+if [[ "$distribution" == 'debian' ]]
 then
     sudo apt-get -y upgrade
     sudo apt-get -y install sudo python3-pip git zsh curl gconf2
