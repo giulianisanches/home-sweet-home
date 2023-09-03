@@ -20,12 +20,6 @@ fi
 # install ansible
 pipx install --include-deps --force ansible
 
-zini_home="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-[[ ! -d "$zini_home" ]] && mkdir -p "$(dirname "$zini_home")"
-[[ ! -d "$zini_home"/.git ]] \
-    && git clone https://github.com/zdharma-continuum/zinit.git "$zini_home"
-
-
 home_sweet_home="$HOME/dev/src/github.com/giulianisanches/home-sweet-home"
 [[ ! -d "$home_sweet_home" ]] \
     && mkdir -p "$home_sweet_home"

@@ -1,7 +1,10 @@
 setopt autocd nomatch
 bindkey -e
 
-source ~/.zinit/bin/zinit.zsh
+zinit_home="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[[ ! -d $zinit_home ]] && mkdir -p "$(dirname $zinit_home)"
+[[ ! -d $zinit_home/.git ]] && git clone https://github.com/zdharma-continuum/zinit.git "$zinit_home"
+source "${zinit_home}/zinit.zsh"
 
 autoload -Uz compinit; compinit
 autoload -U promptinit; promptinit
@@ -34,7 +37,7 @@ fi
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-if type "rbenv" &> /dev/null ; then eval "$(rbenv init - zsh)" ; fi 
+if type "rbenv" &> /dev/null ; then eval "$(rbenv init - zsh)" ; fi
 
 # pnpm
 export PNPM_HOME="/Users/I572994/Library/pnpm"
