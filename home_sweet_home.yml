@@ -2,5 +2,9 @@
 - hosts: localhost
   connection: local
   gather_facts: true
+  pre_tasks:
+    - name: Include distribution variables
+      ansible.builtin.include_vars: "{{distribution}}.yml"
+      tags: "always"
   roles:
-    - '{{playbook_dir}}'
+    - "{{playbook_dir}}"
