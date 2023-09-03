@@ -14,15 +14,20 @@ then
     sudo apt-get -y install sudo python3-pip git zsh curl gconf2
 fi
 
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-[[ ! -d "$ZINIT_HOME" ]] && mkdir -p "$(dirname "$ZINIT_HOME")"
-[[ ! -d "$ZINIT_HOME"/.git ]] \
-    && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+zini_home="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[[ ! -d "$zini_home" ]] && mkdir -p "$(dirname "$zini_home")"
+[[ ! -d "$zini_home"/.git ]] \
+    && git clone https://github.com/zdharma-continuum/zinit.git "$zini_home"
 
-[[ -d "$HOME/dev/src/github.com/giulianisanches" ]] \
-    && rm -rf "$HOME/dev/src/github.com/giulianisanches"
 
-mkdir -p "$HOME/dev/src/github.com/giulianisanches"
+home_sweet_home="$HOME/dev/src/github.com/giulianisanches"
+[[ ! -d "$home_sweet_home" ]] \
+    && mkdir -p "$HOME/dev/src/github.com/giulianisanches"
+
+[[ ! -d "$home_sweet_home/.git" ]] \
+    && git clone -C "$home_sweet_home" \
+        https://github.com/giulianisanches/home-sweet-home.git
+
 (
     cd "$HOME/dev/src/github.com/giulianisanches" || exit
     # if you're planning to clone my repository
