@@ -3,7 +3,6 @@ packages:
   - build-essential
   - fonts-firacode
   - gnome-shell-extensions-extra
-  - gconf-editor
   - gconf2
   - code
   - vim
