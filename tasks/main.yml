@@ -1,19 +1,4 @@
 ---
-- name: Install desktop packages
-  become: true
-  block:
-    - name: Upgrade packages
-      ansible.builtin.dnf:
-        name: "*"
-        state: latest
-
-    - name: Install packages
-      ansible.builtin.dnf:
-        name: "{{ packages }}"
-        state: latest
-  tags:
-    - packages
-
 - name: Configure desktop
   ansible.builtin.shell: "{{ item }}"
   loop:

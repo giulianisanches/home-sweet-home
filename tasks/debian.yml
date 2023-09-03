@@ -1,0 +1,16 @@
+---
+- name: Install desktop packages
+  become: true
+  block:
+    - name: Upgrade packages
+      ansible.builtin.apt:
+        name: "*"
+        state: latest
+        update_cache: true
+
+    - name: Install packages
+      ansible.builtin.apt:
+        name: "{{ packages }}"
+        state: latest
+  tags:
+    - packages

@@ -1,11 +1,3 @@
 ---
-packages:
-  - '@C Development Tools and Libraries'
-  - gnome-extensions-app
-  - gnome-tweaks
-  - flameshot
-  - code
-  - vim
-  - jq
-  - gnome-shell-extension-dash-to-dock
-  - gnome-shell-extension-drive-menu
+- name: Include packages list
+  ansible.builtin.include_vars: "{{distribution}}.yml"
