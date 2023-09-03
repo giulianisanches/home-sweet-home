@@ -1,12 +1,23 @@
 #!/usr/bin/env bash
 
-sudo apt-get -y upgrade
-sudo apt-get -y install sudo python3-pip git zsh curl gconf2
+distribution="$(lsb_release -is 2>& /dev/null | tr '[:upper:]' '[:lower:]')"
 
-[[ -d "$HOME/.zinit" ]] && rm -rf "$HOME/.zinit"
+if [[ "$distribution" == 'fedora' ]]
+then
+    sudo dnf upgrade -y
+    sudo dnf install -y python3-pip git zsh util-linux-user
+fi
 
-mkdir "$HOME/.zinit"
-git clone https://github.com/zdharma-continuum/zinit.git  "$HOME/.zinit/bin"
+if [[ "distribution" == 'debian' ]]
+then
+    sudo apt-get -y upgrade
+    sudo apt-get -y install sudo python3-pip git zsh curl gconf2
+fi
+
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[[ ! -d "$ZINIT_HOME" ]] && mkdir -p "$(dirname "$ZINIT_HOME")"
+[[ ! -d "$ZINIT_HOME"/.git ]] \
+    && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 
 [[ -d "$HOME/dev/src/github.com/giulianisanches" ]] \
     && rm -rf "$HOME/dev/src/github.com/giulianisanches"
