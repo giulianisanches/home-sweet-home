@@ -3,6 +3,14 @@
   tags: packages
   become: true
   block:
+    - name: Remove some uneeded packages
+      ansible.builtin.apt:
+        name:
+          - "libreoffice-*"
+          - "rhythmbox*"
+        state: absent
+        purge: true
+
     - name: Upgrade packages
       ansible.builtin.apt:
         name: "*"
