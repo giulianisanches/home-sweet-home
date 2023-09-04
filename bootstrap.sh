@@ -8,7 +8,7 @@ export PATH
 if [[ "$distribution" == 'fedora' ]]
 then
     sudo dnf upgrade -y
-    sudo dnf install -y python3-pip git zsh util-linux-user
+    sudo dnf install -y python3-pip pipx git zsh util-linux-user
 fi
 
 if [[ "$distribution" == 'debian' ]]
