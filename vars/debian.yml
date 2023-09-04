@@ -10,3 +10,5 @@ packages:
   - jq
   - gnome-shell-extension-dashtodock
   - flameshot
+  - flatpak
+  - gnome-software-plugin-flatpak
