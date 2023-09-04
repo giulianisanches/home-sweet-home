@@ -44,3 +44,6 @@
     - name: Install VSCode
       ansible.builtin.apt:
         deb: "{{ (pkgs.path, 'chrome.deb') | path_join }}"
+
+- name: Configure flathub
+  ansible.builtin.shell: flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
