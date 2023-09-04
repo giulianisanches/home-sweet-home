@@ -57,49 +57,50 @@
         - "gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:{{gterminal_profile.stdout}}/ use-system-font false"
         - "gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:{{gterminal_profile.stdout}}/ audible-bell false"
 
-- name: Install home files
-  ansible.builtin.file:
-    src: "{{ (playbook_dir, 'files', item) | path_join }}"
-    dest: "{{ (home, item) | path_join }}"
-    state: link
-  loop:
-    - .zsh
-    - .zshrc
-    - .zshenv
-    - .aliases
-    - .gitconfig
-    - .bkp_ignorelist
+- name: Configure $HOME
   tags: home
+  block:
+    - name: Install home files
+      ansible.builtin.file:
+        src: "{{ (playbook_dir, 'files', item) | path_join }}"
+        dest: "{{ (home, item) | path_join }}"
+        state: link
+      loop:
+        - .zsh
+        - .zshrc
+        - .zshenv
+        - .aliases
+        - .gitconfig
+        - .bkp_ignorelist
 
-- name: Create gpg and ssh config directories
-  ansible.builtin.file:
-    dest: "{{ (home, item) | path_join }}"
-    state: directory
-    mode: 0700
-  loop:
-    - .ssh
-    - .gnupg
-  tags: home
+    - name: Create gpg and ssh config directories
+      ansible.builtin.file:
+        dest: "{{ (home, item) | path_join }}"
+        state: directory
+        mode: 0700
+      loop:
+        - .ssh
+        - .gnupg
 
-- name: Configure gpg agent
-  ansible.builtin.file:
-    src: "{{ (playbook_dir, 'files', 'gpg-agent.conf') | path_join }}"
-    dest: "{{ (home, '.gnupg', 'gpg-agent.conf') | path_join }}"
-    state: link
-  tags: home
-
-- name: Create dev structure
-  ansible.builtin.file:
-    path: "{{ item }}"
-    state: directory
-  loop:
-    - "{{ (home, 'dev', 'src', 'github.com') | path_join }}"
-    - "{{ (home, 'dev', 'src', 'gitlab.com') | path_join }}"
-    - "{{ (home, 'dev', 'src', 'dev.azure.com') | path_join }}"
-  tags: git
+    - name: Configure gpg agent
+      ansible.builtin.file:
+        src: "{{ (playbook_dir, 'files', 'gpg-agent.conf') | path_join }}"
+        dest: "{{ (home, '.gnupg', 'gpg-agent.conf') | path_join }}"
+        state: link
 
 - name: Create gitconfig for each 'git host provider'
+  tags: git
   block:
+    - name: Create directory structure
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+      loop:
+        - "{{ (home, 'dev', 'src', 'github.com') | path_join }}"
+        - "{{ (home, 'dev', 'src', 'gitlab.com') | path_join }}"
+        - "{{ (home, 'dev', 'src', 'dev.azure.com') | path_join }}"
+      tags: git
+
     - name: Configure github.com user and email
       ansible.builtin.file:
         src: "{{ (playbook_dir, 'files', 'gitconfig_include', '.gitconfig_github') | path_join }}"
