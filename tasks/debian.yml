@@ -1,5 +1,6 @@
 ---
 - name: Install desktop packages
+  tags: packages
   become: true
   block:
     - name: Upgrade packages
@@ -12,5 +13,17 @@
       ansible.builtin.apt:
         name: "{{ packages }}"
         state: latest
-  tags:
-    - packages
+
+    - name: Create a temporary directory google and vscode files
+      ansible.builtin.tempfile:
+        state: directory
+      register: pkgs
+
+    - name: Download VSCode
+      ansible.builtin.get_url:
+        url: https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
+        dest: "{{ (pkgs.path, 'vscode.deb') | path_join }}"
+
+    - name: Install VSCode
+      ansible.builtin.apt:
+        deb: "{{ (pkgs.path, 'vscode.deb') | path_join }}"

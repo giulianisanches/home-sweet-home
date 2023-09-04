@@ -28,7 +28,6 @@
     - name: Create a temporary directory for Gogh
       ansible.builtin.tempfile:
         state: directory
-        suffix: gogh
       register: gogh
 
     - name: Git checkout Gogh-Co repository
