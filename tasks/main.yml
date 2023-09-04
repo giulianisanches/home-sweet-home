@@ -18,7 +18,10 @@
     - name: Enable drive-menu extension
       ansible.builtin.shell: gnome-extensions enable "$(gnome-extensions list | grep drive-menu)"
 
-    # https://askubuntu.com/questions/1036473/ubuntu-18-how-to-change-screenshot-application-to-flameshot
+    - name: Configure dark mode
+      ansible.builtin.shell: gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+
+    # https://askubuntu.com/questions/1036473/ubuntu-18-how-to-cha nge-screenshot-application-to-flameshot
     - name: Configure flameshot as default screenshot tool
       ansible.builtin.shell: "{{ item }}"
       loop:
