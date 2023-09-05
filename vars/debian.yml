@@ -12,3 +12,5 @@ packages:
   - flatpak
   - gnome-software-plugin-flatpak
   - firmaware-linux-nonfree
+  - code
+  - docker-ce

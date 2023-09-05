@@ -11,6 +11,22 @@
         state: absent
         purge: true
 
+    - name: Add Docker gpg apt key
+      ansible.builtin.apt_key:
+        url: https://download.docker.com/linux/debian/gpg
+
+    - name: Add Docker repository
+      ansible.builtin.apt_repository:
+        repo: deb https://download.docker.com/linux/debian bookworm stable
+
+    - name: Add Microsoft gpg apt key
+      ansible.builtin.apt_key:
+        url: https://packages.microsoft.com/keys/microsoft.asc
+
+    - name: Add Microsoft repository
+      ansible.builtin.apt_repository:
+        repo: deb https://packages.microsoft.com/repos/vscode stable main
+
     - name: Upgrade packages
       ansible.builtin.apt:
         name: "*"
@@ -27,15 +43,6 @@
         state: directory
       register: pkgs
 
-    - name: Download VSCode
-      ansible.builtin.get_url:
-        url: https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
-        dest: "{{ (pkgs.path, 'vscode.deb') | path_join }}"
-
-    - name: Install VSCode
-      ansible.builtin.apt:
-        deb: "{{ (pkgs.path, 'vscode.deb') | path_join }}"
-
     - name: Download Google Chrome
       ansible.builtin.get_url:
         url: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -45,8 +52,8 @@
       ansible.builtin.apt:
         deb: "{{ (pkgs.path, 'chrome.deb') | path_join }}"
 
-- name: Configure flathub
-  ansible.builtin.shell: flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+    - name: Configure flathub
+      ansible.builtin.shell: flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
-- name: Install bitwarden from flatpak
-  ansible.builtin.shell: flatpak install -y bitwarden
+    - name: Install bitwarden from flatpak
+      ansible.builtin.shell: flatpak install -y bitwarden
