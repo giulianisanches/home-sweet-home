@@ -11,3 +11,4 @@ packages:
   - flameshot
   - flatpak
   - gnome-software-plugin-flatpak
+  - firmaware-linux-nonfree
