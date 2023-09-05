@@ -22,11 +22,11 @@
         - gnome-extensions enable "$(gnome-extensions list | grep dash-to-dock)"
       ignore_errors: true
 
-    - name: Configure legacy GTK theme to Adwaita-dark
-      ansible.builtin.shell: gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
-
     - name: Configure dark mode
-      ansible.builtin.shell: gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+      ansible.builtin.shell: "{{ item }}"
+      loop:
+        - gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+        - gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 
     - name: Configure touchpad
       ansible.builtin.shell: "{{ item }}"
