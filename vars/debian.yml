@@ -5,7 +5,6 @@ packages:
   - gnome-shell-extensions-extra
   - uuid-runtime
   - gconf2
-  - code
   - vim
   - jq
   - gnome-shell-extension-dashtodock
