@@ -12,6 +12,9 @@
     - name: Enable user extensions
       ansible.builtin.shell: gsettings set org.gnome.shell disable-user-extensions false
 
+    - name: Set vim as default editor ($VISUAL / $EDITOR)
+      ansible.builtin.shell: update-alternatives --set editor /usr/bin/vim.basic
+
     # You need to restart gnome to update the extensions installed list and
     # After that you can run the bootstrap.sh again
     # If your are using xrog, you can try to reload gnome (do not work for wayland)
@@ -31,8 +34,8 @@
     - name: Configure touchpad
       ansible.builtin.shell: "{{ item }}"
       loop:
-        - org.gnome.desktop.peripherals.touchpad send-events 'disabled-on-external-mouse'
-        - org.gnome.desktop.peripherals.touchpad tap-to-click true
+        - gsettings set org.gnome.desktop.peripherals.touchpad send-events 'disabled-on-external-mouse'
+        - gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
 
     # https://askubuntu.com/questions/1036473/ubuntu-18-how-to-cha nge-screenshot-application-to-flameshot
     - name: Configure flameshot as default screenshot tool
