@@ -12,11 +12,16 @@
     - name: Enable user extensions
       ansible.builtin.shell: gsettings set org.gnome.shell disable-user-extensions false
 
+    # You need to restart gnome to update the extensions installed list and
+    # After that you can run the bootstrap.sh again
+    # If your are using xrog, you can try to reload gnome (do not work for wayland)
     - name: Enable dash-to-dock extension
       ansible.builtin.shell: gnome-extensions enable "$(gnome-extensions list | grep dash-to-dock)"
+      ignore_errors: true
 
     - name: Enable drive-menu extension
       ansible.builtin.shell: gnome-extensions enable "$(gnome-extensions list | grep drive-menu)"
+      ignore_errors: true
 
     - name: Configure dark mode
       ansible.builtin.shell: gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
