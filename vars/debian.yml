@@ -11,6 +11,6 @@ packages:
   - flameshot
   - flatpak
   - gnome-software-plugin-flatpak
-  - firmaware-linux-nonfree
+  - firmware-linux-nonfree
   - code
   - docker-ce
