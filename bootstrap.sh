@@ -24,9 +24,13 @@ home_sweet_home="$HOME/dev/src/github.com/giulianisanches/home-sweet-home"
 [[ ! -d "$home_sweet_home" ]] \
     && mkdir -p "$home_sweet_home"
 
-[[ ! -d "$home_sweet_home/.git" ]] \
-    && git clone \
+if [[ -d "$home_sweet_home/.git" ]]
+then
+    git -C "$home_sweet_home" pull
+else
+    git clone \
         https://github.com/giulianisanches/home-sweet-home.git "$home_sweet_home"
+fi
 
 (
     cd "$HOME/dev/src/github.com/giulianisanches" || exit
