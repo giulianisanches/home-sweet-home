@@ -41,4 +41,4 @@ fi
     ansible-playbook -K './home_sweet_home.yml'
 )
 
-sudo chsh -s "$( which zsh )"
+sudo chsh -s "$( which zsh )" "$USER"
