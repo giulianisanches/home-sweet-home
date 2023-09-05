@@ -12,6 +12,9 @@
     - name: Enable user extensions
       ansible.builtin.shell: gsettings set org.gnome.shell disable-user-extensions false
 
+    - name: Configure CAPS LOCK as an additional control
+      ansible.builtin.shell: gsettings set org.gnome.desktop.input-sources xkb-options "['caps:ctrl_modifier', 'shift:both_capslock_cancel']"
+
     - name: Set vim as default editor ($VISUAL / $EDITOR)
       ansible.builtin.shell: update-alternatives --set editor /usr/bin/vim.basic
 
