@@ -148,3 +148,21 @@
         src: "{{ (playbook_dir, 'files', 'gitconfig_include', '.gitconfig_azure') | path_join }}"
         dest: "{{ (home, 'dev', 'src', 'dev.azure.com', '.gitconfig') | path_join }}"
         state: link
+
+- name: Configure system
+  become: true
+  tags: system
+  block:
+    - name: Add user to the docker group
+      ansible.builtin.user:
+        append: true
+        groups: docker
+        name: "{{ lookup('env', 'USER') }}"
+
+    - name: Enable docker
+      ansible.builtin.systemd_service:
+        name: "{{ item }}"
+        enabled: true
+      loop:
+        - docker
+        - containerd
