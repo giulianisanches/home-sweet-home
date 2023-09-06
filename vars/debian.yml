@@ -14,3 +14,4 @@ packages:
   - firmware-linux-nonfree
   - code
   - docker-ce
+  - google-chrome-stable

@@ -27,6 +27,14 @@
       ansible.builtin.apt_repository:
         repo: deb https://packages.microsoft.com/repos/vscode stable main
 
+    - name: Add Google gpg apt key
+      ansible.builtin.apt_key:
+        url: https://dl.google.com/linux/linux_signing_key.pub
+
+    - name: Add Google Chrome repository
+      ansible.builtin.apt_repository:
+        repo: deb https://dl.google.com/linux/chrome/deb/ stable main
+
     - name: Upgrade packages
       ansible.builtin.apt:
         name: "*"
@@ -37,20 +45,6 @@
       ansible.builtin.apt:
         name: "{{ packages }}"
         state: latest
-
-    - name: Create a temporary directory google and vscode files
-      ansible.builtin.tempfile:
-        state: directory
-      register: pkgs
-
-    - name: Download Google Chrome
-      ansible.builtin.get_url:
-        url: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-        dest: "{{ (pkgs.path, 'chrome.deb') | path_join }}"
-
-    - name: Install VSCode
-      ansible.builtin.apt:
-        deb: "{{ (pkgs.path, 'chrome.deb') | path_join }}"
 
     - name: Configure flathub
       ansible.builtin.shell: flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
