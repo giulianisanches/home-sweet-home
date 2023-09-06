@@ -32,13 +32,6 @@ else
         https://github.com/giulianisanches/home-sweet-home.git "$home_sweet_home"
 fi
 
-(
-    cd "$HOME/dev/src/github.com/giulianisanches" || exit
-    # if you're planning to clone my repository
-    # change the clone URL to use https
-    git clone git@github.com:giulianisanches/home-sweet-home.git
-    cd home-sweet-home || exit
-    ansible-playbook -K './home_sweet_home.yml'
-)
+ansible-playbook -K "$home_sweet_home/home_sweet_home.yml"
 
 sudo chsh -s "$( which zsh )" "$USER"
