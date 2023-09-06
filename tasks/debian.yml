@@ -50,4 +50,4 @@
       ansible.builtin.shell: flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
     - name: Install bitwarden from flatpak
-      ansible.builtin.shell: flatpak install -y bitwarden
+      ansible.builtin.shell: flatpak install -y com.bitwarden.desktop
