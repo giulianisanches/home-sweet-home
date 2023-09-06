@@ -170,3 +170,11 @@
 
     - name: Configure minikube with docker
       ansible.builtin.shell: minikube config set driver docker
+
+    - name: Download NVM install script
+      ansible.builtin.get_url:
+        url: https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh
+        dest: /tmp/nvm-install.sh
+
+    - name: Install NVM - Node Version Manager
+      ansible.builtin.shell: bash /tmp/nvm-install.sh
