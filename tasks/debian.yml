@@ -55,6 +55,16 @@
       ansible.builtin.apt:
         deb: /tmp/minikube.deb
 
+    - name: Get kubectl latest stable version string
+      shell: curl -L -s https://dl.k8s.io/release/stable.txt
+      register: kubectl_version
+
+    - name: Download and install kubectl
+      ansible.builtin.get_url:
+        url: "https://dl.k8s.io/release/{{ kubectl_version.stdout }}/bin/linux/amd64/kubectl"
+        dest: /usr/local/bin/kubectl
+        mode: "0755"
+
     - name: Configure flathub
       ansible.builtin.shell: flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
