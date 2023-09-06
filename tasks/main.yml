@@ -1,5 +1,6 @@
 ---
 - name: "Include {{distribution}} specific tasks"
+  tags: packages
   ansible.builtin.include_tasks: "{{ distribution }}.yml"
   when: distribution is defined
 
