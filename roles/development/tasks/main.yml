@@ -1,0 +1,38 @@
+---
+- name: Create directory structure
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+  loop:
+    - "{{ (home, 'dev', 'src', 'github.com') | path_join }}"
+    - "{{ (home, 'dev', 'src', 'gitlab.com') | path_join }}"
+    - "{{ (home, 'dev', 'src', 'dev.azure.com') | path_join }}"
+
+- name: Configure github.com user and email
+  ansible.builtin.file:
+    src: "{{ (role_path, 'files', 'gitconfig_include', '.gitconfig_github') | path_join }}"
+    dest: "{{ (home, 'dev', 'src', 'github.com', '.gitconfig') | path_join }}"
+    state: link
+
+- name: Configure gitlab.com user and email
+  ansible.builtin.file:
+    src: "{{ (role_path, 'files', 'gitconfig_include', '.gitconfig_gitlab') | path_join }}"
+    dest: "{{ (home, 'dev', 'src', 'gitlab.com', '.gitconfig') | path_join }}"
+    state: link
+
+- name: Configure dev.azure.com user and email
+  ansible.builtin.file:
+    src: "{{ (role_path, 'files', 'gitconfig_include', '.gitconfig_azure') | path_join }}"
+    dest: "{{ (home, 'dev', 'src', 'dev.azure.com', '.gitconfig') | path_join }}"
+    state: link
+
+- name: Configure minikube with docker
+  ansible.builtin.shell: minikube config set driver docker
+
+- name: Download NVM install script
+  ansible.builtin.get_url:
+    url: https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh
+    dest: /tmp/nvm-install.sh
+
+- name: Install NVM - Node Version Manager
+  ansible.builtin.shell: bash /tmp/nvm-install.sh

@@ -1,0 +1,68 @@
+---
+- name: Remove some uneeded packages
+  ansible.builtin.apt:
+    name:
+      - "libreoffice-*"
+      - "rhythmbox*"
+    state: absent
+    purge: true
+
+- name: Add Docker gpg apt key
+  ansible.builtin.apt_key:
+    url: https://download.docker.com/linux/debian/gpg
+
+- name: Add Docker repository
+  ansible.builtin.apt_repository:
+    repo: deb https://download.docker.com/linux/debian bookworm stable
+
+- name: Add Microsoft gpg apt key
+  ansible.builtin.apt_key:
+    url: https://packages.microsoft.com/keys/microsoft.asc
+
+- name: Add Microsoft repository
+  ansible.builtin.apt_repository:
+    repo: deb https://packages.microsoft.com/repos/vscode stable main
+
+- name: Add Google gpg apt key
+  ansible.builtin.apt_key:
+    url: https://dl.google.com/linux/linux_signing_key.pub
+
+- name: Add Google Chrome repository
+  ansible.builtin.apt_repository:
+    repo: deb https://dl.google.com/linux/chrome/deb/ stable main
+
+- name: Upgrade packages
+  ansible.builtin.apt:
+    name: "*"
+    state: latest
+    update_cache: true
+
+- name: Install packages
+  ansible.builtin.apt:
+    name: "{{ packages }}"
+    state: latest
+
+- name: Download minikube
+  ansible.builtin.get_url:
+    url: https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
+    dest: /tmp/minikube.deb
+
+- name: Install minikube
+  ansible.builtin.apt:
+    deb: /tmp/minikube.deb
+
+- name: Get kubectl latest stable version string
+  shell: curl -L -s https://dl.k8s.io/release/stable.txt
+  register: kubectl_version
+
+- name: Download and install kubectl
+  ansible.builtin.get_url:
+    url: "https://dl.k8s.io/release/{{ kubectl_version.stdout }}/bin/linux/amd64/kubectl"
+    dest: /usr/local/bin/kubectl
+    mode: "0755"
+
+- name: Configure flathub
+  ansible.builtin.shell: flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+- name: Install bitwarden from flatpak
+  ansible.builtin.shell: flatpak install -y com.bitwarden.desktop

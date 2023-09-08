@@ -2,9 +2,19 @@
 - hosts: localhost
   connection: local
   gather_facts: true
+  vars:
+    user: "{{ lookup('env', 'USER') }}"
+    home: "{{ lookup('env', 'HOME') }}"
+    distribution: "{{ ansible_distribution | lower }}"
   pre_tasks:
     - name: Include distribution variables
       ansible.builtin.include_vars: "{{distribution}}.yml"
       tags: "always"
   roles:
-    - "{{playbook_dir}}"
+    - role: system
+      become: true
+      tags: sys
+    - role: desktop
+      tags: desktop
+    - role: development
+      tags: dev
