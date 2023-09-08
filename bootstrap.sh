@@ -16,8 +16,6 @@ pipx install --include-deps --force ansible
 
 home_sweet_home="$HOME/dev/src/github.com/giulianisanches/home-sweet-home"
 
-[[ ! -d "$home_sweet_home" ]] && mkdir -p "$home_sweet_home"
-
 if [[ -d "$home_sweet_home/.git" ]]
 then
     git -C "$home_sweet_home" pull
