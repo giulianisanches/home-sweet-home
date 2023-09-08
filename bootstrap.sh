@@ -5,17 +5,11 @@ distribution="$(lsb_release -is 2> /dev/null | tr '[:upper:]' '[:lower:]')"
 PATH="$PATH:$HOME/.local/bin"
 export PATH
 
-if [[ "$distribution" == 'fedora' ]]
-then
-    sudo dnf upgrade -y
+[[ "$distribution" == 'fedora' ]] && \
     sudo dnf install -y python3-pip pipx git zsh util-linux-user
-fi
 
-if [[ "$distribution" == 'debian' ]]
-then
-    sudo apt-get -y upgrade
+[[ "$distribution" == 'debian' ]] && \
     sudo apt-get -y install sudo python3-pip pipx git zsh curl gconf2
-fi
 
 # install ansible
 pipx install --include-deps --force ansible
