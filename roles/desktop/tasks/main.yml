@@ -79,6 +79,8 @@
     - "gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:{{gterminal_profile.stdout}}/ font 'Fira Code 14'"
     - "gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:{{gterminal_profile.stdout}}/ use-system-font false"
     - "gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:{{gterminal_profile.stdout}}/ audible-bell false"
+    - "gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ next-tab '<Primary>Tab'"
+    - "gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ prev-tab '<Primary><Shift>Tab'"
 
 - name: Install home files
   ansible.builtin.file:
