@@ -1,4 +1,7 @@
 ---
+- name: Include distribution variables
+  ansible.builtin.include_vars: "{{distribution}}.yml"
+
 - name: "Include {{distribution}} specific tasks"
   ansible.builtin.include_tasks: "{{ distribution }}.yml"
   when: distribution is defined

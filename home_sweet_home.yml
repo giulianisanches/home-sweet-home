@@ -6,10 +6,6 @@
     user: "{{ lookup('env', 'USER') }}"
     home: "{{ lookup('env', 'HOME') }}"
     distribution: "{{ ansible_distribution | lower }}"
-  pre_tasks:
-    - name: Include distribution variables
-      ansible.builtin.include_vars: "{{distribution}}.yml"
-      tags: "always"
   roles:
     - role: system
       become: true
