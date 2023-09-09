@@ -6,6 +6,10 @@
   ansible.builtin.include_tasks: "{{ distribution }}.yml"
   when: distribution is defined
 
+- name: Install flatpak packages
+  ansible.builtin.shell: flatpak install -y {{ item }}
+  loop: "{{ flatpak_packages }}"
+
 - name: Add user to the docker group
   ansible.builtin.user:
     append: true

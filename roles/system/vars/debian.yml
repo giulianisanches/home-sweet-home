@@ -15,3 +15,7 @@ packages:
   - code
   - docker-ce
   - google-chrome-stable
+
+flatpak_packages:
+  - com.bitwarden.desktop
+  - com.slack.Slack
