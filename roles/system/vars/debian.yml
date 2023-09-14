@@ -3,6 +3,7 @@ packages:
   - build-essential
   - fonts-firacode
   - gnome-shell-extensions-extra
+  - gnome-photos
   - uuid-runtime
   - gconf2
   - vim
