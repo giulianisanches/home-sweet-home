@@ -4,6 +4,7 @@
     name:
       - "libreoffice-*"
       - "rhythmbox*"
+      - shotwell
     state: absent
     purge: true
 
