@@ -1,18 +1,19 @@
 ---
 packages:
+  - firmware-linux-nonfree
   - build-essential
   - fonts-firacode
-  - gnome-shell-extensions-extra
-  - gnome-photos
   - uuid-runtime
   - gconf2
   - vim
   - jq
-  - gnome-shell-extension-dashtodock
   - flameshot
   - flatpak
   - gnome-software-plugin-flatpak
-  - firmware-linux-nonfree
+  - gnome-shell-extensions-extra
+  - gnome-shell-extension-dashtodock
+  - gnome-shell-extension-appindicator
+  - gnome-photos
   - code
   - docker-ce
   - google-chrome-stable

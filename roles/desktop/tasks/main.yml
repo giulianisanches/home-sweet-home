@@ -19,6 +19,7 @@
   loop:
     - gnome-extensions enable "$(gnome-extensions list | grep drive-menu)"
     - gnome-extensions enable "$(gnome-extensions list | grep dash-to-dock)"
+    - gnome-extensions enable "$(gnome-extensions list | grep appindicator)"
   ignore_errors: true
 
 - name: Configure dark mode
