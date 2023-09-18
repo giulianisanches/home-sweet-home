@@ -1,4 +1,5 @@
 .secrets
+**/weechat/sec.conf
 
 # General
 .DS_Store

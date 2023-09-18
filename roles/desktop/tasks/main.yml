@@ -96,6 +96,12 @@
     - .gitconfig
     - .bkp_ignorelist
 
+- name: Configure weechat
+  ansible.builtin.file:
+    src: "{{ (role_path, 'files', 'weechat') | path_join }}"
+    dest: "{{ (home, '.config', 'weechat') | path_join }}"
+    state: link
+
 - name: Create gpg and ssh config directories
   ansible.builtin.file:
     dest: "{{ (home, item) | path_join }}"
