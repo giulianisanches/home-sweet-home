@@ -1,5 +1,6 @@
 ---
 packages:
+  - apt-transport-https
   - firmware-linux-nonfree
   - build-essential
   - fonts-firacode
@@ -17,6 +18,8 @@ packages:
   - code
   - docker-ce
   - google-chrome-stable
+  - weechat-curses
+  - weechat-plugins
 
 flatpak_packages:
   - com.bitwarden.desktop
