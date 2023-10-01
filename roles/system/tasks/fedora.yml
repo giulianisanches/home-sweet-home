@@ -31,4 +31,6 @@
   ansible.builtin.shell: sudo dnf config-manager --add-repo https://packages.microsoft.com/yumrepos/vscode
 
 - name: Enable google-chrome repository
-  ansible.builtin.shell: sudo dnf config-manager --set-enabled google-chrome
+  ansible.builtin.shell: |
+    sudo dnf config-manager --enable
+    sudo dnf config-manager --set-enabled google-chrome
