@@ -1,7 +1,6 @@
 ---
 packages:
   - "@C Development Tools and Libraries"
-  - vim-default-editor
   - fira-code-fonts
   - gnome-extensions-app
   - gnome-tweaks

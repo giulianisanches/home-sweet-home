@@ -35,3 +35,9 @@
   ansible.builtin.dnf:
     name: "{{ packages }}"
     state: latest
+
+- name: Configure Vim as default editor
+  ansible.builtin.dnf:
+    name: vim-default-editor
+    state: latest
+    allowerasing: true
