@@ -20,7 +20,3 @@ packages:
   - google-chrome-stable
   - weechat-curses
   - weechat-plugins
-
-flatpak_packages:
-  - com.bitwarden.desktop
-  - com.slack.Slack

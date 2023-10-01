@@ -1,2 +1,5 @@
 ---
 # vars file for system
+flatpak_packages:
+  - com.bitwarden.desktop
+  - com.slack.Slack
