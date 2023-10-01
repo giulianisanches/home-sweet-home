@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-distribution="$(lsb_release -is 2> /dev/null | tr '[:upper:]' '[:lower:]')"
+distribution="$(grep -Ei '^id' /etc/os-release | cut -d '=' -f 2 2> /dev/null | tr '[:upper:]' '[:lower:]')"
 
 PATH="$PATH:$HOME/.local/bin"
 export PATH
