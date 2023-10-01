@@ -4,21 +4,6 @@
     name: "*"
     state: latest
 
-- name: Install packages
-  ansible.builtin.dnf:
-    name: "{{ packages }}"
-    state: latest
-
-- name: Download minikube
-  ansible.builtin.get_url:
-    url: https://storage.googleapis.com/minikube/releases/latest/minikube-latest.x86_64.rpm
-    dest: /tmp/minikube.rpm
-
-- name: Install minikube
-  ansible.builtin.dnf:
-    name: /tmp/minikube.rpm
-    state: present
-
 - name: Add docker-ce repository
   ansible.builtin.shell: sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
 
@@ -34,3 +19,18 @@
   ansible.builtin.shell: |
     sudo dnf config-manager --enable
     sudo dnf config-manager --set-enabled google-chrome
+
+- name: Download minikube
+  ansible.builtin.get_url:
+    url: https://storage.googleapis.com/minikube/releases/latest/minikube-latest.x86_64.rpm
+    dest: /tmp/minikube.rpm
+
+- name: Install minikube
+  ansible.builtin.dnf:
+    name: /tmp/minikube.rpm
+    state: present
+
+- name: Install packages
+  ansible.builtin.dnf:
+    name: "{{ packages }}"
+    state: latest
