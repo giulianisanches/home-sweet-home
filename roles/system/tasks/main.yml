@@ -6,6 +6,9 @@
   ansible.builtin.include_tasks: "{{ distribution }}.yml"
   when: distribution is defined
 
+- name: Configure flathub
+  ansible.builtin.shell: flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
 - name: Install flatpak packages
   ansible.builtin.shell: flatpak install -y {{ item }}
   loop: "{{ flatpak_packages }}"

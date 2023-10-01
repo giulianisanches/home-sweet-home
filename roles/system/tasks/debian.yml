@@ -59,6 +59,3 @@
   ansible.builtin.apt:
     name: "{{ packages }}"
     state: latest
-
-- name: Configure flathub
-  ansible.builtin.shell: flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
