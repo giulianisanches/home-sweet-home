@@ -1,6 +1,7 @@
 ---
 packages:
   - "@C Development Tools and Libraries"
+  - fira-code-fonts
   - gnome-extensions-app
   - gnome-tweaks
   - flameshot
