@@ -4,11 +4,12 @@ packages:
   - gnome-extensions-app
   - gnome-tweaks
   - flameshot
-  - code
   - vim
   - jq
   - gnome-shell-extension-dash-to-dock
   - gnome-shell-extension-drive-menu
   - gnome-shell-extension-appindicator
   - weechat
+  - code
   - docker-ce
+  - google-chrome-stable
