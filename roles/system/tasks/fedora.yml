@@ -8,3 +8,6 @@
   ansible.builtin.dnf:
     name: "{{ packages }}"
     state: latest
+
+- name: Add docker-ce repository
+  ansible.builtin.shell: sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
