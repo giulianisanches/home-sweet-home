@@ -1,6 +1,7 @@
 ---
 packages:
-  - '@C Development Tools and Libraries'
+  - "@C Development Tools and Libraries"
+  - dnf-plugins-core
   - gnome-extensions-app
   - gnome-tweaks
   - flameshot
@@ -9,3 +10,5 @@ packages:
   - jq
   - gnome-shell-extension-dash-to-dock
   - gnome-shell-extension-drive-menu
+  - gnome-shell-extension-appindicator
+  - weechat
