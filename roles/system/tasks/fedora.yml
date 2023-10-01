@@ -23,6 +23,7 @@
 - name: Install minikube
   ansible.builtin.dnf:
     name: /tmp/minikube.rpm
+    disable_gpg_check: true
     state: present
 
 - name: Upgrade packages
