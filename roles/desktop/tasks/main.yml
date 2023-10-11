@@ -8,10 +8,6 @@
 - name: Configure CAPS LOCK as an additional control
   ansible.builtin.shell: gsettings set org.gnome.desktop.input-sources xkb-options "['caps:ctrl_modifier', 'shift:both_capslock_cancel']"
 
-- name: Set vim as default editor ($VISUAL / $EDITOR)
-  ansible.builtin.shell: update-alternatives --set editor /usr/bin/vim.basic
-  when: distribution == 'debian'
-
 # You need to restart gnome to update the extensions installed list and
 # After that you can run the bootstrap.sh again
 # If your are using xrog, you can try to reload gnome (do not work for wayland)
