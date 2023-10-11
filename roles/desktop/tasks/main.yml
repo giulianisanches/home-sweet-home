@@ -54,7 +54,7 @@
     dest: "{{ gogh.path }}"
 
 - name: Install one-dark colorscheme for gnome-terminal
-  ansible.builtin.shell: "{{ (gogh.path, 'installs', 'one-dark.sh') | path_join }}"
+  ansible.builtin.shell: "{{ (gogh.path, 'installs', 'dracula.sh') | path_join }}"
   environment:
     TERMINAL: gnome-terminal
 
