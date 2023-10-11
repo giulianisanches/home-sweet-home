@@ -8,9 +8,6 @@
     state: absent
     purge: true
 
-- name: Set vim as default editor ($VISUAL / $EDITOR)
-  ansible.builtin.shell: update-alternatives --set editor /usr/bin/vim.basic
-
 - name: Download minikube
   ansible.builtin.get_url:
     url: https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
@@ -62,3 +59,6 @@
   ansible.builtin.apt:
     name: "{{ packages }}"
     state: latest
+
+- name: Set vim as default editor ($VISUAL / $EDITOR)
+  ansible.builtin.shell: update-alternatives --set editor /usr/bin/vim.basic
