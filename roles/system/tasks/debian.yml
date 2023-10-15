@@ -18,32 +18,44 @@
     deb: /tmp/minikube.deb
 
 - name: Add Docker gpg apt key
-  ansible.builtin.apt_key:
+  ansible.builtin.get_url:
     url: https://download.docker.com/linux/debian/gpg
+    dest: "{{trusted_gpg_path}}/docker.asc"
+    mode: "0644"
+    force: true
+
+- name: Add Microsoft gpg apt key
+  ansible.builtin.get_url:
+    url: https://packages.microsoft.com/keys/microsoft.asc
+    dest: "{{trusted_gpg_path}}/microsoft.asc"
+    mode: "0644"
+    force: true
+
+- name: Add Google gpg apt key
+  ansible.builtin.get_url:
+    url: https://dl.google.com/linux/linux_signing_key.pub
+    dest: "{{trusted_gpg_path}}/google.asc"
+    mode: "0644"
+    force: true
+
+- name: Add Weechat gpg apt key
+  ansible.builtin.get_url:
+    url: https://weechat.org/dev/info/debian_repository_signing_key/
+    dest: "{{trusted_gpg_path}}/weechat.gpg"
+    mode: "0644"
+    force: true
 
 - name: Add Docker repository
   ansible.builtin.apt_repository:
     repo: deb https://download.docker.com/linux/debian bookworm stable
 
-- name: Add Microsoft gpg apt key
-  ansible.builtin.apt_key:
-    url: https://packages.microsoft.com/keys/microsoft.asc
-
-- name: Add Microsoft repository
+- name: Add VSCode repository
   ansible.builtin.apt_repository:
     repo: deb https://packages.microsoft.com/repos/vscode stable main
-
-- name: Add Google gpg apt key
-  ansible.builtin.apt_key:
-    url: https://dl.google.com/linux/linux_signing_key.pub
 
 - name: Add Google Chrome repository
   ansible.builtin.apt_repository:
     repo: deb https://dl.google.com/linux/chrome/deb/ stable main
-
-- name: Add Weechat gpg apt key
-  ansible.builtin.apt_key:
-    url: https://weechat.org/dev/info/debian_repository_signing_key/
 
 - name: Add Weechat repository
   ansible.builtin.apt_repository:

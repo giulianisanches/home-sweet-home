@@ -1,4 +1,5 @@
 ---
+trusted_gpg_path: /etc/apt/trusted.gpg.d
 packages:
   - apt-transport-https
   - firmware-linux-nonfree
