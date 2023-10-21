@@ -28,3 +28,15 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+roles/desktop/files/.config/KDE/
+roles/desktop/files/.config/dconf/
+roles/desktop/files/.config/gtk-3.0/
+roles/desktop/files/.config/gtk-4.0/
+roles/desktop/files/.config/katemetainfos
+roles/desktop/files/.config/kde.org/
+roles/desktop/files/.config/kdeconnect/
+roles/desktop/files/.config/kdedefaults/
+roles/desktop/files/.config/khtml/
+roles/desktop/files/.config/pulse/
+roles/desktop/files/.config/session/
+roles/desktop/files/.config/xsettingsd/
