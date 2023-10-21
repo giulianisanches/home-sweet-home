@@ -14,3 +14,4 @@ packages:
   - google-chrome-stable
   - weechat-curses
   - weechat-plugins
+  - krita
