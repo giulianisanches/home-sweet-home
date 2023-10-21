@@ -1,12 +1,37 @@
 [General]
+Allow Tab Scrolling=true
+Auto Hide Tabs=true
+Close After Last=false
+Close documents with window=true
 Days Meta Infos=30
+Diff Show Style=0
+Elide Tab Text=false
+Expand Tabs=false
+Icon size for left and right sidebar buttons=32
+Modified Notification=false
+Mouse back button action=0
+Mouse forward button action=0
+Output History Limit=100
+Recent File List Entry Count=10
+Restore Window Configuration=true
 Save Meta Infos=true
 Show Full Path in Title=false
 Show Menu Bar=true
 Show Status Bar=true
+Show Symbol In Navigation Bar=true
 Show Tab Bar=true
+Show Tabs Close Button=true
 Show Url Nav Bar=true
+Show output view for message type=1
+Show text for left and right sidebar=false
 Show welcome view for new window=false
+Startup Session=manual
+Stash new unsaved files=true
+Stash unsaved file changes=false
+Sync section size with tab positions=false
+Tab Double Click New Document=true
+Tab Middle Click Close Document=true
+Tabbar Tab Limit=0
 
 [KFileDialog Settings]
 detailViewIconSize=16
@@ -57,13 +82,13 @@ Fallback Encoding=ISO 8859-15
 
 [KTextEditor Renderer]
 Animate Bracket Matching=false
-Auto Color Theme Selection=true
-Color Theme=Breeze Dark
-Font=Hack,10,-1,7,50,0,0,0,0,0
+Auto Color Theme Selection=false
+Color Theme=Dracula
+Font=Fira Code,12,-1,5,50,0,0,0,0,0
 Line Height Multiplier=1
 Show Indentation Lines=false
 Show Whole Bracket Expression=false
-Word Wrap Marker=false
+Word Wrap Marker=true
 
 [KTextEditor View]
 Allow Mark Menu=true
@@ -74,7 +99,7 @@ Auto Completion Preselect First Entry=true
 Backspace Remove Composed Characters=false
 Bookmark Menu Sorting=0
 Bracket Match Preview=false
-Chars To Enclose Selection=<>(){}[]'"
+Chars To Enclose Selection=
 Default Mark Type=1
 Dynamic Word Wrap=true
 Dynamic Word Wrap Align Indent=80
@@ -98,7 +123,7 @@ Persistent Selection=false
 Scroll Bar Marks=false
 Scroll Bar Mini Map All=true
 Scroll Bar Mini Map Width=60
-Scroll Bar MiniMap=true
+Scroll Bar MiniMap=false
 Scroll Bar Preview=true
 Scroll Past End=false
 Search/Replace Flags=140
@@ -125,9 +150,25 @@ Word Completion=true
 Word Completion Minimal Word Length=3
 Word Completion Remove Tail=true
 
+[Konsole]
+AutoSyncronize=true
+KonsoleEscKeyBehaviour=true
+KonsoleEscKeyExceptions=vi,vim,nvim,git
+RemoveExtension=false
+RunPrefix=
+SetEditor=false
+
 [MainWindow]
 1920x1080 screen: Height=726
 1920x1080 screen: Width=1342
+1920x1080 screen: XPosition=425
+1920x1080 screen: YPosition=220
+DP-3=DP-3
+State=AAAA/wAAAAD9AAAAAAAABT4AAAK4AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAIAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgAAAAAA/////wAAAAAAAAAAAAAAGABoAGEAbQBiAHUAcgBnAGUAcgBCAGEAcgAAAAHx/////wAAAAAAAAAA
+ToolBarsMovable=Disabled
+
+[Notification Messages]
+Kate hide sidebars notification message=false
 
 [filetree]
 editShade=183,220,246
@@ -138,3 +179,28 @@ showFullPathOnRoots=false
 showToolbar=true
 sortRole=0
 viewShade=211,190,222
+
+[lspclient]
+AllowedServerCommandLines=
+AutoHover=true
+AutoImport=true
+BlockedServerCommandLines=
+CompletionDocumentation=true
+CompletionParens=true
+Diagnostics=true
+DiagnosticsHighlight=true
+DiagnosticsHover=true
+DiagnosticsMark=true
+DiagnosticsSize=1024
+HighlightGoto=true
+IncrementalSync=false
+Messages=true
+ReferencesDeclaration=true
+SemanticHighlighting=true
+ServerConfiguration=
+SignatureHelp=true
+SymbolDetails=false
+SymbolExpand=true
+SymbolSort=false
+SymbolTree=true
+TypeFormatting=false
