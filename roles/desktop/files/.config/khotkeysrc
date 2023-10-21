@@ -1019,6 +1019,7 @@ Theme[$d]
 
 [KDE]
 LookAndFeelPackage[$d]
+SingleClick[$d]
 widgetStyle[$d]
 
 [KFileDialog Settings]
