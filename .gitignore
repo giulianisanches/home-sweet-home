@@ -29,7 +29,7 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-# KDE stus
+# KDE stuff
 roles/desktop/files/.config/KDE/
 roles/desktop/files/.config/dconf/
 roles/desktop/files/.config/gtk-3.0/
@@ -50,3 +50,5 @@ roles/desktop/files/.config/kwalletrc
 roles/desktop/files/.config/PlasmaDiscoverUpdates
 roles/desktop/files/.config/xdg-desktop-portal-kderc
 roles/desktop/files/.config/ksmserverrc
+roles/desktop/files/.config/kactivitymanagerd-statsrc
+roles/desktop/files/.config/kded5rc
