@@ -1,7 +1,9 @@
 [MainWindow]
 1920x1080 screen: XPosition=544
 1920x1080 screen: YPosition=276
+DP-3=DP-3
 DP-5=DP-5
 MenuBar=Disabled
+RestorePositionForNextInstance=false
 State=AAAA/wAAAAD9AAAAAAAAA/wAAAK8AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgAAAAAA/////wAAAAAAAAAA
 ToolBarsMovable=Disabled
