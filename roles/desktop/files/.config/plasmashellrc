@@ -1,3 +1,16 @@
+[ActionsWidget]
+ColumnState=AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAk8AAAACAQAAAQAAAAAAAAAAAAAAAGT/////AAAAgQAAAAAAAAACAAAA+gAAAAEAAAAAAAABVQAAAAEAAAAAAAAD6AAAAABk
+
+[ConfigDialog]
+1920x1080 screen: Height=550
+1920x1080 screen: Width=784
+
+[General]
+Number of Actions=0
+
+[Notification Messages]
+klipperClearHistoryAskAgain=false
+
 [PlasmaViews][Panel 2][Defaults]
 thickness=44
 

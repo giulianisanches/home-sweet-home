@@ -59,6 +59,9 @@ plugin=org.kde.plasma.pager
 immutability=1
 plugin=org.kde.plasma.icontasks
 
+[Containments][2][Applets][5][Configuration][General]
+launchers=preferred://filemanager,applications:google-chrome.desktop,applications:org.kde.konsole.desktop,applications:code.desktop
+
 [Containments][2][Applets][6]
 immutability=1
 plugin=org.kde.plasma.marginsseparator
@@ -68,7 +71,7 @@ immutability=1
 plugin=org.kde.plasma.systemtray
 
 [Containments][2][Applets][7][Configuration]
-PreloadWeight=55
+PreloadWeight=60
 SystrayContainmentId=8
 
 [Containments][2][General]
@@ -81,6 +84,8 @@ immutability=1
 lastScreen=0
 location=4
 plugin=org.kde.plasma.private.systemtray
+popupHeight=432
+popupWidth=432
 wallpaperplugin=org.kde.image
 
 [Containments][8][Applets][10]
