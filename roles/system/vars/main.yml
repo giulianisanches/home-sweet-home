@@ -3,3 +3,4 @@
 flatpak_packages:
   - com.bitwarden.desktop
   - com.slack.Slack
+  - org.kde.neochat
