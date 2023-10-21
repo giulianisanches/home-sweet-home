@@ -52,3 +52,5 @@ roles/desktop/files/.config/xdg-desktop-portal-kderc
 roles/desktop/files/.config/ksmserverrc
 roles/desktop/files/.config/kactivitymanagerd-statsrc
 roles/desktop/files/.config/kded5rc
+roles/desktop/files/.config/kate/
+roles/desktop/files/.config/akonadi/
