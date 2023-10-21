@@ -5,16 +5,10 @@ packages:
   - build-essential
   - fonts-firacode
   - uuid-runtime
-  - gconf2
   - vim
   - jq
-  - flameshot
   - flatpak
-  - gnome-software-plugin-flatpak
-  - gnome-shell-extensions-extra
-  - gnome-shell-extension-dashtodock
-  - gnome-shell-extension-appindicator
-  - gnome-photos
+  - plasma-discover-backend-flatpak
   - code
   - docker-ce
   - google-chrome-stable
