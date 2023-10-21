@@ -1,6 +1,6 @@
 [MainWindow]
-1920x1080 screen: XPosition=544
-1920x1080 screen: YPosition=276
+1920x1080 screen: XPosition=468
+1920x1080 screen: YPosition=64
 DP-3=DP-3
 DP-5=DP-5
 MenuBar=Disabled

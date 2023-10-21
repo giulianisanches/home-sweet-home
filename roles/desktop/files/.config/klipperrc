@@ -1,4 +1,5 @@
 [General]
 KeepClipboardContents=false
+MaxClipItems=1
 SelectionTextOnly=false
 Version=5.27.5
