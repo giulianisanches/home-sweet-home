@@ -9,7 +9,6 @@
     - .zshrc
     - .zshenv
     - .aliases
-    - .gitconfig
     - .bkp_ignorelist
 
 - name: Configure weechat
