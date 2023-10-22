@@ -1,4 +1,11 @@
 ---
+- name: Configure CAPS LOCK as an additional control
+  ansible.builtin.shell: |
+    {{ kwriteconfig }} --file {{ (home, '.config', 'kxkbrc') | path_join }} \
+      --group Layout \
+      --key Options \
+      'caps:ctrl_modifier,shift:both_capslock_cancel'
+
 - name: Install home files
   ansible.builtin.file:
     src: "{{ (role_path, 'files', item) | path_join }}"
