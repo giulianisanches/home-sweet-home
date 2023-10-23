@@ -85,7 +85,7 @@
 
 - name: Set locale
   ansible.builtin.shell: |
-    {{ kwriteconfig }} --file {{ (home, '.config', 'kxkbrc') | path_join }} \
+    {{ kwriteconfig }} --file {{ (home, '.config', 'plasma-localerc') | path_join }} \
       --group Formats \
       --key {{ item }} \
       'pt_BR.UTF-8'
