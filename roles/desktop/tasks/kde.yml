@@ -1,17 +1,80 @@
 ---
 # some configuration were taken from https://github.com/nbeaver/config-kde5/blob/master/config-kde.sh
-- name: Create konsole profile
+- name: Konsole configuration
   block:
     - name: Create konsole profile directory
       ansible.builtin.file:
         dest: "{{ (home, '.local', 'share', 'konsole') | path_join }}"
         state: directory
 
-    - name: Create profile
+    - name: Create konsole profile
       ansible.builtin.file:
         src: "{{ (role_path, 'files', 'konsole', 'Default.profile') | path_join }}"
         dest: "{{ (home, '.local', 'share', 'konsole') | path_join }}"
         state: link
+
+    - name: Set default Konsole profile
+      ansible.builtin.shell: |
+        {{ kwriteconfig }} --file {{ (home, '.config', 'konsolerc') | path_join }} \
+          --group 'Desktop Entry' \
+          --key DefaultProfile \
+          'Default.profile'
+
+    - name: Make konsole visual more clear
+      ansible.builtin.shell: |
+        {{ kwriteconfig }} --file {{ (home, '.config', 'konsolerc') | path_join }} \
+          --group MainWindow \
+          --key ToolBarsMovable \
+          Disabled
+
+- name: Global configuration
+  block:
+    - name: Configure dark theme
+      ansible.builtin.shell: |
+        {{ kwriteconfig }} --file {{ (home, '.config', 'kdeglobals') | path_join }} \
+          --group KDE \
+          --key LookAndFeelPackage \
+          'org.kde.breezedark.desktop'
+
+    - name: Configure google chrome as default browser
+      ansible.builtin.shell: |
+        {{ kwriteconfig }} --file {{ (home, '.config', 'kdeglobals') | path_join }} \
+          --group General \
+          --key BrowserApplication \
+          'google-chrome.desktop'
+
+    - name: Disable recent documents tracking
+      ansible.builtin.shell: |
+        {{ kwriteconfig }} --file {{ (home, '.config', 'kdeglobals') | path_join }} \
+          --group RecentDocuments \
+          --key UseRecent \
+          --type bool \
+          false
+
+- name: Configure klipper
+  block:
+    - name: Disable save history accross desktop sessions
+      ansible.builtin.shell: |
+        {{ kwriteconfig }} --file {{ (home, '.config', 'klipperrc') | path_join }} \
+          --group General \
+          --key KeepClipboardContents \
+          --type bool \
+          false
+
+    - name: Set max clip items to 5
+      ansible.builtin.shell: |
+        {{ kwriteconfig }} --file {{ (home, '.config', 'klipperrc') | path_join }} \
+          --group General \
+          --key MaxClipItems \
+          5
+
+    - name: Allow empty clipboard
+      ansible.builtin.shell: |
+        {{ kwriteconfig }} --file {{ (home, '.config', 'klipperrc') | path_join }} \
+          --group General \
+          --key PreventEmptyClipboard \
+          --type bool \
+          false
 
 - name: Configure CAPS LOCK as an additional control
   ansible.builtin.shell: |
@@ -20,38 +83,18 @@
       --key Options \
       'caps:ctrl_modifier,shift:both_capslock_cancel'
 
-- name: Configure dark theme
+- name: Set locale
   ansible.builtin.shell: |
-    {{ kwriteconfig }} --file {{ (home, '.config', 'kdeglobals') | path_join }} \
-      --group KDE \
-      --key LookAndFeelPackage \
-      'org.kde.breezedark.desktop'
-
-- name: Configure google chrome as default browser
-  ansible.builtin.shell: |
-    {{ kwriteconfig }} --file {{ (home, '.config', 'kdeglobals') | path_join }} \
-      --group General \
-      --key BrowserApplication \
-      'google-chrome.desktop'
-
-- name: Disable recent documents tracking
-  ansible.builtin.shell: |
-    {{ kwriteconfig }} --file {{ (home, '.config', 'kdeglobals') | path_join }} \
-      --group RecentDocuments \
-      --key UseRecent \
-      --type bool \
-      false
-
-- name: Set default Konsole profile
-  ansible.builtin.shell: |
-    {{ kwriteconfig }} --file {{ (home, '.config', 'konsolerc') | path_join }} \
-      --group 'Desktop Entry' \
-      --key DefaultProfile \
-      'Default.profile'
-
-- name: Make konsole visual more clear
-  ansible.builtin.shell: |
-    {{ kwriteconfig }} --file {{ (home, '.config', 'konsolerc') | path_join }} \
-      --group MainWindow \
-      --key ToolBarsMovable \
-      Disabled
+    {{ kwriteconfig }} --file {{ (home, '.config', 'kxkbrc') | path_join }} \
+      --group Formats \
+      --key {{ item }} \
+      'pt_BR.UTF-8'
+  loop:
+    - LC_ADDRESS
+    - LC_MEASUREMENT
+    - LC_MONETARY
+    - LC_NAME
+    - LC_NUMERIC
+    - LC_PAPER
+    - LC_TELEPHONE
+    - LC_TIME
