@@ -39,3 +39,10 @@
       --group 'Desktop Entry' \
       --key DefaultProfile \
       'Default.profile'
+
+- name: Make konsole visual more clear
+  ansible.builtin.shell: |
+    {{ kwriteconfig }} --file {{ (home, '.config', 'konsolerc') | path_join }} \
+      --group MainWindow \
+      --key ToolBarsMovable \
+      Disabled
