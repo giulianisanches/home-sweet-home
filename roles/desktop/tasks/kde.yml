@@ -1,4 +1,5 @@
 ---
+# some configuration were taken from https://github.com/nbeaver/config-kde5/blob/master/config-kde.sh
 - name: Create konsole profile
   block:
     - name: Create konsole profile directory
@@ -32,6 +33,14 @@
       --group General \
       --key BrowserApplication \
       'google-chrome.desktop'
+
+- name: Disable recent documents tracking
+  ansible.builtin.shell: |
+    {{ kwriteconfig }} --file {{ (home, '.config', 'kdeglobals') | path_join }} \
+      --group RecentDocuments \
+      --key UseRecent \
+      --type bool \
+      false
 
 - name: Set default Konsole profile
   ansible.builtin.shell: |
