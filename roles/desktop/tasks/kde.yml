@@ -10,7 +10,7 @@
     - name: Create konsole profile
       ansible.builtin.file:
         src: "{{ (role_path, 'files', 'konsole', 'Default.profile') | path_join }}"
-        dest: "{{ (home, '.local', 'share', 'konsole') | path_join }}"
+        dest: "{{ (home, '.local', 'share', 'konsole', 'Default.profile') | path_join }}"
         state: link
 
     - name: Set default Konsole profile
@@ -81,7 +81,7 @@
     {{ kwriteconfig }} --file {{ (home, '.config', 'kxkbrc') | path_join }} \
       --group Layout \
       --key Options \
-      'caps:ctrl_modifier,shift:both_capslock_cancel'          
+      'caps:ctrl_modifier,shift:both_capslock_cancel'
 
 - name: Make sure desktop session starts empty
   ansible.builtin.shell: |
