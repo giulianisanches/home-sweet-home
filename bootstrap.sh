@@ -1,15 +1,9 @@
 #!/usr/bin/env bash
 
-distribution="$(grep -Ei '^id' /etc/os-release | cut -d '=' -f 2 2> /dev/null | tr '[:upper:]' '[:lower:]')"
-
 PATH="$PATH:$HOME/.local/bin"
 export PATH
 
-[[ "$distribution" == 'fedora' ]] && \
-    sudo dnf install -y python3-pip pipx git zsh util-linux-user
-
-[[ "$distribution" == 'debian' ]] && \
-    sudo apt-get -y install sudo python3-pip pipx git zsh curl gconf2
+sudo apt install -y sudo python3-pip pipx git zsh curl gconf2
 
 # install ansible
 pipx install --include-deps --force ansible

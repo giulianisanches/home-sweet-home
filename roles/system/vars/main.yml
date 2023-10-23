@@ -1,5 +1,22 @@
 ---
 # vars file for system
+trusted_gpg_path: /etc/apt/trusted.gpg.d
+packages:
+  - apt-transport-https
+  - firmware-linux-nonfree
+  - build-essential
+  - fonts-firacode
+  - uuid-runtime
+  - vim
+  - jq
+  - flatpak
+  - plasma-discover-backend-flatpak
+  - code
+  - docker-ce
+  - google-chrome-stable
+  - weechat-curses
+  - weechat-plugins
+  - krita
 flatpak_packages:
   - com.bitwarden.desktop
   - com.slack.Slack
