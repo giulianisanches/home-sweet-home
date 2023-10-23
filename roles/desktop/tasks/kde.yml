@@ -81,7 +81,14 @@
     {{ kwriteconfig }} --file {{ (home, '.config', 'kxkbrc') | path_join }} \
       --group Layout \
       --key Options \
-      'caps:ctrl_modifier,shift:both_capslock_cancel'
+      'caps:ctrl_modifier,shift:both_capslock_cancel'          
+
+- name: Make sure desktop session starts empty
+  ansible.builtin.shell: |
+    {{ kwriteconfig }} --file {{ (home, '.config', 'ksmserverrc') | path_join }} \
+      --group General \
+      --key loginMode \
+      'default'
 
 - name: Set locale
   ansible.builtin.shell: |
