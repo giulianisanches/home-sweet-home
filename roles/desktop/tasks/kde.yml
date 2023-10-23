@@ -1,4 +1,17 @@
 ---
+- name: Create konsole profile
+  block:
+    - name: Create konsole profile directory
+      ansible.builtin.file:
+        dest: "{{ (home, '.local', 'share', 'konsole') | path_join }}"
+        state: directory
+
+    - name: Create profile
+      ansible.builtin.file:
+        src: "{{ (role_path, 'files', 'konsole', 'Default.profile') | path_join }}"
+        dest: "{{ (home, '.local', 'share', 'konsole') | path_join }}"
+        state: link
+
 - name: Configure CAPS LOCK as an additional control
   ansible.builtin.shell: |
     {{ kwriteconfig }} --file {{ (home, '.config', 'kxkbrc') | path_join }} \
@@ -20,9 +33,9 @@
       --key BrowserApplication \
       'google-chrome.desktop'
 
-- name: Create a new konsole profile
+- name: Set default Konsole profile
   ansible.builtin.shell: |
-    {{ kwriteconfig }} --file {{ (home, '.config', 'kdeglobals') | path_join }} \
-      --group General \
-      --key BrowserApplication \
-      'google-chrome.desktop'
+    {{ kwriteconfig }} --file {{ (home, '.config', 'konsolerc') | path_join }} \
+      --group 'Desktop Entry' \
+      --key DefaultProfile \
+      'Default.profile'
