@@ -90,6 +90,23 @@
       --key loginMode \
       'default'
 
+- name: Configure touchpad
+  block:
+    - name: Configure tap-to-click
+      ansible.builtin.shell: |
+        {{ kwriteconfig }} --file {{ (home, '.config', 'touchpadxlibinputrc') | path_join }} \
+          --group 'UNIW0001:00 093A:1336 Touchpad' \
+          --key tapToClick \
+          --type bool \
+          true
+    - name: Configure natural scrolling
+      ansible.builtin.shell: |
+        {{ kwriteconfig }} --file {{ (home, '.config', 'touchpadxlibinputrc') | path_join }} \
+          --group 'UNIW0001:00 093A:1336 Touchpad' \
+          --key naturalScroll \
+          --type bool \
+          true
+
 - name: Set locale
   ansible.builtin.shell: |
     {{ kwriteconfig }} --file {{ (home, '.config', 'plasma-localerc') | path_join }} \
