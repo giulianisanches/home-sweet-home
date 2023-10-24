@@ -7,10 +7,16 @@
         dest: "{{ (home, '.local', 'share', 'konsole') | path_join }}"
         state: directory
 
-    - name: Create konsole profile
+    - name: Install konsole profile
       ansible.builtin.file:
         src: "{{ (role_path, 'files', 'konsole', 'Default.profile') | path_join }}"
         dest: "{{ (home, '.local', 'share', 'konsole', 'Default.profile') | path_join }}"
+        state: link
+
+    - name: Install Dracula colorscheme
+      ansible.builtin.file:
+        src: "{{ (role_path, 'files', 'konsole', 'Dracula.colorscheme') | path_join }}"
+        dest: "{{ (home, '.local', 'share', 'konsole', 'Dracula.colorscheme') | path_join }}"
         state: link
 
     - name: Set default Konsole profile
