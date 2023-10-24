@@ -84,20 +84,6 @@
           --type bool \
           false
 
-- name: Configure CAPS LOCK as an additional control
-  ansible.builtin.shell: |
-    {{ kwriteconfig }} --file {{ (home, '.config', 'kxkbrc') | path_join }} \
-      --group Layout \
-      --key Options \
-      'caps:ctrl_modifier,shift:both_capslock_cancel'
-
-- name: Make sure desktop session starts empty
-  ansible.builtin.shell: |
-    {{ kwriteconfig }} --file {{ (home, '.config', 'ksmserverrc') | path_join }} \
-      --group General \
-      --key loginMode \
-      'default'
-
 - name: Configure touchpad
   block:
     - name: Configure tap-to-click
@@ -114,6 +100,28 @@
           --key naturalScroll \
           --type bool \
           true
+
+- name: Configure KRunner at the center of the screen
+  ansible.builtin.shell: |
+    {{ kwriteconfig }} --file {{ (home, '.config', 'krunnerrc') | path_join }} \
+      --group 'UNIW0001:00 093A:1336 Touchpad' \
+      --key FreeFloating \
+      --type bool \
+      true
+
+- name: Configure CAPS LOCK as an additional control
+  ansible.builtin.shell: |
+    {{ kwriteconfig }} --file {{ (home, '.config', 'kxkbrc') | path_join }} \
+      --group Layout \
+      --key Options \
+      'caps:ctrl_modifier,shift:both_capslock_cancel'
+
+- name: Make sure desktop session starts empty
+  ansible.builtin.shell: |
+    {{ kwriteconfig }} --file {{ (home, '.config', 'ksmserverrc') | path_join }} \
+      --group General \
+      --key loginMode \
+      'default'
 
 - name: Set locale
   ansible.builtin.shell: |
