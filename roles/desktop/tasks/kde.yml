@@ -36,6 +36,14 @@
           --key LookAndFeelPackage \
           'org.kde.breezedark.desktop'
 
+    - name: Set double-click to open files/directories
+      ansible.builtin.shell: |
+        {{ kwriteconfig }} --file {{ (home, '.config', 'kdeglobals') | path_join }} \
+          --group KDE \
+          --key SingleClick \
+          --type bool \
+          false
+
     - name: Configure google chrome as default browser
       ansible.builtin.shell: |
         {{ kwriteconfig }} --file {{ (home, '.config', 'kdeglobals') | path_join }} \
