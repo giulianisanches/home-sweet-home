@@ -8,6 +8,12 @@
     - "{{ (home, 'dev', 'src', 'gitlab.com') | path_join }}"
     - "{{ (home, 'dev', 'src', 'dev.azure.com') | path_join }}"
 
+- name: Global gitconfig file
+  ansible.builtin.file:
+    src: "{{ (role_path, 'files', '.gitconfig') | path_join }}"
+    dest: "{{ (home, '.gitconfig') | path_join }}"
+    state: link
+
 - name: Configure github.com user and email
   ansible.builtin.file:
     src: "{{ (role_path, 'files', 'gitconfig_include', '.gitconfig_github') | path_join }}"
