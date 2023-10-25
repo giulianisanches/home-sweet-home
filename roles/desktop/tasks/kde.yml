@@ -127,7 +127,7 @@
     {{ kwriteconfig }} --file {{ (home, '.config', 'ksmserverrc') | path_join }} \
       --group General \
       --key loginMode \
-      'default'
+      'emptySession'
 
 - name: Set locale
   ansible.builtin.shell: |
