@@ -107,13 +107,27 @@
           --type bool \
           true
 
-- name: Configure KRunner at the center of the screen
-  ansible.builtin.shell: |
-    {{ kwriteconfig }} --file {{ (home, '.config', 'krunnerrc') | path_join }} \
-      --group 'General' \
-      --key FreeFloating \
-      --type bool \
-      true
+- name: Configure KRunner
+  block:
+    - name: KRunner at the center of the screen
+      ansible.builtin.shell: |
+        {{ kwriteconfig }} --file {{ (home, '.config', 'krunnerrc') | path_join }} \
+          --group 'General' \
+          --key FreeFloating \
+          --type bool \
+          true
+
+    - name: KRunner at the center of the screen
+      ansible.builtin.shell: |
+        {{ kwriteconfig }} --file {{ (home, '.config', 'krunnerrc') | path_join }} \
+          --group 'Plugins' \
+          --key '{{ item }}' \
+          --type bool \
+          false
+      loop:
+        - browserhistoryEnabled
+        - browsertabsEnabled
+        - webshortcutsEnabled
 
 - name: Configure CAPS LOCK as an additional control
   ansible.builtin.shell: |
