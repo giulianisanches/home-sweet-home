@@ -11,6 +11,14 @@
     state: absent
     purge: true
 
+# During the installation I set the default to en_US, but i need some
+# pt_BR locales (data, time and so on) that is configured at kde level later.
+- name: Configure locale
+  ansible.builtin.shell: |
+    sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
+    sed -i -e 's/# pt_BR.UTF-8 UTF-8/pt_BR.UTF-8 UTF-8/' /etc/locale.gen
+    dpkg-reconfigure --frontend=noninteractive locales
+
 - name: Downalod and Install minikube
   block:
     - name: Download minikube
