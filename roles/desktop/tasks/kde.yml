@@ -7,10 +7,16 @@
         dest: "{{ (home, '.local', 'share', 'konsole') | path_join }}"
         state: directory
 
-    - name: Create konsole profile
+    - name: Install konsole profile
       ansible.builtin.file:
         src: "{{ (role_path, 'files', 'konsole', 'Default.profile') | path_join }}"
         dest: "{{ (home, '.local', 'share', 'konsole', 'Default.profile') | path_join }}"
+        state: link
+
+    - name: Install Dracula colorscheme
+      ansible.builtin.file:
+        src: "{{ (role_path, 'files', 'konsole', 'Dracula.colorscheme') | path_join }}"
+        dest: "{{ (home, '.local', 'share', 'konsole', 'Dracula.colorscheme') | path_join }}"
         state: link
 
     - name: Set default Konsole profile
@@ -35,6 +41,14 @@
           --group KDE \
           --key LookAndFeelPackage \
           'org.kde.breezedark.desktop'
+
+    - name: Set double-click to open files/directories
+      ansible.builtin.shell: |
+        {{ kwriteconfig }} --file {{ (home, '.config', 'kdeglobals') | path_join }} \
+          --group KDE \
+          --key SingleClick \
+          --type bool \
+          false
 
     - name: Configure google chrome as default browser
       ansible.builtin.shell: |
@@ -76,6 +90,45 @@
           --type bool \
           false
 
+- name: Configure touchpad
+  block:
+    - name: Configure tap-to-click
+      ansible.builtin.shell: |
+        {{ kwriteconfig }} --file {{ (home, '.config', 'touchpadxlibinputrc') | path_join }} \
+          --group 'UNIW0001:00 093A:1336 Touchpad' \
+          --key tapToClick \
+          --type bool \
+          true
+    - name: Configure natural scrolling
+      ansible.builtin.shell: |
+        {{ kwriteconfig }} --file {{ (home, '.config', 'touchpadxlibinputrc') | path_join }} \
+          --group 'UNIW0001:00 093A:1336 Touchpad' \
+          --key naturalScroll \
+          --type bool \
+          true
+
+- name: Configure KRunner
+  block:
+    - name: KRunner at the center of the screen
+      ansible.builtin.shell: |
+        {{ kwriteconfig }} --file {{ (home, '.config', 'krunnerrc') | path_join }} \
+          --group 'General' \
+          --key FreeFloating \
+          --type bool \
+          true
+
+    - name: KRunner at the center of the screen
+      ansible.builtin.shell: |
+        {{ kwriteconfig }} --file {{ (home, '.config', 'krunnerrc') | path_join }} \
+          --group 'Plugins' \
+          --key '{{ item }}' \
+          --type bool \
+          false
+      loop:
+        - browserhistoryEnabled
+        - browsertabsEnabled
+        - webshortcutsEnabled
+
 - name: Configure CAPS LOCK as an additional control
   ansible.builtin.shell: |
     {{ kwriteconfig }} --file {{ (home, '.config', 'kxkbrc') | path_join }} \
@@ -88,7 +141,7 @@
     {{ kwriteconfig }} --file {{ (home, '.config', 'ksmserverrc') | path_join }} \
       --group General \
       --key loginMode \
-      'default'
+      'emptySession'
 
 - name: Set locale
   ansible.builtin.shell: |
