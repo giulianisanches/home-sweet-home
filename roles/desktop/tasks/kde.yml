@@ -33,6 +33,14 @@
           --key ToolBarsMovable \
           Disabled
 
+    - name: Configure konsole to use a single instance
+      ansible.builtin.shell: |
+        {{ kwriteconfig }} --file {{ (home, '.config', 'konsolerc') | path_join }} \
+          --group KonsoleWindow \
+          --key UseSingleInstance \
+          --type bool \
+          true
+
 - name: Global configuration
   block:
     - name: Configure dark theme
@@ -128,6 +136,23 @@
         - browserhistoryEnabled
         - browsertabsEnabled
         - webshortcutsEnabled
+
+- name: Configure Kwin
+  block:
+    - name: Change task switcher theme
+      ansible.builtin.shell: |
+        {{ kwriteconfig }} --file {{ (home, '.config', 'kwinrc') | path_join }} \
+          --group TabBox \
+          --key LayoutName \
+          'thumbnails'
+
+    - name: Configure to not highlight current window
+      ansible.builtin.shell: |
+        {{ kwriteconfig }} --file {{ (home, '.config', 'kwinrc') | path_join }} \
+          --group TabBox \
+          --key HighlightWindows \
+          --type bool \
+          false
 
 - name: Configure CAPS LOCK as an additional control
   ansible.builtin.shell: |
