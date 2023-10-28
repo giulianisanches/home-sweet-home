@@ -137,6 +137,23 @@
         - browsertabsEnabled
         - webshortcutsEnabled
 
+- name: Configure Kwin
+  block:
+    - name: Change task switcher theme
+      ansible.builtin.shell: |
+        {{ kwriteconfig }} --file {{ (home, '.config', 'kwinrc') | path_join }} \
+          --group TabBox \
+          --key LayoutName \
+          'thumbnails'
+
+    - name: Configure to not highlight current window
+      ansible.builtin.shell: |
+        {{ kwriteconfig }} --file {{ (home, '.config', 'kwinrc') | path_join }} \
+          --group TabBox \
+          --key HighlightWindows \
+          --type bool \
+          false
+
 - name: Configure CAPS LOCK as an additional control
   ansible.builtin.shell: |
     {{ kwriteconfig }} --file {{ (home, '.config', 'kxkbrc') | path_join }} \
@@ -150,13 +167,6 @@
       --group General \
       --key loginMode \
       'emptySession'
-
-- name: Change task switcher theme
-  ansible.builtin.shell: |
-    {{ kwriteconfig }} --file {{ (home, '.config', 'kwinrc') | path_join }} \
-      --group TabBox \
-      --key LayoutName \
-      'thumbnails'
 
 - name: Set locale
   ansible.builtin.shell: |
