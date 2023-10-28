@@ -5,7 +5,7 @@ For Debian, you should follow [this wiki page to configure sudo](https://wiki.de
 After that, download the raw version of the bootstrap.sh file, give it execution permissions and run it.
 
 ```bash
-wget https://raw.githubusercontent.com/giulianisanches/home-sweet-home/master/bootstrap.sh
+wget https://raw.githubusercontent.com/giulianisanches/home-sweet-home/main/bootstrap.sh
 chmod u+x bootstrap.sh
 ./bootstrap.sh
 ```
