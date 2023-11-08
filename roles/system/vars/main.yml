@@ -13,7 +13,7 @@ packages:
   - plasma-discover-backend-flatpak
   - kwin-addons
   - docker-ce
-  - google-chrome-stable
+  - chromium
   - weechat-curses
   - weechat-plugins
   - krita
