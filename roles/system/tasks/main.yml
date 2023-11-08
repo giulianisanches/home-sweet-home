@@ -91,6 +91,10 @@
     name: "{{ packages }}"
     state: latest
 
+- name: Install packages
+  ansible.builtin.apt:
+    autoremove: true
+
 - name: Set vim as default editor ($VISUAL / $EDITOR)
   ansible.builtin.shell: update-alternatives --set editor /usr/bin/vim.basic
 
