@@ -12,7 +12,6 @@ packages:
   - flatpak
   - plasma-discover-backend-flatpak
   - kwin-addons
-  - code
   - docker-ce
   - google-chrome-stable
   - weechat-curses

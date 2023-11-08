@@ -36,11 +36,6 @@
     path: "{{trusted_gpg_path}}/docker.asc"
   register: docker_key
 
-- name: Check if microsoft key is already downloaded
-  stat:
-    path: "{{trusted_gpg_path}}/microsoft.asc"
-  register: microsoft_key
-
 - name: Check if google key is already downloadedd
   stat:
     path: "{{trusted_gpg_path}}/google.asc"
@@ -58,14 +53,6 @@
     mode: "0644"
     force: true
   when: not docker_key.stat.exists
-
-- name: Add Microsoft gpg apt key
-  ansible.builtin.get_url:
-    url: https://packages.microsoft.com/keys/microsoft.asc
-    dest: "{{trusted_gpg_path}}/microsoft.asc"
-    mode: "0644"
-    force: true
-  when: not microsoft_key.stat.exists
 
 - name: Add Google gpg apt key
   ansible.builtin.get_url:
@@ -88,11 +75,6 @@
     repo: deb https://download.docker.com/linux/debian bookworm stable
     filename: docker
 
-- name: Add VSCode repository
-  ansible.builtin.apt_repository:
-    repo: deb https://packages.microsoft.com/repos/vscode stable main
-    filename: vscode
-
 - name: Add Google Chrome repository
   ansible.builtin.apt_repository:
     repo: deb https://dl.google.com/linux/chrome/deb/ stable main
@@ -102,6 +84,13 @@
   ansible.builtin.apt_repository:
     repo: deb https://weechat.org/debian bookworm main
     filename: weechat
+
+- name: Download VSCode packages
+  ansible.builtin.get_url:
+    url: https://go.microsoft.com/fwlink/?LinkID=760868
+    dest: /tmp/vscode.deb
+    mode: "0644"
+    force: true
 
 - name: Upgrade packages
   ansible.builtin.apt:
@@ -113,6 +102,10 @@
   ansible.builtin.apt:
     name: "{{ packages }}"
     state: latest
+
+- name: Install VSCode
+  ansible.builtin.apt:
+    deb: /tmp/vscode.deb
 
 - name: Set vim as default editor ($VISUAL / $EDITOR)
   ansible.builtin.shell: update-alternatives --set editor /usr/bin/vim.basic
