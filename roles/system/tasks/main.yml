@@ -19,7 +19,7 @@
     sed -i -e 's/# pt_BR.UTF-8 UTF-8/pt_BR.UTF-8 UTF-8/' /etc/locale.gen
     dpkg-reconfigure --frontend=noninteractive locales
 
-- name: Downalod and Install minikube
+- name: Download and Install minikube
   block:
     - name: Download minikube
       ansible.builtin.get_url:
@@ -30,6 +30,19 @@
       ansible.builtin.apt:
         deb: /tmp/minikube.deb
   when: "'minikube' not in ansible_facts.packages"
+
+- name: Downalod and Install VSCode
+  block:
+    - name: Download VSCode packages
+      ansible.builtin.get_url:
+        url: https://go.microsoft.com/fwlink/?LinkID=760868
+        dest: /tmp/vscode.deb"
+        force: true
+
+    - name: Install VSCode
+      ansible.builtin.apt:
+        deb: /tmp/vscode.deb
+  when: "'code' not in ansible_facts.packages"
 
 - name: Check if docker key is already downloaded
   stat:
@@ -67,13 +80,6 @@
     repo: deb https://weechat.org/debian bookworm main
     filename: weechat
 
-- name: Download VSCode packages
-  ansible.builtin.get_url:
-    url: https://go.microsoft.com/fwlink/?LinkID=760868
-    dest: /tmp/vscode.deb
-    mode: "0644"
-    force: true
-
 - name: Upgrade packages
   ansible.builtin.apt:
     name: "*"
@@ -84,10 +90,6 @@
   ansible.builtin.apt:
     name: "{{ packages }}"
     state: latest
-
-- name: Install VSCode
-  ansible.builtin.apt:
-    deb: /tmp/vscode.deb
 
 - name: Set vim as default editor ($VISUAL / $EDITOR)
   ansible.builtin.shell: update-alternatives --set editor /usr/bin/vim.basic
