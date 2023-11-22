@@ -17,6 +17,9 @@ packages:
   - weechat-curses
   - weechat-plugins
   - krita
+  - qt5-style-kvantum
+  - kaccounts-integration
+  - kio-gdrive
 flatpak_packages:
   - com.bitwarden.desktop
   - com.slack.Slack
