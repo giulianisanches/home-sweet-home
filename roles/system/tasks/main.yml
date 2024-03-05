@@ -8,6 +8,7 @@
     name:
       - "libreoffice-*"
       - gimp
+      - firefox-esr
     state: absent
     purge: true
 
