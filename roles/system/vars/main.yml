@@ -13,11 +13,9 @@ packages:
   - plasma-discover-backend-flatpak
   - kwin-addons
   - docker-ce
-  - chromium
   - weechat-curses
   - weechat-plugins
   - krita
-flatpak_packages:
-  - com.bitwarden.desktop
-  - com.slack.Slack
-  - org.kde.neochat
+  - qt5-style-kvantum
+  - kaccounts-integration
+  - kio-gdrive
