@@ -19,5 +19,3 @@ packages:
   - qt5-style-kvantum
   - kaccounts-integration
   - kio-gdrive
-flatpak_packages:
-  - com.bitwarden.desktop
