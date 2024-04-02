@@ -33,7 +33,7 @@
         deb: /tmp/minikube.deb
   when: "'minikube' not in ansible_facts.packages"
 
-- name: Downalod and Install VSCode
+- name: Download and Install VSCode
   block:
     - name: Download VSCode packages
       ansible.builtin.get_url:
