@@ -6,7 +6,6 @@ packages:
   - build-essential
   - fonts-firacode
   - uuid-runtime
-  - gconf2
   - vim
   - jq
   - flameshot
