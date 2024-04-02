@@ -17,7 +17,6 @@ packages:
   - gnome-photos
   - code
   - docker-ce
-  - google-chrome-stable
   - weechat-curses
   - weechat-plugins
 
