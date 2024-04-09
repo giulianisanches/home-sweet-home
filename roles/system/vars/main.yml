@@ -1,6 +1,7 @@
 ---
 trusted_gpg_path: /etc/apt/trusted.gpg.d
 packages:
+  - gnome-core
   - apt-transport-https
   - firmware-linux-nonfree
   - build-essential

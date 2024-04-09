@@ -18,6 +18,14 @@ else
         https://github.com/giulianisanches/home-sweet-home.git "$home_sweet_home"
 fi
 
+git fetch -a
+if git branch -a | grep -q "$1"
+then
+    git switch "$1"
+else
+    echo "[WARNING] Branch $1 not found. Using main branch."
+fi
+
 ansible-playbook -K "$home_sweet_home/home_sweet_home.yml"
 
 sudo chsh -s "$( which zsh )" "$USER"
