@@ -18,10 +18,12 @@ else
         https://github.com/giulianisanches/home-sweet-home.git "$home_sweet_home"
 fi
 
-if [[ -n $1 ]]
+git fetch -a
+if git branch -a | grep -q "$1"
 then
-    git fetch -a
     git switch "$1"
+else
+    echo "[WARNING] Branch $1 not found. Using main branch."
 fi
 
 ansible-playbook -K "$home_sweet_home/home_sweet_home.yml"
