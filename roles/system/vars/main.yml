@@ -1,5 +1,4 @@
 ---
-# vars file for system
 trusted_gpg_path: /etc/apt/trusted.gpg.d
 packages:
   - apt-transport-https
@@ -9,13 +8,15 @@ packages:
   - uuid-runtime
   - vim
   - jq
+  - flameshot
   - flatpak
-  - plasma-discover-backend-flatpak
-  - kwin-addons
+  - gnome-software-plugin-flatpak
+  - gnome-shell-extensions-extra
+  - gnome-shell-extension-dashtodock
+  - gnome-shell-extension-appindicator
+  - gnome-photos
+  - code
   - docker-ce
+  - google-chrome-stable
   - weechat-curses
   - weechat-plugins
-  - krita
-  - qt5-style-kvantum
-  - kaccounts-integration
-  - kio-gdrive
