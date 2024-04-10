@@ -9,19 +9,20 @@ sudo apt install -y sudo python3-pip pipx git zsh curl gconf2
 pipx install --include-deps --force ansible
 
 home_sweet_home="$HOME/dev/src/github.com/giulianisanches/home-sweet-home"
+gitcmd="git -C $home_sweet_home"
 
 if [[ -d "$home_sweet_home/.git" ]]
 then
-    git -C "$home_sweet_home" pull
+    $gitcmd pull
 else
     git clone \
         https://github.com/giulianisanches/home-sweet-home.git "$home_sweet_home"
 fi
 
-git fetch -a
-if git branch -a | grep -q "$1"
+$gitcmd fetch -a
+if $gitcmd branch -a | grep -q "$1"
 then
-    git switch "$1"
+    $gitcmd switch "$1"
 else
     echo "[WARNING] Branch $1 not found. Using main branch."
 fi
