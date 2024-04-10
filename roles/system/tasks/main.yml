@@ -44,6 +44,7 @@
     - name: Install VSCode
       ansible.builtin.apt:
         deb: /tmp/vscode.deb
+  ignore_errors: true
   when: "'code' not in ansible_facts.packages"
 
 - name: Check if docker key is already downloaded
