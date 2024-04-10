@@ -2,7 +2,7 @@
 
 This project consider that you did a minial debian installation.
 
-You should follow [this wiki page to configure sudo](https://wiki.debian.org/sudo/). Don't forget to logout/login before procceed.
+If you set a password for root during the installation, you should follow [this wiki page to configure sudo](https://wiki.debian.org/sudo/). Don't forget to logout/login before procceed.
 
 Download the raw version of the `bootstrap.sh` file, give it execution permissions and run it.
 
