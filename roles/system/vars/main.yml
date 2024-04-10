@@ -2,6 +2,9 @@
 trusted_gpg_path: /etc/apt/trusted.gpg.d
 packages:
   - gnome-core
+  - network-manager-gnome
+  - gnome-tweaks
+  - gnome-editor
   - apt-transport-https
   - firmware-linux-nonfree
   - build-essential
@@ -16,7 +19,6 @@ packages:
   - gnome-shell-extension-dashtodock
   - gnome-shell-extension-appindicator
   - gnome-photos
-  - code
   - docker-ce
   - google-chrome-stable
   - weechat-curses

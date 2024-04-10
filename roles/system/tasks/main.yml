@@ -38,7 +38,7 @@
     - name: Download VSCode packages
       ansible.builtin.get_url:
         url: https://go.microsoft.com/fwlink/?LinkID=760868
-        dest: /tmp/vscode.deb"
+        dest: /tmp/vscode.deb
         force: true
 
     - name: Install VSCode
