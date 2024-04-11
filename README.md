@@ -1,13 +1,13 @@
 # home-sweet-home
 
-This project consider that you did a minial debian installation.
+This project assumes that you performed a minial Debian installation.
 
-If you set a password for root during the installation, you should follow [this wiki page to configure sudo](https://wiki.debian.org/sudo/). Don't forget to logout/login before procceed.
+If you set a password for the `root` during the installation, follow [this wiki page to configure `sudo`](https://wiki.debian.org/sudo/). Don't forget to log out and log back in before procceeding.
 
-Download the raw version of the `bootstrap.sh` file, give it execution permissions and run it.
+Download the raw version of the `bootstrap.sh` file, grant   it execution permissions, and run it.
 
-> Optionally you can pass a branch name to the bootstrap.sh command.
-> This is mostly used to test something before merge it into the main branch.
+> Optionally, you can pass a branch name to the bootstrap.sh command.
+> This is ,mainly used for testing something before merging it into the main branch.
 
 ```bash
 wget https://raw.githubusercontent.com/giulianisanches/home-sweet-home/main/bootstrap.sh
