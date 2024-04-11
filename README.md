@@ -15,6 +15,28 @@ chmod u+x bootstrap.sh
 ./bootstrap.sh
 ```
 
+After you finish your setup, if you used your wireless connection, you can face issues with NetworkManager not being able to manage your connections.
+
+You will need to change two files to get it fixed:
+
+`sudo vim /etc/network/interfaces`
+
+Locate the following block and delete it:
+
+```shell
+iface <your wireless interface> <additional options>
+    wpa-(...) <ssid of your wireless>
+    wpa-(...) <plain text password of your wireless>
+```
+
+`sudo vim /etc/NetworkManager/NetworkManager.conf`
+
+Locate the `[ifupdown]` section and change the value `managed=false` to `managed=true`.
+
+After that, restart your PC.
+
+If you're still having issues, consult the [official documentation](https://wiki.debian.org/WiFi).
+
 ## License
 
 MIT License
