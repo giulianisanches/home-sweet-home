@@ -53,15 +53,17 @@
     repo: "https://github.com/Gogh-Co/Gogh.git"
     dest: "{{ gogh.path }}"
 
-- name: Install dracula colorscheme for gnome-terminal
-  ansible.builtin.shell: "{{ (gogh.path, 'installs', 'dracula.sh') | path_join }}"
+- name: Install Gogh colorscheme for gnome-terminal
+  ansible.builtin.shell: "{{ (gogh.path, 'installs', gogh_install_file) | path_join }}"
   environment:
     TERMINAL: gnome-terminal
 
-- name: Set gnome-terminal default profile as One Dark
+- name: Set gnome-terminal default profile
   ansible.builtin.shell: "{{ (role_path, 'files', 'scripts', 'set_default_gnome_terminal_profile.sh') | path_join }}"
   args:
     executable: /bin/bash
+  environment:
+    GNOME_TERMINAL_PROFILE: "{{ gnome_terminal_profile }}"
 
 - name: Get gnome-terminal default profile
   ansible.builtin.shell: gsettings get org.gnome.Terminal.ProfilesList default
