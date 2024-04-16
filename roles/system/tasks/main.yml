@@ -19,7 +19,14 @@
   ansible.builtin.shell: |
     sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
     sed -i -e 's/# pt_BR.UTF-8 UTF-8/pt_BR.UTF-8 UTF-8/' /etc/locale.gen
+
+    cat <<EOF > /etc/default/locale
+    LANG=en_US.UTF-8
+    LANGUAGE=en_US:en
+    EOF
+
     dpkg-reconfigure --frontend=noninteractive locales
+    update-locale LANG=en_US.UTF-8
 
 - name: Download and Install minikube
   block:
