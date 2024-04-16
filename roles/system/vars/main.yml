@@ -23,3 +23,6 @@ packages:
   - google-chrome-stable
   - weechat-curses
   - weechat-plugins
+
+flathub_packages:
+  - com.bitwarden.desktop
