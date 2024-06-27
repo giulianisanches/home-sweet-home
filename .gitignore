@@ -1,6 +1,6 @@
-.secrets
 **/weechat/sec.conf
 .vscode
+**/*.local
 
 # General
 .DS_Store
