@@ -2,14 +2,14 @@
 
 # these are local functions you create well... locally
 # they are not checked in to the repo
-if [[ -d awsx.local ]]; then
-    for i in awsx.local/*.zsh; do
+if [[ -d awsg.local ]]; then
+    for i in awsg.local/*.zsh; do
         source $i
     done
 fi
 
 if (( $# < 1)) ; then
-    echo "Usage: awsx <command> [args]"
+    echo "Usage: awsg <command> [args]"
     echo "Commands: login, ssh, stsdecode"
 
     return 1
