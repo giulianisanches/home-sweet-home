@@ -1,0 +1,42 @@
+#!/usr/bin/env zsh
+
+# these are local functions you create well... locally
+# they are not checked in to the repo
+if [[ -d awsx.local ]]; then
+    for i in awsx.local/*.zsh; do
+        source $i
+    done
+fi
+
+if (( $# < 1)) ; then
+    echo "Usage: awsx <command> [args]"
+    echo "Commands: login, ssh, stsdecode"
+
+    return 1
+fi
+
+local command="$1"; shift 1
+
+case $command in
+    "login")
+        if typeset -f awslogin > /dev/null ; then
+            awslogin "$@"
+        else
+            echo "login not implemented"
+        fi
+        ;;
+    "ssh")
+        instance_id="$1"
+        aws ssm start-session --target "$instance_id"
+        ;;
+    "stsdecode")
+        message="$1"
+        aws sts decode-authorization-message \
+            --encoded-message "$message" \
+            --query DecodedMessage \
+            --output text | jq '.'
+        ;;
+    *)
+        echo "Unknown command: $command"
+        ;;
+esac
