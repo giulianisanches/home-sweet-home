@@ -1,0 +1,19 @@
+#!/usr/bin/env zsh
+
+local $command="$1"; shift
+
+case $command in
+    "stsdecode")
+        message="$1"
+        aws sts decode-authorization-message \
+            --encoded-message "$message" \
+            --query DecodedMessage \
+            --output text | jq '.'
+        ;;
+    "login")
+        echo "not implemented"
+        ;;
+    *)
+        echo "Unknown command: $command"
+        ;;
+esac
