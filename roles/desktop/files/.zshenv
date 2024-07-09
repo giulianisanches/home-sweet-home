@@ -26,7 +26,8 @@ path=($path[@]
       /usr/local/go/bin
       $HOME/.local/bin
       $HOME/.dotnet/tools
-      $HOME/dev/bin)
+      $HOME/dev/bin
+      $HOME/.rbenv/bin)
 
 if [[ $(uname) == 'Darwin' ]]
 then
