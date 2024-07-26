@@ -18,7 +18,6 @@ zinit light sindresorhus/pure
 
 autoload -Uz ~/.zsh/**/*
 [[ -f $HOME/.aliases ]] && source "$HOME/.aliases"
-[[ -f $HOME/.aliases.local ]] && source "$HOME/.aliases.local"
 
 if [[ $(uname) != 'Darwin' ]]
 then
