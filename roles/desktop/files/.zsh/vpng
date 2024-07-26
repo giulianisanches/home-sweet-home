@@ -2,8 +2,8 @@
 
 # these are local functions you create well... locally
 # they are not checked in to the repo
-if [[ -d vpng.local ]]; then
-    for i in vpng.local/*.zsh; do
+if [[ -d "$HOME/.zsh/vpng.local" ]]; then
+    for i in "$HOME"/.zsh/vpng.local/*.zsh; do
         source $i
     done
 fi

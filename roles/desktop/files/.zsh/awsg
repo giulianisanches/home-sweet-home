@@ -2,8 +2,8 @@
 
 # these are local functions you create well... locally
 # they are not checked in to the repo
-if [[ -d awsg.local ]]; then
-    for i in awsg.local/*.zsh; do
+if [[ -d "$HOME/.zsh/awsg.local" ]]; then
+    for i in "$HOME"/.zsh/awsg.local/*.zsh; do
         source $i
     done
 fi
