@@ -20,7 +20,8 @@ if (( $# < 1)) ; then
     echo
     echo "Default AWS help"
     echo
-    aws
+    awscmd=$(type -p aws | cut -d' ' -f3)
+    $awscmd
     return 1
 fi
 
