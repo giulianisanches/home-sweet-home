@@ -14,7 +14,6 @@ then
     echo "WARNING: you have overriden the rdp command with the zsh function under ~/.zsh/rdp"
     echo "         check if this is the expected behavior"
 fi
-;;
 
 if (( $# < 1)) ; then
     echo "Usage: rdp <environment>"
