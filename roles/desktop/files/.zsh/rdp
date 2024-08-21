@@ -1,0 +1,31 @@
+#!/usr/bin/env zsh
+
+# these are local functions you create well... locally
+# they are not checked in to the repo
+if [[ -d "$HOME/.zsh/rdp.local" ]]; then
+    for i in "$HOME"/.zsh/rdp.local/*.zsh; do
+        source $i
+    done
+fi
+
+
+if type -p vpn > /dev/null
+then
+    echo "WARNING: you have overriden the rdp command with the zsh function under ~/.zsh/rdp"
+    echo "         check if this is the expected behavior"
+fi
+;;
+
+if (( $# < 1)) ; then
+    echo "Usage: rdp <environment>"
+    return 1
+fi
+
+
+local env_name="$1"; shift 1
+
+if typeset -f rdplogin > /dev/null ; then
+    rdplogin "$env_name" "$@"
+else
+    echo "rdplogin not implemented"
+fi
