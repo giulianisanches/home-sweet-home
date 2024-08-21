@@ -11,7 +11,10 @@ fi
 if ! type -p aws > /dev/null
 then
     echo "aws cli not installed"
+    return 1
 fi
+
+awscli=$(type -p aws | cut -d' ' -f3)
 
 if (( $# < 1)) ; then
     echo "Custom AWS CLI wrapper"
@@ -20,8 +23,7 @@ if (( $# < 1)) ; then
     echo
     echo "Default AWS help"
     echo
-    awscmd=$(type -p aws | cut -d' ' -f3)
-    $awscmd
+    $awscli
     return 1
 fi
 
@@ -37,16 +39,16 @@ case $command in
         ;;
     "ssh")
         instance_id="$1"
-        aws ssm start-session --target "$instance_id"
+        $awscli ssm start-session --target "$instance_id"
         ;;
     "stsdecode")
         message="$1"
-        aws sts decode-authorization-message \
+        $awscli sts decode-authorization-message \
             --encoded-message "$message" \
             --query DecodedMessage \
             --output text | jq '.'
         ;;
     *)
-        aws "$command" "$@"
+        $awscli "$command" "$@"
         ;;
 esac
