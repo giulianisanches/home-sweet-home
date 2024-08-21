@@ -1,0 +1,52 @@
+#!/usr/bin/env zsh
+
+# these are local functions you create well... locally
+# they are not checked in to the repo
+if [[ -d "$HOME/.zsh/aws.local" ]]; then
+    for i in "$HOME"/.zsh/aws.local/*.zsh; do
+        source $i
+    done
+fi
+
+if ! type -p aws > /dev/null
+then
+    echo "aws cli not installed"
+fi
+;;
+
+if (( $# < 1)) ; then
+    echo "Custom AWS CLI wrapper"
+    echo
+    echo "Custom Commands: login, ssh, stsdecode"
+    echo
+    echo "Default AWS help"
+    echo
+    aws
+    return 1
+fi
+
+local command="$1"; shift 1
+
+case $command in
+    "login")
+        if typeset -f awslogin > /dev/null ; then
+            awslogin "$@"
+        else
+            echo "login not implemented"
+        fi
+        ;;
+    "ssh")
+        instance_id="$1"
+        aws ssm start-session --target "$instance_id"
+        ;;
+    "stsdecode")
+        message="$1"
+        aws sts decode-authorization-message \
+            --encoded-message "$message" \
+            --query DecodedMessage \
+            --output text | jq '.'
+        ;;
+    *)
+        aws "$command" "$@"
+        ;;
+esac
