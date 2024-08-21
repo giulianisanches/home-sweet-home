@@ -13,7 +13,6 @@ then
     echo "WARNING: you have overriden the vpn command with the zsh function under ~/.zsh/vpn"
     echo "         check if this is the expected behavior"
 fi
-;;
 
 if (( $# < 1)) ; then
     echo "Usage: vpn <vpn_name>"
