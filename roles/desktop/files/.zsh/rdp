@@ -9,7 +9,7 @@ if [[ -d "$HOME/.zsh/rdp.local" ]]; then
 fi
 
 
-if type -p vpn > /dev/null
+if type -p rdp > /dev/null
 then
     echo "WARNING: you have overriden the rdp command with the zsh function under ~/.zsh/rdp"
     echo "         check if this is the expected behavior"
