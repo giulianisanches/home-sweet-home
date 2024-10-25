@@ -1,0 +1,21 @@
+#!/usr/bin/env zsh
+
+if type -p mypass > /dev/null
+then
+    echo "WARNING: you have overriden the rdp command with the zsh function under ~/.zsh/rdp"
+    echo "         check if this is the expected behavior"
+fi
+
+if (( $# < 1)) ; then
+    echo "Usage: mypass <environment>"
+    return 1
+fi
+
+
+local env_name="$1"; shift 1
+
+if typeset -f getmypass > /dev/null ; then
+    getmypass "$env_name" "$@"
+else
+    echo "rdplogin not implemented"
+fi
