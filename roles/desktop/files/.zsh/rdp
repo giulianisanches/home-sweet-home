@@ -1,14 +1,5 @@
 #!/usr/bin/env zsh
 
-# these are local functions you create well... locally
-# they are not checked in to the repo
-if [[ -d "$HOME/.zsh/rdp.local" ]]; then
-    for i in "$HOME"/.zsh/rdp.local/*.zsh; do
-        source $i
-    done
-fi
-
-
 if type -p rdp > /dev/null
 then
     echo "WARNING: you have overriden the rdp command with the zsh function under ~/.zsh/rdp"

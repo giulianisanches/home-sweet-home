@@ -1,13 +1,5 @@
 #!/usr/bin/env zsh
 
-# these are local functions you create well... locally
-# they are not checked in to the repo
-if [[ -d "$HOME/.zsh/vpn.local" ]]; then
-    for i in "$HOME"/.zsh/vpn.local/*.zsh; do
-        source $i
-    done
-fi
-
 if type -p vpn > /dev/null
 then
     echo "WARNING: you have overriden the vpn command with the zsh function under ~/.zsh/vpn"
