@@ -19,7 +19,7 @@ zinit light sindresorhus/pure
 # the setopt below is to mimic the bourne-shell like behavior otherwise
 # zsh will always thrown an error if the globbing fails
 setopt no_nomatch
-for f in $(ls .zsh/*.local/*.zsh 2>/dev/null) ; do source $f ; done
+for f in $(ls .zsh/local/*.zsh 2>/dev/null) ; do source $f ; done
 setopt nomatch
 
 autoload -Uz ~/.zsh/**/*

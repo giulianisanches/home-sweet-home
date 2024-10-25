@@ -1,6 +1,6 @@
 **/weechat/sec.conf
 .vscode
-**/*.local
+**/.zsh/local/*.zsh
 
 # General
 .DS_Store
