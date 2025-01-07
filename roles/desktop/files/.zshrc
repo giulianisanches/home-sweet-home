@@ -47,4 +47,9 @@ if type "rbenv" &> /dev/null ; then eval "$(rbenv init - zsh)" ; fi
 # pnpm
 export PNPM_HOME="/Users/I572994/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
-# pnpm end
+# pnpm endexport
+
+# setup pyenv
+PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
