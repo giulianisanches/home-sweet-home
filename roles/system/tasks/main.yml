@@ -54,6 +54,11 @@
   ignore_errors: true
   when: "'code' not in ansible_facts.packages"
 
+- name: Check if firefox repository key is already downloaded
+  stat:
+    path: "{{trusted_gpg_path}}/packages.mozilla.org.asc "
+  register: firefox_key
+
 - name: Check if docker key is already downloaded
   stat:
     path: "{{trusted_gpg_path}}/docker.asc"
@@ -69,6 +74,14 @@
   stat:
     path: "{{trusted_gpg_path}}/weechat.gpg"
   register: weechat_key
+
+- name: Add Firefox repository gpg apt key
+  ansible.builtin.get_url:
+    url: https://packages.mozilla.org/apt/repo-signing-key.gpg
+    dest: "{{trusted_gpg_path}}/packages.mozilla.org.asc"
+    mode: "0644"
+    force: true
+  when: not firefox_key.stat.exists
 
 - name: Add Docker gpg apt key
   ansible.builtin.get_url:
@@ -95,6 +108,16 @@
     force: true
   when: not weechat_key.stat.exists
 
+- name: Add Firefox repository
+  ansible.builtin.apt_repository:
+    repo: deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main
+    filename: mozilla
+
+- name: Configure APT to prioritize packages from the Mozilla repository
+  ansible.builtin.copy:
+    src: preferences.d/mozilla
+    dest: /etc/apt/preferences.d/mozilla
+
 - name: Add Docker repository
   ansible.builtin.apt_repository:
     repo: deb [signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian bookworm stable
@@ -119,6 +142,7 @@
 - name: Install flatpak packages
   ansible.builtin.shell: flatpak install -y {{ item }}
   loop: "{{ flatpak_packages }}"
+  when: flatpak_packages is defined
 
 - name: Install packages
   ansible.builtin.apt:
