@@ -59,9 +59,10 @@
     path: "{{trusted_gpg_path}}/docker.asc"
   register: docker_key
 
+# google uses the "old" trusted.gpg.d path
 - name: Check if google key is already downloadedd
   stat:
-    path: "{{trusted_gpg_path}}/google.asc"
+    path: "/etcc/apt/trusted.gpg.d/google.asc"
   register: google_key
 
 - name: Check if weechat key is already downloadedd
@@ -77,10 +78,11 @@
     force: true
   when: not docker_key.stat.exists
 
+# google uses the "old" trusted.gpg.d path
 - name: Add Google gpg apt key
   ansible.builtin.get_url:
     url: https://dl.google.com/linux/linux_signing_key.pub
-    dest: "{{trusted_gpg_path}}/google.asc"
+    dest: "/etc/apt/trusted.gpg.d/google.asc"
     mode: "0644"
     force: true
   when: not google_key.stat.exists
