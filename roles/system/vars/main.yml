@@ -1,5 +1,5 @@
 ---
-trusted_gpg_path: /etc/apt/trusted.gpg.d
+trusted_gpg_path: /etc/apt/keyrings
 packages:
   - gnome-core
   - network-manager-gnome

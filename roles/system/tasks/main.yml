@@ -95,7 +95,7 @@
 
 - name: Add Docker repository
   ansible.builtin.apt_repository:
-    repo: deb https://download.docker.com/linux/debian bookworm stable
+    repo: deb [signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian bookworm stable
     filename: docker
 
 - name: Add Google Chrome repository
@@ -105,7 +105,7 @@
 
 - name: Add Weechat repository
   ansible.builtin.apt_repository:
-    repo: deb https://weechat.org/debian bookworm main
+    repo: deb [signed-by=/etc/apt/keyrings/weechat.gpg] https://weechat.org/debian bookworm main
     filename: weechat
 
 - name: Upgrade packages
