@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+
+ssh_cmd="$(type -p ssh | cut -d' ' -f3)"
+dest="${(P)#}"
+host="${dest##*@}"
+
+sed -i -e "/${host}/d" "$HOME/.ssh/known_hosts"
+
+$ssh_cmd "$@"
