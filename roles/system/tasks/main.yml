@@ -93,12 +93,7 @@
 - name: Add Vivaldi repository
   ansible.builtin.apt_repository:
     repo: deb [signed-by=/etc/apt/keyrings/vivaldi_browser.asc] https://repo.vivaldi.com/archive/deb/ stable main
-    filename: mozilla
-
-- name: Configure APT to prioritize packages from the Mozilla repository
-  ansible.builtin.copy:
-    src: preferences.d/mozilla
-    dest: /etc/apt/preferences.d/mozilla
+    filename: vivaldi
 
 - name: Add Docker repository
   ansible.builtin.apt_repository:
