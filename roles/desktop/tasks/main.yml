@@ -5,6 +5,15 @@
 - name: Configure CAPS LOCK as an additional control
   ansible.builtin.shell: gsettings set org.gnome.desktop.input-sources xkb-options "['caps:ctrl_modifier', 'shift:both_capslock_cancel']"
 
+- name: Remove the home folder from the desktop
+  ansible.builtin.shell: gsettings set org.gnome.shell.extensions.ding show-home false
+
+- name: Configure the Dock to my preferences :)
+  ansible.builtin.shell: |
+    gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'
+    gsettings set org.gnome.shell.extensions.dash-to-dock extended-height false
+    gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
+
 - name: Configure dark mode
   ansible.builtin.shell: |
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
