@@ -2,9 +2,6 @@
 - name: Configure app-switcher
   ansible.builtin.shell: gsettings set org.gnome.shell.app-switcher current-workspace-only true
 
-- name: Enable user extensions
-  ansible.builtin.shell: gsettings set org.gnome.shell disable-user-extensions false
-
 - name: Configure CAPS LOCK as an additional control
   ansible.builtin.shell: gsettings set org.gnome.desktop.input-sources xkb-options "['caps:ctrl_modifier', 'shift:both_capslock_cancel']"
 
