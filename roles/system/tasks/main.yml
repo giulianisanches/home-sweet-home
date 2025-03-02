@@ -6,10 +6,7 @@
 - name: Remove some uneeded packages
   ansible.builtin.apt:
     name:
-      - "libreoffice-*"
       - firefox*
-      - "rhythmbox*"
-      - shotwell
     state: absent
     purge: true
 
