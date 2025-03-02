@@ -116,11 +116,6 @@
     state: latest
     update_cache: true
 
-- name: Install flatpak packages
-  ansible.builtin.shell: flatpak install -y {{ item }}
-  loop: "{{ flatpak_packages }}"
-  when: flatpak_packages is defined
-
 - name: Install packages
   ansible.builtin.apt:
     name: "{{ packages }}"
@@ -132,9 +127,6 @@
 
 - name: Set vim as default editor ($VISUAL / $EDITOR)
   ansible.builtin.shell: update-alternatives --set editor /usr/bin/vim.basic
-
-- name: Configure flathub
-  ansible.builtin.shell: flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 - name: Check if kubectl is installed
   stat:
