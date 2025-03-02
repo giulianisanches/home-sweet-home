@@ -12,3 +12,4 @@ packages:
   - docker-ce
   - weechat-curses
   - weechat-plugins
+  - vivaldi-stable
