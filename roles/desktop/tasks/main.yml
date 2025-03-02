@@ -39,13 +39,6 @@
     cp /etc/xdg/autostart/gnome-keyring-ssh.desktop ~/.config/autostart/
     echo "Hidden=true" >> ~/.config/autostart/gnome-keyring-ssh.desktop
 
-- name: Set gnome-terminal default profile
-  ansible.builtin.shell: "{{ (role_path, 'files', 'scripts', 'set_default_gnome_terminal_profile.sh') | path_join }}"
-  args:
-    executable: /bin/bash
-  environment:
-    GNOME_TERMINAL_PROFILE: "{{ gnome_terminal_profile }}"
-
 - name: Get gnome-terminal default profile
   ansible.builtin.shell: gsettings get org.gnome.Terminal.ProfilesList default
   register: gterminal_profile
