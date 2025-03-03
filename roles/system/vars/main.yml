@@ -12,4 +12,12 @@ packages:
   - docker-ce
   - weechat-curses
   - weechat-plugins
-  - vivaldi-stable
+
+snaps_to_remove:
+  - firefox
+
+snaps_to_install:
+  - vivaldi
+
+snaps_to_install_classi:
+  - code

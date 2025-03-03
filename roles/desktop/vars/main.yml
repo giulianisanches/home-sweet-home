@@ -1,3 +1,3 @@
 ---
-gogh_install_file: github-dark.sh
-gnome_terminal_profile: "Github Dark"
+gogh_install_file: one-dark.sh
+gnome_terminal_profile: "One Dark"
