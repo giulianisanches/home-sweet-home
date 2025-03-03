@@ -40,5 +40,21 @@
     url: https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh
     dest: /tmp/nvm-install.sh
 
+- name: Download pyenv install script
+  ansible.builtin.get_url:
+    url: https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer
+    dest: /tmp/pyenv-installer
+
+- name: Download rbenv install script
+  ansible.builtin.get_url:
+    url: https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer
+    dest: /tmp/rbenv-installer
+
 - name: Install NVM - Node Version Manager
   ansible.builtin.shell: bash /tmp/nvm-install.sh
+
+- name: Install pyenv - Python Version Manager
+  ansible.builtin.shell: bash /tmp/pyenv-installer
+
+- name: Install rbenv - Ruby Version Manager
+  ansible.builtin.shell: bash /tmp/rbenv-installer
