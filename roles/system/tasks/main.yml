@@ -3,12 +3,10 @@
   ansible.builtin.package_facts:
     manager: auto
 
-- name: Remove some uneeded packages
-  ansible.builtin.apt:
-    name:
-      - firefox*
+- name: Remove uneeded packages
+  community.general.snap:
+    name: "{{ snaps_to_remove }}"
     state: absent
-    purge: true
 
 # During the installation I set the default to en_US, but i need some
 # pt_BR locales (data, time and so on)

@@ -13,3 +13,6 @@ packages:
   - weechat-curses
   - weechat-plugins
   - vivaldi-stable
+
+snaps_to_remove:
+  - firefox
