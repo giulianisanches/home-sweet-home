@@ -35,25 +35,6 @@
         deb: /tmp/minikube.deb
   when: "'minikube' not in ansible_facts.packages"
 
-- name: Download and Install VSCode
-  block:
-    - name: Download VSCode packages
-      ansible.builtin.get_url:
-        url: https://go.microsoft.com/fwlink/?LinkID=760868
-        dest: /tmp/vscode.deb
-        force: true
-
-    - name: Install VSCode
-      ansible.builtin.apt:
-        deb: /tmp/vscode.deb
-  ignore_errors: true
-  when: "'code' not in ansible_facts.packages"
-
-- name: Check if vivaldi repository key is already downloaded
-  stat:
-    path: "{{trusted_gpg_path}}/vivaldi_browser.asc "
-  register: vivaldi_key
-
 - name: Check if docker key is already downloaded
   stat:
     path: "{{trusted_gpg_path}}/docker.asc"
@@ -63,14 +44,6 @@
   stat:
     path: "{{trusted_gpg_path}}/weechat.gpg"
   register: weechat_key
-
-- name: Add Vivaldi repository gpg apt key
-  ansible.builtin.get_url:
-    url: https://repo.vivaldi.com/archive/linux_signing_key.pub
-    dest: "{{trusted_gpg_path}}/vivaldi_browser.asc"
-    mode: "0644"
-    force: true
-  when: not vivaldi_key.stat.exists
 
 - name: Add Docker gpg apt key
   ansible.builtin.get_url:
@@ -87,11 +60,6 @@
     mode: "0644"
     force: true
   when: not weechat_key.stat.exists
-
-- name: Add Vivaldi repository
-  ansible.builtin.apt_repository:
-    repo: deb [signed-by=/etc/apt/keyrings/vivaldi_browser.asc] https://repo.vivaldi.com/archive/deb/ stable main
-    filename: vivaldi
 
 - name: Add Docker repository
   ansible.builtin.apt_repository:
@@ -113,6 +81,14 @@
   ansible.builtin.apt:
     name: "{{ packages }}"
     state: latest
+
+- name: Install additional applications
+  community.general.snap:
+    name: "{{ snaps_to_install }}"
+
+- name: Install additional applications (classic)
+  community.general.snap:
+    name: "{{ snaps_to_install_classic }}"
 
 - name: Cleanup remaining packages
   ansible.builtin.apt:
