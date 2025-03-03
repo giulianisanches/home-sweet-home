@@ -53,16 +53,16 @@
   environment:
     TERMINAL: gnome-terminal
 
-- name: Get gnome-terminal default profile
-  ansible.builtin.shell: gsettings get org.gnome.Terminal.ProfilesList default
-  register: gterminal_profile
-
 - name: Set gnome-terminal default profile
   ansible.builtin.shell: "{{ (role_path, 'files', 'scripts', 'set_default_gnome_terminal_profile.sh') | path_join }}"
   args:
     executable: /bin/bash
   environment:
     GNOME_TERMINAL_PROFILE: "{{ gnome_terminal_profile }}"
+
+- name: Get gnome-terminal default profile
+  ansible.builtin.shell: gsettings get org.gnome.Terminal.ProfilesList default
+  register: gterminal_profile
 
 - name: Configure gnome-terminal
   ansible.builtin.shell: |
