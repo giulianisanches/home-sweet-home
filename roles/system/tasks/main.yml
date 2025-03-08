@@ -127,14 +127,6 @@
     name: "{{ packages }}"
     state: latest
 
-- name: Install additional applications
-  community.general.snap:
-    name: "{{ snaps_to_install }}"
-
-- name: Install additional applications (classic)
-  community.general.snap:
-    name: "{{ snaps_to_install_classic }}"
-
 - name: Cleanup remaining packages
   ansible.builtin.apt:
     autoremove: true
