@@ -1,23 +1,27 @@
 ---
 trusted_gpg_path: /etc/apt/keyrings
 packages:
+  - gnome-core
+  - network-manager-gnome
   - gnome-tweaks
+  - gnome-text-editor
   - apt-transport-https
+  - firmware-linux-nonfree
   - build-essential
   - fonts-firacode
+  - uuid-runtime
   - vim
+  - jq
   - flameshot
-  - gnome-shell-extensions
+  - flatpak
+  - gnome-software-plugin-flatpak
+  - gnome-shell-extensions-extra
+  - gnome-shell-extension-dashtodock
   - gnome-shell-extension-appindicator
   - docker-ce
   - weechat-curses
   - weechat-plugins
+  - vivaldi-stable
 
-snaps_to_remove:
-  - firefox
-
-snaps_to_install:
-  - vivaldi
-
-snaps_to_install_classi:
-  - code
+flathub_packages:
+  - com.bitwarden.desktop
