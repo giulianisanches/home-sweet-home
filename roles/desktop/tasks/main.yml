@@ -2,8 +2,21 @@
 - name: Configure app-switcher
   ansible.builtin.shell: gsettings set org.gnome.shell.app-switcher current-workspace-only true
 
+- name: Enable user extensions
+  ansible.builtin.shell: gsettings set org.gnome.shell disable-user-extensions false
+
 - name: Configure CAPS LOCK as an additional control
   ansible.builtin.shell: gsettings set org.gnome.desktop.input-sources xkb-options "['caps:ctrl_modifier', 'shift:both_capslock_cancel']"
+
+# You need to restart gnome to update the extensions installed list and
+# After that you can run the bootstrap.sh again
+# If your are using xrog, you can try to reload gnome (do not work for wayland)
+- name: Enable gnome extensions
+  ansible.builtin.shell: |
+    gnome-extensions enable "$(gnome-extensions list | grep drive-menu)"
+    gnome-extensions enable "$(gnome-extensions list | grep dash-to-dock)"
+    gnome-extensions enable "$(gnome-extensions list | grep appindicator)"
+  ignore_errors: true
 
 - name: Remove the home folder from the desktop
   ansible.builtin.shell: gsettings set org.gnome.shell.extensions.ding show-home false
@@ -16,6 +29,7 @@
 
 - name: Configure dark mode
   ansible.builtin.shell: |
+    gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 
 - name: Configure touchpad
