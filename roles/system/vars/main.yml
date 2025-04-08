@@ -21,7 +21,7 @@ packages:
   - docker-ce
   - weechat-curses
   - weechat-plugins
-  - vivaldi-stable
+  - firefox
 
 flathub_packages:
   - com.bitwarden.desktop
