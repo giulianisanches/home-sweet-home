@@ -43,40 +43,6 @@
     cp /etc/xdg/autostart/gnome-keyring-ssh.desktop ~/.config/autostart/
     echo "Hidden=true" >> ~/.config/autostart/gnome-keyring-ssh.desktop
 
-- name: Create a temporary directory for Gogh
-  ansible.builtin.tempfile:
-    state: directory
-  register: gogh
-
-- name: Git checkout Gogh-Co repository
-  ansible.builtin.git:
-    repo: "https://github.com/Gogh-Co/Gogh.git"
-    dest: "{{ gogh.path }}"
-
-- name: Install Gogh colorscheme for gnome-terminal
-  ansible.builtin.shell: "{{ (gogh.path, 'installs', gogh_install_file) | path_join }}"
-  environment:
-    TERMINAL: gnome-terminal
-
-- name: Set gnome-terminal default profile
-  ansible.builtin.shell: "{{ (role_path, 'files', 'scripts', 'set_default_gnome_terminal_profile.sh') | path_join }}"
-  args:
-    executable: /bin/bash
-  environment:
-    GNOME_TERMINAL_PROFILE: "{{ gnome_terminal_profile }}"
-
-- name: Get gnome-terminal default profile
-  ansible.builtin.shell: gsettings get org.gnome.Terminal.ProfilesList default
-  register: gterminal_profile
-
-- name: Configure gnome-terminal
-  ansible.builtin.shell: |
-    gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:{{gterminal_profile.stdout}}/ font 'Fira Code 14'
-    gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:{{gterminal_profile.stdout}}/ use-system-font false
-    gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:{{gterminal_profile.stdout}}/ audible-bell false
-    gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ next-tab '<Primary>Tab'
-    gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ prev-tab '<Primary><Shift>Tab'
-
 - name: Install home files
   ansible.builtin.file:
     src: "{{ (role_path, 'files', item) | path_join }}"

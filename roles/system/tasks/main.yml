@@ -10,6 +10,7 @@
       - firefox*
       - "rhythmbox*"
       - shotwell
+      - gnome-terminal
     state: absent
     purge: true
 
