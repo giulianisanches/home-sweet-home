@@ -17,5 +17,5 @@ local env_name="$1"; shift 1
 if typeset -f getmypass > /dev/null ; then
     getmypass "$env_name" "$@"
 else
-    echo "rdplogin not implemented"
+    echo "getmypass not implemented"
 fi
