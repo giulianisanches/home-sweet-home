@@ -1,0 +1,15 @@
+#!/usr/bin/env zsh
+
+if ! type -p gh > /dev/null
+then
+    echo "gh cli not installed"
+    return 1
+fi
+
+ghcli=$(type -p gh | cut -d' ' -f3)
+
+if typeset -f ghwrapper > /dev/null ; then
+    ghwrapper "$@"
+else
+    $ghcli "$@"
+fi
