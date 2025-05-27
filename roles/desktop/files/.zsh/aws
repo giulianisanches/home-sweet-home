@@ -13,9 +13,11 @@ if (( $# < 1)) ; then
     echo
     echo "Custom Commands: login, ssh, stsdecode"
     echo
-    echo "Default AWS help"
-    echo
-    $awscli
+
+    if read -q "show_help?Do you want to see the default aws cli help? (y/n) " ; then
+        $awscli
+    fi
+
     return 1
 fi
 
