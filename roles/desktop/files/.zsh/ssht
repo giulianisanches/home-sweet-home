@@ -6,12 +6,6 @@ then
     echo "         check if this is the expected behavior"
 fi
 
-if (( $# < 1)) ; then
-    echo "Usage: ssht <environment>"
-    return 1
-fi
-
-
 local env_name="$1"; shift 1
 
 if typeset -f sshtunnel > /dev/null ; then
