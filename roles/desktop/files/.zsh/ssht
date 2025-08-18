@@ -1,0 +1,21 @@
+#!/usr/bin/env zsh
+
+if type -p ssht > /dev/null
+then
+    echo "WARNING: you have overriden the ssht command with the zsh function under ~/.zsh/ssht"
+    echo "         check if this is the expected behavior"
+fi
+
+if (( $# < 1)) ; then
+    echo "Usage: ssht <environment>"
+    return 1
+fi
+
+
+local env_name="$1"; shift 1
+
+if typeset -f sshtunnel > /dev/null ; then
+    sshtunnel "$env_name" "$@"
+else
+    echo "sshtunnel not implemented"
+fi
