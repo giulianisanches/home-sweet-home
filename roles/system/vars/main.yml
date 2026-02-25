@@ -5,6 +5,7 @@ packages:
   - network-manager-gnome
   - gnome-tweaks
   - gnome-text-editor
+  - gnome-terminal
   - apt-transport-https
   - firmware-linux-nonfree
   - build-essential
