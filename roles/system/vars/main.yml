@@ -22,7 +22,6 @@ packages:
   - weechat-curses
   - weechat-plugins
   - firefox
-  - alacritty
 
 flathub_packages:
   - com.bitwarden.desktop
