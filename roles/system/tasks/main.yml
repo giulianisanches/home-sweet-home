@@ -43,7 +43,7 @@
 
 - name: Download and Install VSCode
   block:
-    - name: Download VSCode packages
+    - name: Download VSCode package
       ansible.builtin.get_url:
         url: https://go.microsoft.com/fwlink/?LinkID=760868
         dest: /tmp/vscode.deb
@@ -54,6 +54,20 @@
         deb: /tmp/vscode.deb
   ignore_errors: true
   when: "'code' not in ansible_facts.packages"
+
+- name: Download and install Google Chrome
+  block:
+    - name: Download Google Chrome package
+      ansible.builtin.get_url:
+        url: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        dest: /tmp/google_chrome.deb
+        force: true
+
+    - name: Install Google Chrome
+      ansible.builtin.apt:
+        deb: /tmp/google_chrome.deb
+  ignore_errors: true
+  when: "'google-chrome-stable' not in ansible_facts.packages"
 
 - name: Check if docker key is already downloaded
   stat:
