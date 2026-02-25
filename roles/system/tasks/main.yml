@@ -85,12 +85,12 @@
 
 - name: Add Docker repository
   ansible.builtin.apt_repository:
-    repo: deb [signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian bookworm stable
+    repo: deb [signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian trixie stable
     filename: docker
 
 - name: Add Weechat repository
   ansible.builtin.apt_repository:
-    repo: deb [signed-by=/etc/apt/keyrings/weechat.gpg] https://weechat.org/debian bookworm main
+    repo: deb [signed-by=/etc/apt/keyrings/weechat.gpg] https://weechat.org/debian trixie main
     filename: weechat
 
 - name: Upgrade packages
