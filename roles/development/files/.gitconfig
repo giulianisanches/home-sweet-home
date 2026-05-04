@@ -46,3 +46,18 @@
 	ignorecase = false
 [init]
 	defaultBranch = main
+[credential "https://github.tools.sap"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://github.concur.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[maintenance]
+	strategy = incremental
+	repo = /Users/I572994/.claude
