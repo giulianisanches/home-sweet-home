@@ -39,15 +39,20 @@ then
     fi
 fi
 
+# some variables need to be set here instead of .zshenv otherwise they get
+# overridden by the /etc/zshrc
+
+HISTSIZE=10000
+SAVEHIST=10000
+
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 if type "rbenv" &> /dev/null ; then eval "$(rbenv init - zsh)" ; fi
 
 # pnpm
-export PNPM_HOME="/Users/I572994/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# pnpm endexport
+PNPM_HOME="/Users/I572994/Library/pnpm"
+PATH="$PNPM_HOME:$PATH"
 
 # setup pyenv
 if type "pyenv" &> /dev/null
@@ -55,4 +60,14 @@ then
     PYENV_ROOT="$HOME/.pyenv"
     [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init - zsh)"
+
+    export PYENV_ROOT
 fi
+
+# export variables
+
+export HISTSIZE
+export SAVEHIST
+
+export PNPM_HOME
+export PATH
