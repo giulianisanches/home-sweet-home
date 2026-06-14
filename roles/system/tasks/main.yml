@@ -7,7 +7,7 @@
   ansible.builtin.apt:
     name:
       - "libreoffice-*"
-      - firefox*
+      - "firefox-esr*"
       - "rhythmbox*"
       - shotwell
       - gnome-console
@@ -28,6 +28,8 @@
 
     dpkg-reconfigure --frontend=noninteractive locales
     update-locale LANG=en_US.UTF-8
+
+- include_tasks: firefox.yml
 
 - name: Download and Install minikube
   block:
@@ -90,7 +92,7 @@
 
 - name: Add Weechat repository
   ansible.builtin.apt_repository:
-    repo: deb [signed-by=/etc/apt/keyrings/weechat.gpg] https://weechat.org/debian trixie main
+    repo: deb [signed-by=/etc/apt/keyrings/weechat.gpg] https://weechat.org/debian trixie  main
     filename: weechat
 
 - name: Upgrade packages
