@@ -9,7 +9,6 @@ packages:
   - apt-transport-https
   - firmware-linux-nonfree
   - build-essential
-  - fonts-firacode
   - uuid-runtime
   - vim
   - jq

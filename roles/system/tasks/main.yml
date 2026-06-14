@@ -29,6 +29,7 @@
     dpkg-reconfigure --frontend=noninteractive locales
     update-locale LANG=en_US.UTF-8
 
+- include_tasks: fonts.yml
 - include_tasks: firefox.yml
 
 - name: Download and Install minikube

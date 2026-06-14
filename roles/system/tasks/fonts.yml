@@ -1,0 +1,20 @@
+---
+- name: Download JetBrains NerdFonts
+  ansible.builtin.get_url:
+    url: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip
+    dest: /tmp/JetBrainsMono.zip
+    mode: "0644"
+    force: true
+
+- name: Create directory for JetBrains Mono NerdFont
+  ansible.builtin.file:
+    path: /usr/share/fonts/truetype/jetbrainsmono_nerdfont
+    state: directory
+
+- name: Unzip JetBrains Mono NerdFont
+  ansible.builtin.unarchive:
+    src: /tmp/JetBrainsMono.zip
+    dest: /usr/share/fonts/truetype/jetbrainsmono_nerdfont
+
+- name: Update font cache
+  ansible.builtin.command: fc-cache -f -v
