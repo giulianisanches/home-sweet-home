@@ -52,18 +52,7 @@
 - include_tasks: firefox.yml
 - include_tasks: docker.yml
 - include_tasks: weechat.yml
-
-- name: Download and Install minikube
-  block:
-    - name: Download minikube
-      ansible.builtin.get_url:
-        url: https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
-        dest: /tmp/minikube.deb
-
-    - name: Install minikube
-      ansible.builtin.apt:
-        deb: /tmp/minikube.deb
-  when: "'minikube' not in ansible_facts.packages"
+- include_tasks: k8s.yml
 
 - name: Download and Install VSCode
   block:
@@ -99,21 +88,3 @@
 
 - name: Set vim as default editor ($VISUAL / $EDITOR)
   ansible.builtin.shell: update-alternatives --set editor /usr/bin/vim.basic
-
-- name: Check if kubectl is installed
-  stat:
-    path: /usr/local/bin/kubectl
-  register: kubectl_path
-
-- name: Download and install kubectl
-  block:
-    - name: Get kubectl latest stable version string
-      shell: curl -L -s https://dl.k8s.io/release/stable.txt
-      register: kubectl_version
-
-    - name: Download and install kubectl
-      ansible.builtin.get_url:
-        url: "https://dl.k8s.io/release/{{ kubectl_version.stdout }}/bin/linux/amd64/kubectl"
-        dest: /usr/local/bin/kubectl
-        mode: "0755"
-  when: not kubectl_path.stat.exists
