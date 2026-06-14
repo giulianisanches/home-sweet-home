@@ -1,0 +1,12 @@
+---
+- name: Add Docker gpg apt key
+  ansible.builtin.get_url:
+    url: https://download.docker.com/linux/debian/gpg
+    dest: "{{trusted_gpg_path}}/docker.asc"
+    mode: "0644"
+    force: true
+
+- name: Add Docker repository
+  ansible.builtin.apt_repository:
+    repo: deb [signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian trixie stable
+    filename: docker
