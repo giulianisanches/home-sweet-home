@@ -21,3 +21,8 @@
   ansible.builtin.copy:
     src: preferences.d/mozilla
     dest: /etc/apt/preferences.d/mozilla
+
+- name: Install Firefox from Mozilla
+  ansible.builtin.apt:
+    name: firefox
+    state: latest
