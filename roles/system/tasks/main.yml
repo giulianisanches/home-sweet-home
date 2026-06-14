@@ -53,6 +53,7 @@
 - include_tasks: docker.yml
 - include_tasks: weechat.yml
 - include_tasks: k8s.yml
+- include_tasks: ghcli.yml
 
 - name: Download and Install VSCode
   block:
