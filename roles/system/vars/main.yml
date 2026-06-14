@@ -18,8 +18,6 @@ packages:
   - gnome-shell-extensions-extra
   - gnome-shell-extension-dashtodock
   - gnome-shell-extension-appindicator
-  - weechat-curses
-  - weechat-plugins
 
 flathub_packages:
   - com.bitwarden.desktop

@@ -10,3 +10,10 @@
   ansible.builtin.apt_repository:
     repo: deb [signed-by=/etc/apt/keyrings/weechat.gpg] https://weechat.org/debian trixie  main
     filename: weechat
+
+- name: Install Weechat packages
+  ansible.builtin.apt:
+    name:
+      - weechat-curses
+      - weechat-plugins
+    state: latest
