@@ -11,7 +11,7 @@
     repo: deb [signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian trixie stable
     filename: docker
 
-- name: Install packages
+- name: Install docker package
   ansible.builtin.apt:
     name: docker-ce
     state: latest
