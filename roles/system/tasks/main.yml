@@ -31,6 +31,7 @@
 
 - include_tasks: fonts.yml
 - include_tasks: firefox.yml
+- include_tasks: docker.yml
 
 - name: Download and Install minikube
   block:
