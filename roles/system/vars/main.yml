@@ -18,6 +18,7 @@ packages:
   - gnome-shell-extensions-extra
   - gnome-shell-extension-dashtodock
   - gnome-shell-extension-appindicator
+  - ruby-full
   - bundler
 
 flathub_packages:
