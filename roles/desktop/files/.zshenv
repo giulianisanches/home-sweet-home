@@ -24,7 +24,8 @@ path=($path[@]
       $HOME/.local/bin
       $HOME/.dotnet/tools
       $HOME/dev/bin
-      $HOME/.rbenv/bin)
+      $HOME/.rbenv/bin
+      $HOME/.local/share/gem/ruby/3.3.0/bin)
 
 if [[ $(uname) == 'Darwin' ]]
 then
