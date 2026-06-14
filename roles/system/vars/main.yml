@@ -18,7 +18,6 @@ packages:
   - gnome-shell-extensions-extra
   - gnome-shell-extension-dashtodock
   - gnome-shell-extension-appindicator
-  - docker-ce
   - weechat-curses
   - weechat-plugins
   - firefox

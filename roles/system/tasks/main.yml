@@ -29,9 +29,29 @@
     dpkg-reconfigure --frontend=noninteractive locales
     update-locale LANG=en_US.UTF-8
 
+- name: Upgrade packages
+  ansible.builtin.apt:
+    name: "*"
+    state: latest
+    update_cache: true
+
+- name: Install packages
+  ansible.builtin.apt:
+    name: "{{ packages }}"
+    state: latest
+
+- name: Configure flathub
+  ansible.builtin.shell: flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+- name: Install flatpak packages
+  ansible.builtin.shell: flatpak install -y {{ item }}
+  loop: "{{ flatpak_packages }}"
+  when: flatpak_packages is defined
+
 - include_tasks: fonts.yml
 - include_tasks: firefox.yml
 - include_tasks: docker.yml
+- include_tasks: weechat.yml
 
 - name: Download and Install minikube
   block:
@@ -73,37 +93,6 @@
   ignore_errors: true
   when: "'google-chrome-stable' not in ansible_facts.packages"
 
-- name: Add Weechat gpg apt key
-  ansible.builtin.get_url:
-    url: https://weechat.org/dev/info/debian_repository_signing_key/
-    dest: "{{trusted_gpg_path}}/weechat.gpg"
-    mode: "0644"
-    force: true
-
-- name: Add Weechat repository
-  ansible.builtin.apt_repository:
-    repo: deb [signed-by=/etc/apt/keyrings/weechat.gpg] https://weechat.org/debian trixie  main
-    filename: weechat
-
-- name: Upgrade packages
-  ansible.builtin.apt:
-    name: "*"
-    state: latest
-    update_cache: true
-
-- name: Install packages
-  ansible.builtin.apt:
-    name: "{{ packages }}"
-    state: latest
-
-- name: Configure flathub
-  ansible.builtin.shell: flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-
-- name: Install flatpak packages
-  ansible.builtin.shell: flatpak install -y {{ item }}
-  loop: "{{ flatpak_packages }}"
-  when: flatpak_packages is defined
-
 - name: Cleanup remaining packages
   ansible.builtin.apt:
     autoremove: true
@@ -128,17 +117,3 @@
         dest: /usr/local/bin/kubectl
         mode: "0755"
   when: not kubectl_path.stat.exists
-
-- name: Add user to the docker group
-  ansible.builtin.user:
-    append: true
-    groups: docker
-    name: "{{ user }}"
-
-- name: Enable docker
-  ansible.builtin.systemd_service:
-    name: "{{ item }}"
-    enabled: true
-  loop:
-    - docker
-    - containerd
