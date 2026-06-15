@@ -1,10 +1,13 @@
 # Personal
 [includeIf "gitdir:~/dev/src/github.com/"]
   path = "~/dev/src/github.com/.gitconfig"
+
 [includeIf "gitdir:~/dev/src/local/"]
   path = "~/dev/src/github.com/.gitconfig"
+
 [includeIf "gitdir:~/dev/src/gitlab.com/"]
   path = "~/dev/src/gitlab.com/.gitconfig"
+
 [includeIf "gitdir:~/dev/src/dev.azure.com/"]
   path = "~/dev/src/dev.azure.com/.gitconfig"
 
@@ -40,24 +43,18 @@
 
     # list aliases
     la = "!git config -l | grep alias | cut -c 7-"
+
 [checkout]
 	defaultRemote = origin
+
 [core]
 	ignorecase = false
+
 [init]
 	defaultBranch = main
-[credential "https://github.tools.sap"]
-	helper = 
-	helper = !/opt/homebrew/bin/gh auth git-credential
-[credential "https://github.concur.com"]
-	helper = 
-	helper = !/opt/homebrew/bin/gh auth git-credential
+
 [credential "https://github.com"]
-	helper = 
-	helper = !/opt/homebrew/bin/gh auth git-credential
+	helper = !gh auth git-credential
+
 [credential "https://gist.github.com"]
-	helper = 
-	helper = !/opt/homebrew/bin/gh auth git-credential
-[maintenance]
-	strategy = incremental
-	repo = /Users/I572994/.claude
+	helper = !gh auth git-credential
