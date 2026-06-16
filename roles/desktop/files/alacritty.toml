@@ -1,5 +1,5 @@
 [general]
-import = ["~/.config/alacritty/themes/dracula.toml"]
+import = ["~/dev/src/github.com/dracula/alacritty/dracula.toml"]
 
 [font]
 normal.family = "JetBrainsMonoNL Nerd Font Mono"
