@@ -1,9 +1,14 @@
 [general]
-import = ["~/.config/alacritty/themes/one_dark.toml"]
+import = ["~/.config/alacritty/themes/dracula.toml"]
 
 [font]
-normal.family = "Fira Code"
-bold.family = "Fira Code"
-italic.family = "Fira Code"
-bold_italic.family = "Fira Code"
+normal.family = "JetBrainsMonoNL Nerd Font Mono"
+bold.family = "JetBrainsMonoNL Nerd Font Mono"
+italic.family = "JetBrainsMonoNL Nerd Font Mono"
+bold_italic.family = "JetBrainsMonoNL Nerd Font Mono"
 size = 17.0
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"
