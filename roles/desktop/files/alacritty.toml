@@ -8,6 +8,10 @@ italic.family = "JetBrainsMonoNL Nerd Font Mono"
 bold_italic.family = "JetBrainsMonoNL Nerd Font Mono"
 size = 17.0
 
+[window.dimensions]
+columns = 115
+lines = 40
+
 [[keyboard.bindings]]
 key = "Return"
 mods = "Shift"
