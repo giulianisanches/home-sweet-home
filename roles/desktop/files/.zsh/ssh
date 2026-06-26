@@ -1,0 +1,15 @@
+#!/usr/bin/env zsh
+
+if ! type -p ssh > /dev/null
+then
+    echo "ssh not installed"
+    return 1
+fi
+
+sshcli=$(type -p ssh | cut -d' ' -f3)
+
+if typeset -f sshwrapper > /dev/null ; then
+    sshwrapper "$@"
+else
+    $sshcli "$@"
+fi
