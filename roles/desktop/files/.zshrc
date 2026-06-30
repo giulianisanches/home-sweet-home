@@ -48,7 +48,23 @@ SAVEHIST=10000
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-if type "rbenv" &> /dev/null ; then eval "$(rbenv init - zsh)" ; fi
+if type "rbenv" &> /dev/null 
+then 
+    eval "$(rbenv init - zsh)" 
+    if [[ ! -d "$(rbenv root)/plugins/rbenv-default-gems" ]]
+    then
+        git clone https://github.com/rbenv/rbenv-default-gems.git $(rbenv root)/plugins/rbenv-default-gems
+    fi
+
+    if [[ ! -f "$(rbenv root)/default-gems" ]]
+    then
+        cat <<EOT > "$(rbenv root)/default-gems"
+bundler
+ruby-lsp
+rubocop
+EOT
+    fi
+fi
 
 # pnpm
 PNPM_HOME="/Users/I572994/Library/pnpm"
