@@ -46,8 +46,8 @@ GOPATH="$HOME/dev"
 
 NVM_DIR="$HOME/.nvm"
 
-VISUAL="code"
-EDITOR="code"
+VISUAL="neovide"
+EDITOR="nvim"
 
 VAULT_FORMAT=json
 
