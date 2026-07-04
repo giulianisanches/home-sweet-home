@@ -52,3 +52,5 @@
 
 [credential "https://gist.github.com"]
 	helper = !gh auth git-credential
+[fetch]
+	prune = true
