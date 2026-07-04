@@ -1,5 +1,5 @@
 [general]
-import = ["~/dev/src/github.com/dracula/alacritty/dracula.toml"]
+import = ["~/dev/src/github.com/catppuccin/alacritty/catppuccin-mocha.toml"]
 
 [font]
 normal.family = "JetBrainsMonoNL Nerd Font Mono"
