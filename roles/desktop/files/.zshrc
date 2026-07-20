@@ -80,6 +80,10 @@ then
     export PYENV_ROOT
 fi
 
+### Begin SAP BTP command line interface autocomplete
+eval "$(btp --autocomplete=init:zsh &)"
+### End SAP BTP command line interface autocomplete
+
 # export variables
 
 export HISTSIZE
