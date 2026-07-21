@@ -48,9 +48,9 @@ SAVEHIST=10000
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-if type "rbenv" &> /dev/null 
-then 
-    eval "$(rbenv init - zsh)" 
+if type "rbenv" &> /dev/null
+then
+    eval "$(rbenv init - zsh)"
     if [[ ! -d "$(rbenv root)/plugins/rbenv-default-gems" ]]
     then
         git clone https://github.com/rbenv/rbenv-default-gems.git $(rbenv root)/plugins/rbenv-default-gems
@@ -69,6 +69,9 @@ fi
 # pnpm
 PNPM_HOME="/Users/I572994/Library/pnpm"
 PATH="$PNPM_HOME:$PATH"
+
+# krew kubectl plugin
+PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # setup pyenv
 if type "pyenv" &> /dev/null
