@@ -6,6 +6,7 @@ done
 
 alias egrep='grep -E'
 alias ls='ls --color=auto'
+alias k='kubectl'
 
 # terraform aliases
 alias tf='terraform'
