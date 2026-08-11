@@ -46,8 +46,8 @@ GOPATH="$HOME/dev"
 
 NVM_DIR="$HOME/.nvm"
 
-VISUAL="neovide"
-EDITOR="nvim"
+VISUAL="code --disable-extensions"
+EDITOR="vim"
 
 VAULT_FORMAT=json
 
