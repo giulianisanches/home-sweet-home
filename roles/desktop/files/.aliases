@@ -1,9 +1,5 @@
 #!/bin/bash
 
-for al in $(git config --get-regexp '^alias.' | cut -d' ' -f1 | cut -d'.' -f2); do
-    alias g$al="git $al"
-done
-
 alias egrep='grep -E'
 alias ls='ls --color=auto'
 alias k='kubectl'
