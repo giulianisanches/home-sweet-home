@@ -24,14 +24,12 @@ path=($path[@]
       $HOME/.local/bin
       $HOME/.dotnet/tools
       $HOME/dev/bin
-      $HOME/.rbenv/bin
-      $HOME/.local/share/gem/ruby/3.3.0/bin)
+      $HOME/.rbenv/bin)
 
 if [[ $(uname) == 'Darwin' ]]
 then
     path=($path[@]
-          /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/
-          ~/Library/Python/3.11/bin)
+          /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/)
 fi
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=7'
