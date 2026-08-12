@@ -45,26 +45,43 @@ fi
 HISTSIZE=10000
 SAVEHIST=10000
 
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+nvm() {
+    unfunction nvm
 
-if type "rbenv" &> /dev/null
-then
-    eval "$(rbenv init - zsh)"
-    if [[ ! -d "$(rbenv root)/plugins/rbenv-default-gems" ]]
+    if type "nvm" &> /dev/null
     then
-        git clone https://github.com/rbenv/rbenv-default-gems.git $(rbenv root)/plugins/rbenv-default-gems
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+        [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+        nvm "$*"
+    else
+        echo "nvm command not installed"
     fi
+}
 
-    if [[ ! -f "$(rbenv root)/default-gems" ]]
+rbenv() {
+    unfunction rbenv
+
+    if type "rbenv" &> /dev/null
     then
-        cat <<EOT > "$(rbenv root)/default-gems"
+        eval "$(rbenv init - zsh)"
+        if [[ ! -d "$(rbenv root)/plugins/rbenv-default-gems" ]]
+        then
+            git clone https://github.com/rbenv/rbenv-default-gems.git $(rbenv root)/plugins/rbenv-default-gems
+        fi
+
+        if [[ ! -f "$(rbenv root)/default-gems" ]]
+        then
+            cat <<EOT > "$(rbenv root)/default-gems"
 bundler
 ruby-lsp
 rubocop
 EOT
+        fi
+    else
+        echo "rbenv command not installed"
     fi
-fi
+}
 
 # pnpm
 PNPM_HOME="/Users/I572994/Library/pnpm"
@@ -73,15 +90,25 @@ PATH="$PNPM_HOME:$PATH"
 # krew kubectl plugin
 PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
-# setup pyenv
-if type "pyenv" &> /dev/null
-then
-    PYENV_ROOT="$HOME/.pyenv"
-    [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init - zsh)"
+PYENV_ROOT="$HOME/.pyenv"
 
-    export PYENV_ROOT
-fi
+pyenv() {
+    unfunction pyenv
+
+    if type "pyenv" &> /dev/null
+    then
+        if [[ -d $PYENV_ROOT/bin && ("$PATH" != *"$PYENV_ROOT"*) ]]
+        then
+            export PATH="$PYENV_ROOT/bin:$PATH"
+        fi
+
+        eval "$(pyenv init - zsh)"
+
+        pyenv "$*"
+    else
+        echo "pyenv command not installed"
+    fi
+}
 
 # export variables
 
@@ -90,3 +117,5 @@ export SAVEHIST
 
 export PNPM_HOME
 export PATH
+
+export PYENV_ROOT
