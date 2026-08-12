@@ -13,7 +13,7 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
 # Load the pure theme, with zsh-async library that's bundled with it.
-zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
+zinit ice pick"async.zsh" src"pure.zsh"
 zinit light sindresorhus/pure
 
 # the setopt below is to mimic the bourne-shell like behavior otherwise
