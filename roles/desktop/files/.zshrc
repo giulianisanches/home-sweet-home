@@ -91,17 +91,13 @@ PATH="$PNPM_HOME:$PATH"
 PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 PYENV_ROOT="$HOME/.pyenv"
+PATH="$PYENV_ROOT/bin:$PATH"
 
 pyenv() {
     unfunction pyenv
 
     if type "pyenv" &> /dev/null
     then
-        if [[ -d $PYENV_ROOT/bin && ("$PATH" != *"$PYENV_ROOT"*) ]]
-        then
-            export PATH="$PYENV_ROOT/bin:$PATH"
-        fi
-
         eval "$(pyenv init - zsh)"
 
         pyenv "$*"
