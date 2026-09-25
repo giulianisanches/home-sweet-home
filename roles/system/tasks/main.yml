@@ -49,6 +49,7 @@
   when: flatpak_packages is defined
 
 - include_tasks: fonts.yml
+- include_tasks: brave.yml
 - include_tasks: docker.yml
 - include_tasks: weechat.yml
 - include_tasks: k8s.yml
