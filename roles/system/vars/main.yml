@@ -6,6 +6,7 @@ packages:
   - gnome-tweaks
   - gnome-text-editor
   - gnome-terminal
+  - gnome-themes-extra
   - apt-transport-https
   - firmware-linux-nonfree
   - build-essential
@@ -21,6 +22,7 @@ packages:
   - gnome-shell-extension-appindicator
   - ruby-full
   - bundler
+  - vlc
 
 flathub_packages:
   - com.bitwarden.desktop
