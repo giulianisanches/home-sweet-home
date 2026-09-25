@@ -14,6 +14,7 @@ packages:
   - jq
   - flameshot
   - flatpak
+  - keepassxc
   - gnome-software-plugin-flatpak
   - gnome-shell-extensions-extra
   - gnome-shell-extension-dashtodock
