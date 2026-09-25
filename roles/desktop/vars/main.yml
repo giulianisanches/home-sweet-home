@@ -1,3 +1,3 @@
 ---
-gogh_install_file: dracula.sh
-gnome_terminal_profile: "Dracula"
+gogh_install_file: catppuccin-macchiato.sh
+gnome_terminal_profile: "Catppuccin Macchiato"
