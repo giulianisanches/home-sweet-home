@@ -43,10 +43,10 @@
 - name: Configure flathub
   ansible.builtin.shell: flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
-- name: Install flatpak packages
+- name: Install flathub packages
   ansible.builtin.shell: flatpak install -y {{ item }}
-  loop: "{{ flatpak_packages }}"
-  when: flatpak_packages is defined
+  loop: "{{ flathub_packages }}"
+  when: flathub_packages is defined
 
 - include_tasks: fonts.yml
 - include_tasks: brave.yml
