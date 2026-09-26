@@ -3,7 +3,7 @@
 PATH="$PATH:$HOME/.local/bin"
 export PATH
 
-sudo apt install -y sudo python3-pip pipx git zsh curl
+sudo apt install -y sudo python3-debian python3-pip pipx git zsh curl
 
 # install ansible
 pipx install --include-deps --force ansible
