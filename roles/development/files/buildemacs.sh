@@ -60,7 +60,9 @@ echo "make install" >> "$log_file"
 make install >> "$log_file" 2>&1
 )
 
-echo "Copy desktop file" | tee -a $log_file
+echo "Copy desktop and icons files" | tee -a $log_file
 cp -f "$HOME/.local/opt/emacs/share/applications/emacs.desktop" "$HOME/.local/share/applications/"
+cp -rf "$HOME/.local/opt/emacs/share/icons" "$HOME/.local/share"
+
 
 echo "Build and installation completed!" | tee -a $log_file
