@@ -26,6 +26,7 @@ CFLAGS='-march=native -O3' ./configure \
   --with-harfbuzz \
   --with-modules \
   --prefix="$HOME/.local/opt/emacs/" \
+  --bindir="$HOME/.local/bin/" \
   --with-gnutls \
   --with-mailutils \
   --with-native-compilation=aot \
@@ -34,4 +35,6 @@ CFLAGS='-march=native -O3' ./configure \
   --with-xinput2
 
 make -j5
+
+make install
 )
