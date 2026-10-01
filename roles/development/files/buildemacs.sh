@@ -19,17 +19,17 @@ rm -f "$HOME/.local/bin/ebrowse"
 
 echo "Creating temporary build directory" | tee -a $log_file
 tmp_dir="$(mktemp -d -t build_emacs_${emacs_version//./_}_XXXXXXX)"
-echo "Temporary build directory created at $tmp_dir"
+echo "Temporary build directory created at $tmp_dir" | tee -a $log_file
 
 mkdir "${tmp_dir}/src"
 
-echo "Download emacs $emacs_version to $tmp_dir"  | tee -a $log_file
+echo "Download emacs $emacs_version to $tmp_dir" | tee -a $log_file
 wget -q -P "$tmp_dir" "http://gnu.c3sl.ufpr.br/ftp//emacs/emacs-${emacs_version}.tar.xz"
 
-echo "Extract emacs package to ${tmp_dir}/src"  | tee -a $log_file
+echo "Extract emacs package to ${tmp_dir}/src" | tee -a $log_file
 tar xJf "${tmp_dir}/emacs-${emacs_version}.tar.xz" -C "${tmp_dir}/src"
 
-echo "Build and install emacs... (check $log_file for progress)"  | tee -a $log_file
+echo "Build and install emacs... (check $log_file for progress)" | tee -a $log_file
 (
 cd "${tmp_dir}/src/emacs-${emacs_version}"
 
