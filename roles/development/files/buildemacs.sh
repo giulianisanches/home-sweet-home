@@ -9,14 +9,14 @@ sudo apt install \
   libtree-sitter-dev libxi-dev libgmp-dev libncurses-dev
 
 
-tmp_dir="$(mktemp -d -t build-emacs-${emacs_version})"
+tmp_dir="$(mktemp -d -t build-emacs-${emacs_version}-XXXXXXX)"
 mkdir "${tmp_dir}/src"
 
 wget -P "$tmp_dir" "http://gnu.c3sl.ufpr.br/ftp//emacs/emacs-${emacs_version}.tar.xz"
-tar xJf "${tmp_dir}" -C "${tmp_dir}/src"
+tar xJf "${tmp_dir}/emacs-${emacs_version}.tar.xz" -C "${tmp_dir}/src"
 
 (
-cd "${tmp_dir}/src"
+cd "${tmp_dir}/src/emacs-${emacs_version}"
 
 ./autogen.sh
 
@@ -29,10 +29,9 @@ CFLAGS='-march=native -O3' ./configure \
   --with-gnutls \
   --with-mailutils \
   --with-native-compilation=aot \
-  --with-json \
   --with-imagemagick \
   --with-tree-sitter \
   --with-xinput2
 
-make -j6
+make -j5
 )
