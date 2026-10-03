@@ -4,9 +4,9 @@
     name: docker
     types: deb
     uris: https://download.docker.com/linux/debian
-    suites:
-      - trixie
-      - stable
+    suites: "{{ ansible_facts['distribution_release'] }}"
+    components: main
+    architectures: amd64
     signed_by: https://download.docker.com/linux/debian/gpg
     state: present
 
