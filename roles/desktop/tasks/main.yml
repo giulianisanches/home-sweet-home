@@ -95,6 +95,19 @@
     dest: "{{ (home, '.config', 'weechat') | path_join }}"
     state: link
 
+- name: Configure ghostty
+  block:
+    - name: "Remove config.ghostty from $HOME/.config/ghostty"
+      ansible.builtin.file:
+        path: "{{ (home, '.config', 'ghostty', 'config.ghostty') | path_join }}"
+        state: absent
+
+    - name: Install config.ghostty file
+      ansible.builtin.file:
+        src: "{{ (role_path, 'files', 'config.ghostty') | path_join }}"
+        dest: "{{ (home, '.config', 'ghostty', 'config.ghostty') | path_join }}"
+        state: link
+
 - name: Create gpg and ssh config directories
   ansible.builtin.file:
     dest: "{{ (home, item) | path_join }}"
