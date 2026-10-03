@@ -6,7 +6,7 @@
     uris: https://weechat.org/debian
     suites: "{{ ansible_facts['distribution_release'] }}"
     components: main
-    architectures: amd64
+    architectures: "{{ deb_arch }}"
     signed_by: https://weechat.org/dev/info/debian_repository_signing_key/
     state: present
 

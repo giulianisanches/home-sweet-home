@@ -5,8 +5,8 @@
     types: deb
     uris: https://download.docker.com/linux/debian
     suites: "{{ ansible_facts['distribution_release'] }}"
-    components: main
-    architectures: amd64
+    components: stable
+    architectures: "{{ deb_arch }}"
     signed_by: https://download.docker.com/linux/debian/gpg
     state: present
 
