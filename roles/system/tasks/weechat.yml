@@ -1,15 +1,13 @@
 ---
-- name: Add Weechat gpg apt key
-  ansible.builtin.get_url:
-    url: https://weechat.org/dev/info/debian_repository_signing_key/
-    dest: "{{trusted_gpg_path}}/weechat.gpg"
-    mode: "0644"
-    force: true
-
-- name: Add Weechat repository
-  ansible.builtin.apt_repository:
-    repo: deb [signed-by=/etc/apt/keyrings/weechat.gpg] https://weechat.org/debian trixie  main
-    filename: weechat
+- name: Add WeeChat repository using deb822 format
+  ansible.builtin.deb822_repository:
+    name: weechat
+    types: deb
+    uris: https://weechat.org/debian
+    suites: trixie
+    components: main
+    signed_by: https://weechat.org/dev/info/debian_repository_signing_key/
+    state: present
 
 - name: Install Weechat packages
   ansible.builtin.apt:

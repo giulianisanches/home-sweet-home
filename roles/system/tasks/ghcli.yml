@@ -1,15 +1,13 @@
 ---
-- name: Download and install GH Cli key
-  ansible.builtin.get_url:
-    url: https://cli.github.com/packages/githubcli-archive-keyring.gpg
-    dest: /etc/apt/keyrings/githubcli-archive-keyring.gpg
-    force: true
-    mode: "644"
-
-- name: Add GH Cli repository
-  ansible.builtin.apt_repository:
-    repo: deb [signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main
-    filename: ghcli
+- name: Add GitHub CLI repository using deb822 format
+  ansible.builtin.deb822_repository:
+    name: ghcli
+    types: deb
+    uris: https://cli.github.com/packages
+    suites: stable
+    components: main
+    signed_by: https://cli.github.com/packages/githubcli-archive-keyring.gpg
+    state: present
 
 - name: Install GH Cli package
   ansible.builtin.apt:
