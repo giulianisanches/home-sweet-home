@@ -1,0 +1,16 @@
+---
+- name: Add Griffo repository
+  ansible.builtin.deb822_repository:
+    name: deb_griffo_io
+    types: deb
+    uris: https://deb.griffo.io/apt
+    suites: "{{ ansible_facts['distribution_release'] }}"
+    components: main
+    signed_by: https://deb.griffo.io/EA0F721D231FDD3A0A17B9AC7808B4DD62C41256.asc
+    state: present
+
+- name: Install Ghostty Terminal
+  ansible.builtin.apt:
+    name: ghostty
+    state: latest
+    update_cache: true

@@ -54,6 +54,7 @@
 - include_tasks: weechat.yml
 - include_tasks: k8s.yml
 - include_tasks: ghcli.yml
+- include_tasks: ghostty.yml
 
 - name: Download and Install VSCode
   block:
