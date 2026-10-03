@@ -3,6 +3,13 @@
   ansible.builtin.package_facts:
     manager: auto
 
+- name: Set Debian Architecture
+  set_fact:
+    deb_arch: |-
+      {{
+        {'x86_64': 'amd64', 'aarch64': 'arm64'}[ansible_architecture]
+      }}
+
 - name: Remove some uneeded packages
   ansible.builtin.apt:
     name:
